@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fnomo Strategic Brief V3</title>
+    <title>Fnomo Strategic Brief V5</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -11,348 +11,251 @@
         :root {
             --black: #000000;
             --white: #ffffff;
-            --grey: #f5f5f5;
-            --dark-grey: #333333;
             --accent: #F5C518;
-            --border-width: 6px;
-        }
-
-        *, *:before, *:after {
-            box-sizing: border-box;
-        }
-
-        @page {
-            size: A4;
-            margin: 0;
+            --grey: #f5f5f5;
         }
 
         body {
             margin: 0;
             padding: 40px;
             font-family: 'Inter', sans-serif;
-            background-color: var(--white);
             color: var(--black);
+            background-color: var(--white);
             line-height: 1.5;
             -webkit-print-color-adjust: exact;
+            box-sizing: border-box;
         }
 
-        .brutalist-border {
-            border: var(--border-width) solid var(--black);
-        }
+        *, *:before, *:after { box-sizing: inherit; }
 
-        header {
-            border-bottom: var(--border-width) solid var(--black);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-
-        .title {
-            font-size: 48px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            margin: 0;
-        }
-
-        .subheading {
-            font-family: 'Space Mono', monospace;
-            font-size: 18px;
-            font-weight: 700;
-            margin-top: 5px;
-            color: var(--dark-grey);
-        }
-
-        .target-strip {
-            height: 20px;
-            background-color: var(--black);
-            margin-top: 10px;
-        }
-
-        section {
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            font-size: 24px;
-            font-weight: 900;
-            text-transform: uppercase;
-            background-color: var(--black);
-            color: var(--white);
-            display: inline-block;
-            padding: 5px 15px;
-            margin-bottom: 24px;
-            border: var(--border-width) solid var(--black);
-            border-bottom: 4px solid var(--accent);
-        }
-
-        .content-box {
-            padding: 20px;
-            background-color: var(--white);
-            border: var(--border-width) solid var(--black);
-        }
-
-        .mandate-text {
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .highlight-box {
-            background-color: var(--grey);
-            padding: 15px;
-            border-left: 10px solid var(--black);
-            margin-top: 15px;
-            font-family: 'Space Mono', monospace;
-            font-size: 16px;
-        }
-
-        .capabilities-grid {
+        .container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            grid-template-columns: repeat(12, 1fr);
+            row-gap: 32px;
+            column-gap: 20px;
         }
 
-        .cap-block {
-            padding: 15px;
-            border: var(--border-width) solid var(--black);
+        .container > * { grid-column: 1 / -1; }
+
+        h1, h2, h3, h4 { margin: 0; font-weight: 900; text-transform: uppercase; }
+        p { margin: 0 0 16px 0; }
+        p:last-child { margin-bottom: 0; }
+
+        .header-title { font-size: 36px; letter-spacing: -1px; }
+        .header-sub { font-family: 'Space Mono', monospace; font-size: 14px; font-weight: 700; margin-top: 4px;}
+
+        .section-title {
+            font-size: 18px;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 4px;
+            margin-bottom: 16px;
+            display: inline-block;
         }
 
-        .cap-title {
-            font-weight: 900;
-            text-transform: uppercase;
-            border-bottom: 2px solid var(--black);
-            margin-bottom: 10px;
-            padding-bottom: 5px;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        li {
-            padding-left: 20px;
-            position: relative;
-            margin-bottom: 12px;
-            line-height: 1.5;
-        }
-
-        li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .integrity-framework {
-            background-color: var(--black);
-            color: var(--white);
-            padding: 30px;
-            margin-top: 40px;
-            border: var(--border-width) solid var(--black);
-            border-top: 4px solid var(--accent);
-        }
-
-        .integrity-framework h2 {
-            background-color: var(--white);
-            color: var(--black);
-            border-color: var(--white);
-            border-bottom-color: var(--accent);
-        }
-
-        .framework-grid {
+        .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             align-items: start;
         }
 
-        .framework-col h3 {
-            font-size: 18px;
-            font-weight: 900;
-            border-bottom: 2px solid var(--white);
-            margin-bottom: 20px;
-            padding-bottom: 5px;
-        }
+        ul { list-style: none; padding: 0; margin: 0; }
+        li { padding-left: 20px; position: relative; margin-bottom: 8px; }
+        li::before { content: "•"; position: absolute; left: 0; top: 0; }
 
-        .framework-col li::before {
+        .compliance-block {
+            background-color: var(--black);
             color: var(--white);
+            padding: 32px;
         }
 
-        .integrity-footer {
-            margin-top: 30px;
-            text-align: center;
+        .compliance-block .section-title {
+            color: var(--accent);
+        }
+
+        .compliance-block .subtext {
+            font-family: 'Space Mono', monospace;
+            font-size: 13px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .compliance-block .grid-2 h3 {
+            font-size: 16px;
+            border-bottom: 1px solid var(--white);
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+        }
+
+        .compliance-block li::before { color: var(--white); }
+
+        .center-block { text-align: center; }
+        .compliance-footer {
             font-weight: 900;
             text-transform: uppercase;
-            font-size: 16px;
-            letter-spacing: 1px;
+            margin-top: 40px;
             line-height: 1.6;
         }
+
+        .highlight { color: var(--accent); }
 
         .anchor-metrics {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-top: 15px;
+            gap: 16px;
+            margin-top: 24px;
         }
+        .metric-box { border: 2px solid var(--black); padding: 16px; text-align: center; }
+        .metric-val { font-size: 24px; font-weight: 900; }
+        .metric-lbl { font-family: 'Space Mono', monospace; font-size: 11px; text-transform: uppercase; margin-top: 4px; font-weight: 700; }
 
-        .metric-card {
+        .hero-statement {
             text-align: center;
-            padding: 15px;
-            border: 2px solid var(--black);
-        }
-
-        .metric-value {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 900;
-        }
-
-        .metric-label {
-            font-size: 10px;
             text-transform: uppercase;
-            font-family: 'Space Mono', monospace;
+            padding: 20px 0;
+            word-spacing: 6px;
+            letter-spacing: 1px;
         }
 
-        footer {
-            margin-top: 50px;
-            border-top: var(--border-width) solid var(--black);
-            padding-top: 20px;
+        .footer-text {
+            font-size: 12px;
             font-family: 'Space Mono', monospace;
-            font-size: 11px;
+            text-align: center;
             color: var(--dark-grey);
-            text-align: justify;
-        }
-
-        .copyright {
-            margin-top: 10px;
-            font-weight: 700;
-            text-align: right;
-            color: var(--black);
+            border-top: 2px solid var(--black);
+            padding-top: 24px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1 class="title">Strategic Brief</h1>
-        <div class="subheading">FNOMO | INSTITUTIONAL <span style="color: var(--accent);">DECISION INFRASTRUCTURE</span></div>
-        <div class="target-strip"></div>
-    </header>
+    <div class="container">
+        <!-- SECTION 1 -->
+        <header>
+            <h1 class="header-title">Strategic Brief</h1>
+            <div class="header-sub">FNOMO | INSTITUTIONAL <span class="highlight">DECISION INFRASTRUCTURE</span></div>
+        </header>
 
-    <section id="mandate">
-        <h2>The Mandate</h2>
-        <div class="content-box">
-            <p class="mandate-text">Fnomo exists to eliminate Decision Decay by inserting a <span style="color: var(--accent); font-weight: 900;">validation layer</span> between financial intent and execution.</p>
-            <div class="highlight-box">
-                WE OPERATE IN THE 10-MINUTE GAP WHERE MOST FINANCIAL MISTAKES OCCUR.
+        <!-- SECTION 2 -->
+        <section>
+            <h2 class="section-title">Mandate</h2>
+            <p>Fnomo exists to eliminate Decision Decay by inserting a <span class="highlight">validation layer</span> between financial intent and execution.</p>
+            <p>We operate in the 10-minute gap where most financial mistakes occur.</p>
+        </section>
+
+        <!-- SECTION 3 -->
+        <section>
+            <h2 class="section-title">Professional Friction</h2>
+            <p>
+                Market noise creates a Trust Gap.<br>
+                Users act on emotion, signals, and incomplete data.<br><br>
+                Fnomo functions as an Institutional Firewall that restores decision integrity.
+            </p>
+        </section>
+
+        <!-- SECTION 4 -->
+        <section>
+            <h2 class="section-title">Core Capabilities</h2>
+            <div class="grid-2">
+                <div>
+                    <h3 style="font-size: 16px; margin-bottom: 12px;">Decision Validation</h3>
+                    <ul>
+                        <li>Processes 10 years of data into a 10-minute executive scan</li>
+                        <li>Converts complexity into a unified Decision Score</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="font-size: 16px; margin-bottom: 12px;">Risk Transparency</h3>
+                    <ul>
+                        <li>Identifies hidden red flags</li>
+                        <li>Detects revenue divergence</li>
+                        <li>Maps competitor growth gaps</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="friction">
-        <h2>The Professional Friction</h2>
-        <div class="content-box">
-            <p>Market noise creates a <strong>Trust Gap</strong>. Users act on emotion, signals, and incomplete data.</p>
-            <p>Fnomo functions as an <strong>Institutional Firewall</strong> that restores decision integrity.</p>
-        </div>
-    </section>
-
-    <section id="capabilities">
-        <h2>Core System Capabilities</h2>
-        <div class="capabilities-grid">
-            <div class="cap-block">
-                <div class="cap-title">Decision Validation</div>
-                <ul>
-                    <li>Processes 10 years of data into a 10-minute executive scan</li>
-                    <li>Converts complexity into a unified Decision Score</li>
-                </ul>
+        <!-- SECTION 5 -->
+        <section class="compliance-block">
+            <h2 class="section-title"><span class="highlight">Operational Integrity Framework</span></h2>
+            <div class="subtext">Fnomo operates within defined financial communication boundaries.</div>
+            
+            <div class="grid-2">
+                <div>
+                    <h3>System Conditions</h3>
+                    <ul>
+                        <li>Fnomo operates strictly as a non-advisory decision validation layer</li>
+                        <li>Platform enables independent, sovereign decision-making</li>
+                        <li>Engine translates financial data into neutral, interpretable signals</li>
+                        <li>System enforces factual, non-promotional usage</li>
+                        <li>Fnomo requires standardized financial disclaimer across all partner content</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Violation Conditions</h3>
+                    <ul>
+                        <li>Any form of return guarantee (direct or implied)</li>
+                        <li>Stock recommendations or buy/sell positioning</li>
+                        <li>Performance projections or future claims</li>
+                        <li>Misrepresentation as AI, advisory, or trading system</li>
+                        <li>Any misleading or manipulative communication</li>
+                    </ul>
+                </div>
             </div>
-            <div class="cap-block">
-                <div class="cap-title">Risk Transparency</div>
-                <ul>
-                    <li>Identifies hidden red flags</li>
-                    <li>Detects revenue divergence</li>
-                    <li>Maps competitor growth gaps</li>
-                </ul>
-            </div>
-        </div>
-    </section>
 
-    <section class="integrity-framework">
-        <h2><span style="color: var(--accent);">Operational Integrity Framework</span></h2>
-        <p style="margin-bottom: 25px; font-family: 'Space Mono', monospace; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">
-            Fnomo operates within defined financial communication boundaries.
-        </p>
-        <div class="framework-grid">
-            <div class="framework-col">
-                <h3>System Conditions</h3>
-                <ul>
-                    <li>Fnomo operates strictly as a non-advisory decision validation layer</li>
-                    <li>Engine enables independent, sovereign decision-making</li>
-                    <li>Platform translates financial data into neutral, interpretable signals</li>
-                    <li>System enforces factual, non-promotional usage</li>
-                    <li>Fnomo requires standardized financial disclaimer across all partner content</li>
-                </ul>
+            <div class="center-block compliance-footer">
+                Compliance enables trust<br>
+                Trust enables distribution<br>
+                Distribution enables scale
             </div>
-            <div class="framework-col">
-                <h3>Violation Conditions</h3>
-                <ul>
-                    <li>Any form of return guarantee (direct or implied)</li>
-                    <li>Stock recommendations or buy/sell positioning</li>
-                    <li>Performance projections or future claims</li>
-                    <li>Misrepresentation as AI, advisory, or trading system</li>
-                    <li>Any misleading or manipulative communication</li>
-                </ul>
-            </div>
-        </div>
-        <div class="integrity-footer">
-            COMPLIANCE ENABLES TRUST<br>
-            TRUST ENABLES DISTRIBUTION<br>
-            DISTRIBUTION ENABLES SCALE
-        </div>
-    </section>
+        </section>
 
-    <div style="margin-bottom: 30px; font-weight: 900; text-transform: uppercase; border-left: 10px solid var(--black); padding-left: 20px; font-size: 18px;">
-        Fnomo is built for distribution at the point of influence.
-    </div>
-
-    <section id="anchor">
-        <h2>Strategic Anchor Program</h2>
-        <div class="content-box">
+        <!-- SECTION 6 -->
+        <section>
+            <h2 class="section-title">Strategic Anchor Program</h2>
+            <p style="font-weight: 700; margin-bottom: 16px;">Fnomo is built for distribution at the point of influence.</p>
             <p>Fnomo deployment bypasses traditional media acquisition channels.</p>
             <p>Platform enables distribution through Strategic Partners who control the point of influence.</p>
+            
             <div class="anchor-metrics">
-                <div class="metric-card">
-                    <div class="metric-value">50%</div>
-                    <div class="metric-label">Strategic Share</div>
+                <div class="metric-box">
+                    <div class="metric-val">50%</div>
+                    <div class="metric-lbl">Strategic Share</div>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value">ZERO</div>
-                    <div class="metric-label">Integration Cost</div>
+                <div class="metric-box">
+                    <div class="metric-val">ZERO</div>
+                    <div class="metric-lbl">Integration Cost</div>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-value">160+</div>
-                    <div class="metric-label">Decision Models</div>
+                <div class="metric-box">
+                    <div class="metric-val">160+</div>
+                    <div class="metric-lbl">Decision Models</div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="deployment">
-        <h2>Deployment</h2>
-        <div class="content-box" style="line-height: 1.5; font-weight: 700;">
-            <div style="margin-bottom: 10px;">Multi-tier scoring system (10Y stability vs 3Y momentum)</div>
-            <div style="margin-bottom: 10px;">Designed for rapid decision environments</div>
-            <div>Built for professional execution, not retail dependency</div>
-        </div>
-    </section>
+        <!-- SECTION 7 -->
+        <section>
+            <h2 class="section-title">Deployment</h2>
+            <div style="font-weight: 700;">
+                <div style="margin-bottom: 8px;">Multi-tier scoring system (10Y stability vs 3Y momentum)</div>
+                <div style="margin-bottom: 8px;">Designed for rapid decision environments</div>
+                <div>Built for professional execution, not retail dependency</div>
+            </div>
+        </section>
 
-    <div style="text-align: center; font-size: 26px; font-weight: 900; text-transform: uppercase; margin: 60px 0; letter-spacing: -0.5px;">
-        Fnomo influences decisions before capital is deployed.
+        <!-- SECTION 8 -->
+        <section>
+            <div class="hero-statement">
+                FNOMO INFLUENCES DECISIONS BEFORE CAPITAL IS DEPLOYED
+            </div>
+        </section>
+
+        <!-- SECTION 9 -->
+        <footer class="footer-text">
+            <p style="margin-bottom: 16px; color: var(--black); line-height: 1.6;">Fnomo operates as a decision validation layer.<br>It does not provide advisory, recommendations, or execution signals.<br>All financial decisions remain solely with the end user.</p>
+            <div style="font-weight: 700; color: var(--black);">© Fnomo Decision Infrastructure Engine</div>
+        </footer>
     </div>
-
-    <footer>
-        <p>Fnomo operates as a decision validation layer. It does not provide advisory, recommendations, or execution signals. All financial decisions remain solely with the end user.</p>
-        <div class="copyright">© Fnomo Decision Infrastructure Engine</div>
-    </footer>
 </body>
 </html>
