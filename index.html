@@ -13,7 +13,12 @@
             --white: #ffffff;
             --grey: #f5f5f5;
             --dark-grey: #333333;
+            --accent: #F5C518;
             --border-width: 6px;
+        }
+
+        *, *:before, *:after {
+            box-sizing: border-box;
         }
 
         @page {
@@ -27,7 +32,7 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--white);
             color: var(--black);
-            line-height: 1.4;
+            line-height: 1.5;
             -webkit-print-color-adjust: exact;
         }
 
@@ -75,8 +80,9 @@
             color: var(--white);
             display: inline-block;
             padding: 5px 15px;
-            margin-bottom: 15px;
+            margin-bottom: 24px;
             border: var(--border-width) solid var(--black);
+            border-bottom: 4px solid var(--accent);
         }
 
         .content-box {
@@ -125,10 +131,17 @@
         }
 
         li {
-            padding-left: 0;
+            padding-left: 20px;
             position: relative;
             margin-bottom: 12px;
-            text-indent: 0;
+            line-height: 1.5;
+        }
+
+        li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
         }
 
         .integrity-framework {
@@ -137,29 +150,32 @@
             padding: 30px;
             margin-top: 40px;
             border: var(--border-width) solid var(--black);
+            border-top: 4px solid var(--accent);
         }
 
         .integrity-framework h2 {
             background-color: var(--white);
             color: var(--black);
+            border-color: var(--white);
+            border-bottom-color: var(--accent);
         }
 
         .framework-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
+            align-items: start;
         }
 
         .framework-col h3 {
             font-size: 18px;
             font-weight: 900;
             border-bottom: 2px solid var(--white);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             padding-bottom: 5px;
         }
 
         .framework-col li::before {
-            content: "•";
             color: var(--white);
         }
 
@@ -218,14 +234,14 @@
 <body>
     <header>
         <h1 class="title">Strategic Brief</h1>
-        <div class="subheading">FNOMO | INSTITUTIONAL DECISION INFRASTRUCTURE</div>
+        <div class="subheading">FNOMO | INSTITUTIONAL <span style="color: var(--accent);">DECISION INFRASTRUCTURE</span></div>
         <div class="target-strip"></div>
     </header>
 
     <section id="mandate">
         <h2>The Mandate</h2>
         <div class="content-box">
-            <p class="mandate-text">Fnomo exists to eliminate Decision Decay by inserting a validation layer between financial intent and execution.</p>
+            <p class="mandate-text">Fnomo exists to eliminate Decision Decay by inserting a <span style="color: var(--accent); font-weight: 900;">validation layer</span> between financial intent and execution.</p>
             <div class="highlight-box">
                 WE OPERATE IN THE 10-MINUTE GAP WHERE MOST FINANCIAL MISTAKES OCCUR.
             </div>
@@ -246,35 +262,35 @@
             <div class="cap-block">
                 <div class="cap-title">Decision Validation</div>
                 <ul>
-                    <li>System processes 10 years of data into a 10-minute executive scan</li>
-                    <li>System converts complexity into a unified Decision Score</li>
+                    <li>Processes 10 years of data into a 10-minute executive scan</li>
+                    <li>Converts complexity into a unified Decision Score</li>
                 </ul>
             </div>
             <div class="cap-block">
                 <div class="cap-title">Risk Transparency</div>
                 <ul>
                     <li>Identifies hidden red flags</li>
-                    <li>Revenue divergence analysis</li>
-                    <li>Competitor growth gaps</li>
+                    <li>Detects revenue divergence</li>
+                    <li>Maps competitor growth gaps</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <section class="integrity-framework">
-        <h2>Operational Integrity Framework</h2>
+        <h2><span style="color: var(--accent);">Operational Integrity Framework</span></h2>
         <p style="margin-bottom: 25px; font-family: 'Space Mono', monospace; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">
-            System operates strictly within institutional boundaries.
+            Fnomo operates within defined financial communication boundaries.
         </p>
         <div class="framework-grid">
             <div class="framework-col">
                 <h3>System Conditions</h3>
                 <ul>
-                    <li>System operates strictly as a non-advisory decision validation layer</li>
-                    <li>System enables independent, sovereign decision-making</li>
-                    <li>System translates financial data into neutral, interpretable signals</li>
+                    <li>Fnomo operates strictly as a non-advisory decision validation layer</li>
+                    <li>Engine enables independent, sovereign decision-making</li>
+                    <li>Platform translates financial data into neutral, interpretable signals</li>
                     <li>System enforces factual, non-promotional usage</li>
-                    <li>System requires standardized financial disclaimer across all partner content</li>
+                    <li>Fnomo requires standardized financial disclaimer across all partner content</li>
                 </ul>
             </div>
             <div class="framework-col">
@@ -302,8 +318,8 @@
     <section id="anchor">
         <h2>Strategic Anchor Program</h2>
         <div class="content-box">
-            <p>System deployment bypasses traditional media acquisition channels.</p>
-            <p>System enables distribution through Strategic Partners who control the point of influence.</p>
+            <p>Fnomo deployment bypasses traditional media acquisition channels.</p>
+            <p>Platform enables distribution through Strategic Partners who control the point of influence.</p>
             <div class="anchor-metrics">
                 <div class="metric-card">
                     <div class="metric-value">50%</div>
@@ -323,17 +339,18 @@
 
     <section id="deployment">
         <h2>Deployment</h2>
-        <div class="content-box" style="line-height: 2;">
-            <div style="font-weight: 700;">Multi-tier scoring system (10Y stability vs 3Y momentum)</div>
-            <div style="font-weight: 700;">Designed for rapid decision environments</div>
-            <div style="font-weight: 700;">Built for professional execution, not retail dependency</div>
+        <div class="content-box" style="line-height: 1.5; font-weight: 700;">
+            <div style="margin-bottom: 10px;">Multi-tier scoring system (10Y stability vs 3Y momentum)</div>
+            <div style="margin-bottom: 10px;">Designed for rapid decision environments</div>
+            <div>Built for professional execution, not retail dependency</div>
         </div>
     </section>
 
+    <div style="text-align: center; font-size: 26px; font-weight: 900; text-transform: uppercase; margin: 60px 0; letter-spacing: -0.5px;">
+        Fnomo influences decisions before capital is deployed.
+    </div>
+
     <footer>
-        <div style="margin-bottom: 15px; font-weight: 900; text-transform: uppercase; font-size: 14px;">
-            Fnomo influences decisions before capital is deployed.
-        </div>
         <p>Fnomo operates as a decision validation layer. It does not provide advisory, recommendations, or execution signals. All financial decisions remain solely with the end user.</p>
         <div class="copyright">© Fnomo Decision Infrastructure Engine</div>
     </footer>

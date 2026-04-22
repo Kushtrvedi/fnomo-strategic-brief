@@ -6,8 +6,8 @@ import sys
 async def generate_pdf():
     # Define paths
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    html_path = os.path.join(base_dir, 'brief.html')
-    output_path = os.path.join(base_dir, 'Fnomo_Strategic_Brief_V3_1.pdf')
+    html_path = os.path.join(base_dir, 'index.html')
+    output_path = os.path.join(base_dir, 'Fnomo_Strategic_Brief_V4.pdf')
 
     print(f"Loading HTML from {html_path}...")
     
