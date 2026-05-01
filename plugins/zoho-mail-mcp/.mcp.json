@@ -1,16 +1,14 @@
 {
   "mcpServers": {
     "zoho-mail-local": {
-      "command": "node",
+      "command": "./.venv/Scripts/python.exe",
       "args": [
-        "./scripts/zoho-mail-local-server.mjs"
+        "./scripts/zoho_mail_local_server.py"
       ],
       "env": {
         "ZOHO_MAIL_ADDRESS": "kush@mail.fnomo.com",
-        "ZOHO_CLIENT_ID": "[TODO]",
-        "ZOHO_CLIENT_SECRET": "[TODO]",
-        "ZOHO_REFRESH_TOKEN": "[TODO]",
-        "ZOHO_REGION": "com"
+        "ZOHO_REGION": "eu",
+        "ZOHO_ENV_PATH": "D:\\Antigravity\\eigent\\Downloads\\fnomo\\Images and content\\fnomo_emailer\\.env"
       }
     }
   }

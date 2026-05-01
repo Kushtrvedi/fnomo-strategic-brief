@@ -18,9 +18,9 @@ This plugin is a local fallback path for Zoho Mail work when the hosted connecto
 
 ## Current State
 
-This plugin is scaffolded and versioned, but it still needs real Zoho OAuth credentials and a working local server implementation in:
+This plugin is now wired to a real local Python server:
 
-`./scripts/zoho-mail-local-server.mjs`
+`./scripts/zoho_mail_local_server.py`
 
 ## Required Environment
 
@@ -30,10 +30,17 @@ The MCP config expects:
 2. `ZOHO_CLIENT_ID`
 3. `ZOHO_CLIENT_SECRET`
 4. `ZOHO_REFRESH_TOKEN`
-5. `ZOHO_REGION`
+5. `ZOHO_ACCOUNT_ID`
+6. `ZOHO_REGION`
+
+By default, the plugin reads them from the Fnomo emailer env file referenced by `ZOHO_ENV_PATH`.
 
 ## Operator Rule
 
 If the hosted Zoho connector works, prefer it.
 
-If the hosted connector is unavailable or insufficiently scoped, use this plugin as the local fallback path and complete the missing server implementation or credential wiring before claiming Zoho access is available.
+If the hosted connector is unavailable or insufficiently scoped, use this plugin as the local fallback path.
+
+If Zoho auth fails, refresh the token first with:
+
+`D:\Antigravity\eigent\Downloads\fnomo\Images and content\fnomo_emailer\zoho_reauth.py`
