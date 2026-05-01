@@ -1,0 +1,42 @@
+Task Name,Parent Task,Owner,Category
+Contact Doctor Associations,Partnerships,,Partnerships
+Contact Business Associations,Partnerships,,Partnerships
+Contact CA Associations,Partnerships,,Partnerships
+Identify Business Owners >2Cr,Partnerships,,Partnerships
+
+Reach out Practo,Platform Tie-ups,,Platform
+Reach out Blinkit,Platform Tie-ups,,Platform
+Reach out Zomato,Platform Tie-ups,,Platform
+Reach out Swiggy,Platform Tie-ups,,Platform
+Reach out MyGate,Platform Tie-ups,,Platform
+Explore National Platforms,Platform Tie-ups,,Platform
+Explore Event Platforms,Platform Tie-ups,,Platform
+Restaurant Partnerships,Platform Tie-ups,,Platform
+
+School Outreach Plan,School Outreach,,School
+Define Target Schools,School Outreach,,School
+Identify Decision Makers,School Outreach,,School
+Prepare Contact List,School Outreach,,School
+Create Outreach Script,School Outreach,,School
+Workshop Proposal (Young Investor),School Outreach,,School
+Identify Pilot Schools,School Outreach,,School
+Email Outreach,School Outreach,Indu,School
+WhatsApp Outreach,School Outreach,Indu,School
+Find Webinar Platforms,School Outreach,,School
+
+Platform Placement,Execution,,Execution
+List on Product Hunt,Execution,,Execution
+Talk to Data Providers,Execution,,Execution
+Create Demo Video,Execution,,Execution
+Setup WhatsApp System,Execution,,Execution
+Setup Telegram System,Execution,,Execution
+
+Revenue Share 30%,Commercial,,Commercial
+Coupon Model 20-30%,Commercial,,Commercial
+Platform Commission,Commercial,,Commercial
+Partner Incentives,Commercial,,Commercial
+
+Pan India Feedback Campaign,Campaign,,Campaign
+Women Investing Webinars,Campaign,,Campaign
+Buffet Sessions (Founder),Campaign,,Campaign
+Free Investing Sessions,Campaign,,Campaign
