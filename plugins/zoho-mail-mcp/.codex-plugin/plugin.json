@@ -1,0 +1,43 @@
+{
+  "name": "zoho-mail-mcp",
+  "version": "0.1.0",
+  "description": "Local MCP-style fallback plugin for Zoho Mail access when no hosted connector or integration is available.",
+  "author": {
+    "name": "Fnomo / Kush Trivedi",
+    "email": "kush@mail.fnomo.com",
+    "url": "https://github.com/Kushtrvedi/fnomo-strategic-brief"
+  },
+  "homepage": "https://github.com/Kushtrvedi/fnomo-strategic-brief",
+  "repository": "https://github.com/Kushtrvedi/fnomo-strategic-brief",
+  "license": "MIT",
+  "keywords": [
+    "zoho",
+    "mail",
+    "mcp",
+    "fnomo",
+    "email"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Zoho Mail MCP",
+    "shortDescription": "Local Zoho Mail fallback when a hosted connector is unavailable.",
+    "longDescription": "Repo-local plugin scaffold for Zoho Mail workflows through an MCP-style server path, intended for Fnomo execution when no managed connector or integration is present.",
+    "developerName": "Fnomo",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/Kushtrvedi/fnomo-strategic-brief",
+    "privacyPolicyURL": "https://github.com/Kushtrvedi/fnomo-strategic-brief",
+    "termsOfServiceURL": "https://github.com/Kushtrvedi/fnomo-strategic-brief",
+    "defaultPrompt": [
+      "Show Zoho drafts and inbox priorities for Fnomo.",
+      "Create a Zoho draft for this Fnomo outreach email.",
+      "Search Zoho Mail for replies from a specific lead."
+    ],
+    "brandColor": "#2563EB"
+  }
+}

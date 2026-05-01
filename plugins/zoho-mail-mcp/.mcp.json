@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "zoho-mail-local": {
+      "command": "node",
+      "args": [
+        "./scripts/zoho-mail-local-server.mjs"
+      ],
+      "env": {
+        "ZOHO_MAIL_ADDRESS": "kush@mail.fnomo.com",
+        "ZOHO_CLIENT_ID": "[TODO]",
+        "ZOHO_CLIENT_SECRET": "[TODO]",
+        "ZOHO_REFRESH_TOKEN": "[TODO]",
+        "ZOHO_REGION": "com"
+      }
+    }
+  }
+}

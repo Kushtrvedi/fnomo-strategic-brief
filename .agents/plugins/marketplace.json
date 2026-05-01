@@ -1,0 +1,20 @@
+{
+  "name": "fnomo-local-marketplace",
+  "interface": {
+    "displayName": "Fnomo Local Plugins"
+  },
+  "plugins": [
+    {
+      "name": "zoho-mail-mcp",
+      "source": {
+        "source": "local",
+        "path": "./plugins/zoho-mail-mcp"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
