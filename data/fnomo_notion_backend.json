@@ -1,0 +1,31 @@
+{
+  "parent_page_id": "5818aa3c-b995-827e-af29-011d0732f5bc",
+  "parent_page_title": "Fnomo Sales CRM",
+  "leads_database_id": "e8a8aa3c-b995-8368-8495-014b8ea295c3",
+  "execution_tasks_database_id": "6fb8aa3c-b995-82ec-806b-01b6cd1b2915",
+  "execution_history_database_id": "3548aa3c-b995-818a-8ede-ed9a5d99aac3",
+  "auth_method": "internal_integration_token",
+  "source_of_truth": "FNOMO_MASTER_PIPELINE",
+  "created_by": "Codex",
+  "created_at": "2026-05-02",
+  "clients_database_id": "e8a8aa3c-b995-8368-8495-014b8ea295c3",
+  "contacts_database_id": "3548aa3c-b995-8148-a653-fead444e56fe",
+  "deals_database_id": "0be8aa3c-b995-822e-8a79-81e2d86e3f8b",
+  "legacy_flat_leads_database_id": "3548aa3c-b995-81dd-a33c-e48c87e3a007",
+  "notion_role": "structured_visibility_layer",
+  "relational_restructure_at": "2026-05-02T23:10:40",
+  "execution_data_source_id": "6958aa3c-b995-82d1-91e6-87876edcd941",
+  "execution_views": {
+    "today": "29e8aa3c-b995-83d0-90e2-885a0c97b237",
+    "follow_up_due": "3548aa3c-b995-81b6-8cd5-000c871ad5e5",
+    "tier_a_priority": "3548aa3c-b995-81ef-a890-000c58c4245c"
+  },
+  "segmented_views": {
+    "active_clients": "3548aa3c-b995-8138-8812-000ce36272b5",
+    "contacts_by_segment": "3548aa3c-b995-81cc-982f-000ccad31ce4"
+  },
+  "gtm_command_dashboard_page_id": "3548aa3c-b995-81c9-8878-e09f20bd0444",
+  "gtm_command_dashboard_url": "https://www.notion.so/3548aa3cb99581c98878e09f20bd0444",
+  "founder_activation_dashboard_page_id": "3548aa3c-b995-813c-8dd9-ec1de798dc88",
+  "founder_activation_dashboard_url": "https://www.notion.so/Founder-Circle-Activation-Dashboard-3548aa3cb995813c8dd9ec1de798dc88"
+}

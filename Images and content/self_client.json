@@ -1,1 +1,1 @@
-{"scope":["ZohoMail.messages.CREATE","ZohoMail.accounts.READ"],"expiry_time":1777078606995,"client_id":"1000.SP0SD2VJL9TD4KTSOZZUR1Y4DC1BIF","client_secret":"a24b610c3247d33650fcc64d098475572266a3f5cf","code":"1000.d4724d72bf36c17f6c72b19611340142.0b1aa489f16e2ae2ea07ee3b9e452c28","grant_type":"authorization_code"}
+{"scope":["ZohoMail.messages.CREATE","ZohoMail.accounts.READ"],"expiry_time":1777078606995,"client_id":"1000.SP0SD2VJL9TD4KTSOZZUR1Y4DC1BIF","client_secret":"[REDACTED_SECRET]","code":"[REDACTED_SECRET]","grant_type":"authorization_code"}

@@ -1,43 +1,37 @@
-"Title,Status,Description,Assigned To,Priority,Due Date,Start Date,Date Created,Created By,Tags,dateFormat",Status,Description,Assigned To,Priority,Due Date,Start Date,Date Created,Created By,Tags,dateFormat 
-,open,provide safe equipment,abby@zylker.com,Medium,29-06-2021,21-06-2021,19-06-2021,rebecca@zylker.com,HR;New hires,dd/MM/yyyy 
-"Contact Doctor Associations,open,Outreach to doctor associations,,Medium,,,,,Partnerships,dd/MM/yyyy",closed,arrange assembly sheds,bpearson@zylker.com,Medium,07-07-2021,02-07-2021,01-07-2021,rebecca@zylker.com,HR,dd/MM/yyyy 
-"Contact Business Associations,open,Outreach to business associations,,Medium,,,,,Partnerships,dd/MM/yyyy",open,purchase and arrange pavement blocks,abby@zylker.com,Medium,09-06-2021,03-06-2021,01-06-2021,rebecca@zylker.com,HR;Important,dd/MM/yyyy 
-"Contact CA Associations,open,Outreach to CA associations,,Medium,,,,,Partnerships,dd/MM/yyyy",closed,contact people to clear sewage,aaron.brown@zylker.com,Medium,22-06-2021,19-06-2021,18-06-2021,rebecca@zylker.com,HR,dd/MM/yyyy 
-"Identify Business Owners >2Cr,open,Find and reach high value business owners,,High,,,,,Partnerships,dd/MM/yyyy",open,perform an analysis of budget,bpearson@zylker.com,Medium,28-07-2020,26-07-2020,24-07-2021,rebecca@zylker.com,HR,dd/MM/yyyy 
-,open,review company documents,ken.m@zylker.com,High,27-07-2020,24-07-2020,23-07-2020,rebecca@zylker.com,HR;Review,dd/MM/yyyy 
-"Reach out Practo,open,Platform partnership outreach,,High,,,,,Platform,dd/MM/yyyy",,,,,,,,,,
-"Reach out Blinkit,open,Platform partnership outreach,,High,,,,,Platform,dd/MM/yyyy",,,,,,,,,,
-"Reach out Zomato,open,Platform partnership outreach,,High,,,,,Platform,dd/MM/yyyy",,,,,,,,,,
-"Reach out Swiggy,open,Platform partnership outreach,,High,,,,,Platform,dd/MM/yyyy",,,,,,,,,,
-"Reach out MyGate,open,Platform partnership outreach,,Medium,,,,,Platform,dd/MM/yyyy",,,,,,,,,,
-"Explore National Platforms,open,Find expansion platforms,,Low,,,,,Platform,dd/MM/yyyy",,,,,,,,,,
-"Explore Event Platforms,open,Find event-based growth channels,,Low,,,,,Platform,dd/MM/yyyy",,,,,,,,,,
-"Restaurant Partnerships,open,Tie up with restaurants,,Medium,,,,,Platform,dd/MM/yyyy",,,,,,,,,,
-,,,,,,,,,,
-"School Outreach Plan,open,Plan school outreach strategy,,High,,,,,School,dd/MM/yyyy",,,,,,,,,,
-"Define Target Schools,open,Identify top schools,,Medium,,,,,School,dd/MM/yyyy",,,,,,,,,,
-"Identify Decision Makers,open,Find principals and admins,,Medium,,,,,School,dd/MM/yyyy",,,,,,,,,,
-"Prepare Contact List,open,Build school database,,Medium,,,,,School,dd/MM/yyyy",,,,,,,,,,
-"Create Outreach Script,open,Email and call scripts,,Medium,,,,,School,dd/MM/yyyy",,,,,,,,,,
-"Workshop Proposal (Young Investor),open,Create workshop pitch,,High,,,,,School,dd/MM/yyyy",,,,,,,,,,
-"Identify Pilot Schools,open,Select initial schools,,High,,,,,School,dd/MM/yyyy",,,,,,,,,,
-"Email Outreach,open,Send emails,Indu,High,,,,,School,dd/MM/yyyy",,,,,,,,,,
-"WhatsApp Outreach,open,Send WhatsApp messages,Indu,High,,,,,School,dd/MM/yyyy",,,,,,,,,,
-"Find Webinar Platforms,open,Identify webinar tools,,Low,,,,,School,dd/MM/yyyy",,,,,,,,,,
-,,,,,,,,,,
-"Platform Placement,open,Place Fnomo inside partner apps,,High,,,,,Execution,dd/MM/yyyy",,,,,,,,,,
-"List on Product Hunt,open,Launch on Product Hunt,,Medium,,,,,Execution,dd/MM/yyyy",,,,,,,,,,
-"Talk to Data Providers,open,Direct outreach to data providers,,High,,,,,Execution,dd/MM/yyyy",,,,,,,,,,
-"Create Demo Video,open,Build product demo,,High,,,,,Execution,dd/MM/yyyy",,,,,,,,,,
-"Setup WhatsApp System,open,Setup outreach system,,Medium,,,,,Execution,dd/MM/yyyy",,,,,,,,,,
-"Setup Telegram System,open,Setup outreach system,,Medium,,,,,Execution,dd/MM/yyyy",,,,,,,,,,
-,,,,,,,,,,
-"Revenue Share 30%,open,Define revenue model,,High,,,,,Commercial,dd/MM/yyyy",,,,,,,,,,
-"Coupon Model 20-30%,open,Discount structure,,Medium,,,,,Commercial,dd/MM/yyyy",,,,,,,,,,
-"Platform Commission,open,Define commission,,Medium,,,,,Commercial,dd/MM/yyyy",,,,,,,,,,
-"Partner Incentives,open,Define incentives,,Medium,,,,,Commercial,dd/MM/yyyy",,,,,,,,,,
-,,,,,,,,,,
-"Pan India Feedback Campaign,open,Collect user feedback,,High,,,,,Campaign,dd/MM/yyyy",,,,,,,,,,
-"Women Investing Webinars,open,Run webinars for women,,High,,,,,Campaign,dd/MM/yyyy",,,,,,,,,,
-"Buffet Sessions (Founder),open,Founder-led sessions,,Medium,,,,,Campaign,dd/MM/yyyy",,,,,,,,,,
-"Free Investing Sessions,open,General sessions,,Medium,,,,,Campaign,dd/MM/yyyy",,,,,,,,,,
+Title,Status,Description,Assigned To,Priority,Due Date,Start Date,Date Created,Created By,Tags,dateFormat
+Contact Doctor Associations,open,Outreach to doctor associations,,Medium,,,,,Partnerships,dd/MM/yyyy
+Contact Business Associations,open,Outreach to business associations,,Medium,,,,,Partnerships,dd/MM/yyyy
+Contact CA Associations,open,Outreach to CA associations,,Medium,,,,,Partnerships,dd/MM/yyyy
+Identify Business Owners >2Cr,open,Find and reach high value business owners,,High,,,,,Partnerships,dd/MM/yyyy
+Reach out Practo,open,Platform partnership outreach,,High,,,,,Platform,dd/MM/yyyy
+Reach out Blinkit,open,Platform partnership outreach,,High,,,,,Platform,dd/MM/yyyy
+Reach out Zomato,open,Platform partnership outreach,,High,,,,,Platform,dd/MM/yyyy
+Reach out Swiggy,open,Platform partnership outreach,,High,,,,,Platform,dd/MM/yyyy
+Reach out MyGate,open,Platform partnership outreach,,Medium,,,,,Platform,dd/MM/yyyy
+Explore National Platforms,open,Find expansion platforms,,Low,,,,,Platform,dd/MM/yyyy
+Explore Event Platforms,open,Find event-based growth channels,,Low,,,,,Platform,dd/MM/yyyy
+Restaurant Partnerships,open,Tie up with restaurants,,Medium,,,,,Platform,dd/MM/yyyy
+School Outreach Plan,open,Plan school outreach strategy,,High,,,,,School,dd/MM/yyyy
+Define Target Schools,open,Identify top schools,,Medium,,,,,School,dd/MM/yyyy
+Identify Decision Makers,open,Find principals and admins,,Medium,,,,,School,dd/MM/yyyy
+Prepare Contact List,open,Build school database,,Medium,,,,,School,dd/MM/yyyy
+Create Outreach Script,open,Email and call scripts,,Medium,,,,,School,dd/MM/yyyy
+Workshop Proposal (Young Investor),open,Create workshop pitch,,High,,,,,School,dd/MM/yyyy
+Identify Pilot Schools,open,Select initial schools,,High,,,,,School,dd/MM/yyyy
+Email Outreach,open,Send emails,Indu,High,,,,,School,dd/MM/yyyy
+WhatsApp Outreach,open,Send WhatsApp messages,Indu,High,,,,,School,dd/MM/yyyy
+Find Webinar Platforms,open,Identify webinar tools,,Low,,,,,School,dd/MM/yyyy
+Platform Placement,open,Place Fnomo inside partner apps,,High,,,,,Execution,dd/MM/yyyy
+List on Product Hunt,open,Launch on Product Hunt,,Medium,,,,,Execution,dd/MM/yyyy
+Talk to Data Providers,open,Direct outreach to data providers,,High,,,,,Execution,dd/MM/yyyy
+Create Demo Video,open,Build product demo,,High,,,,,Execution,dd/MM/yyyy
+Setup WhatsApp System,open,Setup outreach system,,Medium,,,,,Execution,dd/MM/yyyy
+Setup Telegram System,open,Setup outreach system,,Medium,,,,,Execution,dd/MM/yyyy
+Revenue Share 30%,open,Define revenue model,,High,,,,,Commercial,dd/MM/yyyy
+Coupon Model 20-30%,open,Discount structure,,Medium,,,,,Commercial,dd/MM/yyyy
+Platform Commission,open,Define commission,,Medium,,,,,Commercial,dd/MM/yyyy
+Partner Incentives,open,Define incentives,,Medium,,,,,Commercial,dd/MM/yyyy
+Pan India Feedback Campaign,open,Collect user feedback,,High,,,,,Campaign,dd/MM/yyyy
+Women Investing Webinars,open,Run webinars for women,,High,,,,,Campaign,dd/MM/yyyy
+Buffet Sessions (Founder),open,Founder-led sessions,,Medium,,,,,Campaign,dd/MM/yyyy
+Free Investing Sessions,open,General sessions,,Medium,,,,,Campaign,dd/MM/yyyy

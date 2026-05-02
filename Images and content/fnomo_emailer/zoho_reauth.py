@@ -21,7 +21,7 @@ from dotenv import load_dotenv, set_key
 load_dotenv(dotenv_path=Path(__file__).parent / ".env")
 
 CLIENT_ID     = os.getenv("ZOHO_CLIENT_ID",     "1000.SP0SD2VJL9TD4KTSOZZUR1Y4DC1BIF")
-CLIENT_SECRET = os.getenv("ZOHO_CLIENT_SECRET",  "a24b610c3247d33650fcc64d098475572266a3f5cf")
+CLIENT_SECRET = os.getenv("ZOHO_CLIENT_SECRET", "")
 TOKEN_URL = "https://accounts.zoho.eu/oauth/v2/token"
 ENV_FILE  = Path(__file__).parent / ".env"
 
