@@ -1,0 +1,222 @@
+{
+  "total_leads": 246,
+  "sent_count": 2,
+  "leads": [
+    {
+      "email": "skand.trivedi@bansalhospital.com",
+      "name": "Dr. Skand Kumar Trivedi",
+      "status": "sent",
+      "timestamp": "2026-05-01T11:15:53.326605",
+      "message_id": "19de21270ba35829"
+    },
+    {
+      "email": "gopal.batni@apollosage.in",
+      "name": "Dr. Gopal Batni",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "contact@navodaya.com",
+      "name": "Dr. Shyam Agrawal",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "kavita.singh@gmc.edu.in",
+      "name": "Dr. Kavita Singh",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "aaditya.ctvs@aiimsbhopal.edu.in",
+      "name": "Dr. Aaditya Sirohi",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "rohit.joshi@bansalhospital.com",
+      "name": "Dr. Rohit Joshi",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "deepti.gupta@bansalhospital.com",
+      "name": "Dr. Deepti Gupta",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "sunil.malik@gmail.com",
+      "name": "Dr. Sunil Malik",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "amitabh.ortho@yahoo.com",
+      "name": "Dr. Amitabh Sonakiya",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "dean@cmchbhopal.com",
+      "name": "Dr. Shiv Shanker",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "nitesh.cardio@cmchbhopal.com",
+      "name": "Dr. Nitesh Arora",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "rajesh.psych@aiimsbhopal.edu.in",
+      "name": "Dr. Rajesh Singh",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "rahul.varma@smhbhopal.com",
+      "name": "Dr. Rahul Varma",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "palak.paliwal@gmail.com",
+      "name": "Dr. Palak Paliwal",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "jp.sharma@aiimsbhopal.edu.in",
+      "name": "Dr. JP Sharma",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "seetha.lekshmi@apollosage.in",
+      "name": "Dr. Seetha Lekshmi B",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "onkar.patel@bansalhospital.com",
+      "name": "Dr. Onkar Patel",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "santosh.agrawal@bansalhospital.com",
+      "name": "Dr. Santosh Agrawal",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "akhil.tiwari@apollosage.in",
+      "name": "Dr. Akhil Kumar Tiwari",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "ashish.jain@bansalhospital.com",
+      "name": "Dr. Ashish Jain",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "sanjay.pandey@bansalhospital.com",
+      "name": "Dr. Sanjay Pandey",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "alok.jaiswal@bansalhospital.com",
+      "name": "Dr. Alok Jaiswal",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "naveen.pundir@bansalhospital.com",
+      "name": "Dr. Naveen Pundir",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "manish.jain@apollosage.in",
+      "name": "Dr. Manish Jain",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "shweta.singh@apollosage.in",
+      "name": "Dr. Shweta Singh",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "ankur.gupta@apollosage.in",
+      "name": "Dr. Ankur Gupta",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "varun.mittal@apollosage.in",
+      "name": "Dr. Varun Mittal",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "ritesh.kansal@apollosage.in",
+      "name": "Dr. Ritesh Kansal",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "preeti.jain@apollosage.in",
+      "name": "Dr. Preeti Jain",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "pankaj.sharma@apollosage.in",
+      "name": "Dr. Pankaj Sharma",
+      "status": "pending",
+      "timestamp": null,
+      "message_id": null
+    },
+    {
+      "email": "info@cmchbhopal.com",
+      "status": "sent",
+      "timestamp": "2026-04-30T20:50:46.611326",
+      "message_id": "19ddefa6896fa475"
+    }
+  ]
+}

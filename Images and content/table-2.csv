@@ -1,0 +1,8 @@
+﻿Design Choice,Rationale
+**Deep navy + warm cream palette**,"Replaces aggressive lime/black. Signals academia, trust, and institutional credibility — not fintech"
+**Serif display typography**,"Feels like an educational institution or publisher, not a tech startup"
+**Abstract learning illustration (CSS-only)**,"Replaces stock charts/graphs. Shows engagement metrics, not market data"
+"**""Student Lab"" in logo**",Forces educational framing from first glance
+**Section 8 (Safety) on dark background**,"Visual dominance signals this is a top priority. Green accent = safety, not ""go/trade"""
+"**No pricing tables, dashboards, or ""features"" grids**",Avoids SaaS/fintech layout patterns
+"**""₹5,000"" in editorial serif font**","Positions as tuition/experience investment, not a subscription fee"

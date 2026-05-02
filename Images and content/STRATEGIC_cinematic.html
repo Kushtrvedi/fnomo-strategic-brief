@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FNOMO // Sovereign Partnership Brief</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #131313;
+            --surface: #1c1b1b;
+            --primary: #E2B07E;
+            --text: #E5E2E1;
+            --text-muted: #9c8e82;
+            --glow: rgba(226, 176, 126, 0.15);
+            --glass: rgba(53, 53, 52, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Atmospheric Background */
+        .ambient-glow {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at 50% 50%, var(--glow) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .data-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(226, 176, 126, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(226, 176, 126, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -2;
+            opacity: 0.5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 80px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        .branding {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 300;
+            letter-spacing: 0.5em;
+            font-size: 12px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .hero-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .hero-beam {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+            margin-top: 30px;
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 100px;
+            position: relative;
+            padding: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(226, 176, 126, 0.05);
+            background: rgba(19, 19, 19, 0.4);
+        }
+
+        /* Section Backgrounds */
+        .section-label {
+            font-size: 10px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(40px);
+            border-radius: 4px;
+            padding: 40px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(226, 176, 126, 0.2), transparent);
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .cap-item {
+            font-size: 14px;
+            color: var(--text);
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 2px;
+        }
+
+        .cap-item strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 5px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Fusion Reactor Visual */
+        .reactor-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 60px 0;
+        }
+
+        .reactor {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .reactor-ring {
+            position: absolute;
+            border: 1px dashed var(--primary);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        .ring-1 { width: 100%; height: 100%; animation: rotate 20s linear infinite; }
+        .ring-2 { width: 80%; height: 80%; animation: rotate 15s linear reverse infinite; }
+        .ring-3 { width: 60%; height: 60%; animation: rotate 10s linear infinite; }
+
+        .reactor-core {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 60px var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: #000;
+            z-index: 10;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .revenue-content {
+            flex: 1;
+            padding-left: 60px;
+        }
+
+        .revenue-headline {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        th {
+            text-align: left;
+            color: var(--primary);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            padding: 15px;
+            border-bottom: 1px solid rgba(226, 176, 126, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text);
+            vertical-align: top;
+        }
+
+        .registration-field {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .field-label {
+            color: var(--text-muted);
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .field-value {
+            color: var(--primary);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 400;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding: 60px 0;
+            border-top: 1px solid rgba(226, 176, 126, 0.1);
+            color: var(--text-muted);
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-brand {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .confidential {
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            text-align: right;
+        }
+
+        @media print {
+            .controls { display: none; }
+            body { background: #131313 !important; -webkit-print-color-adjust: exact; }
+            .container { padding: 40px; }
+            .glass-card { background: rgba(53, 53, 52, 0.6) !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-glow"></div>
+    <div class="data-grid"></div>
+
+    <div class="controls">
+        <button class="btn-download" onclick="generatePDF()">Export Terminal Brief</button>
+    </div>
+
+    <div class="container" id="brief-content">
+        <header>
+            <div class="header-text">
+                <div class="branding">FNOMO | INSTITUTIONAL DECISION INFRASTRUCTURE</div>
+                <h1 class="hero-title">STRATEGIC<br>PARTNERSHIP BRIEF</h1>
+                <div class="hero-subtitle">SOVEREIGN DECISION PROTOCOL</div>
+                <div class="hero-beam"></div>
+            </div>
+        </header>
+
+        <section id="section-about">
+            <span class="section-label">OBJECTIVE // 01</span>
+            <h2 class="section-title">ABOUT FNOMO</h2>
+            <div class="glass-card">
+                <p>
+                    Fnomo is an advanced stock analysis platform designed to bring institutional-grade insights to retail and professional investors. With coverage spanning India, USA, UK, Europe, Canada, and more, Fnomo empowers professionals and businesses with fast, reliable investment intelligence.
+                </p>
+            </div>
+        </section>
+
+        <section id="section-capabilities">
+            <span class="section-label">INFRASTRUCTURE // 02</span>
+            <h2 class="section-title">CORE CAPABILITIES</h2>
+            <div class="capabilities-grid">
+                <div class="cap-item">
+                    <strong>GLOBAL SCREENING</strong>
+                    Multi-factor stock screening across 60+ global exchanges and 60,000+ stocks.
+                </div>
+                <div class="cap-item">
+                    <strong>INTELLIGENCE ENGINE</strong>
+                    Value, Growth, and Momentum filtering through an interactive, data-driven engine.
+                </div>
+                <div class="cap-item">
+                    <strong>DATA MODELING</strong>
+                    Analysis powered by 1,000,000+ data points and 160+ financial models.
+                </div>
+                <div class="cap-item">
+                    <strong>ACTIONABLE INSIGHTS</strong>
+                    Built for professionals and businesses seeking actionable investment intelligence.
+                </div>
+            </div>
+        </section>
+
+        <section id="section-guidance">
+            <span class="section-label">PROFESSIONAL CONTEXT // 03</span>
+            <h2 class="section-title">AUTHORITY & GUIDANCE</h2>
+            <div class="glass-card">
+                <p style="margin-bottom: 20px;">
+                    As a trusted professional at the centre of business decision-making, you are uniquely positioned to identify organisations that would benefit from smarter investment tools. Your clients — from SMEs to growing enterprises — regularly seek guidance on financial platforms and strategies that can give them an edge.
+                </p>
+                <p>
+                    This is not a sales or promotional role. We are simply looking for respected professionals who can make meaningful introductions where Fnomo's capabilities align with a genuine business need.
+                </p>
+            </div>
+        </section>
+
+        <section id="section-architecture">
+            <span class="section-label">STRUCTURE // 04</span>
+            <h2 class="section-title">PARTNERSHIP ARCHITECTURE</h2>
+            <div class="glass-card">
+                <div class="reactor-container">
+                    <div class="reactor">
+                        <div class="reactor-ring ring-1"></div>
+                        <div class="reactor-ring ring-2"></div>
+                        <div class="reactor-ring ring-3"></div>
+                        <div class="reactor-core">50%</div>
+                    </div>
+                    <div class="revenue-content">
+                        <div class="revenue-headline">PARTNERSHIP<br>REVENUE SHARE</div>
+                        <p style="color: var(--text-muted); font-size: 14px;">
+                            50% of the revenue generated from any partner-introduced client for 12 months.
+                        </p>
+                    </div>
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Term</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Partnership Fee</strong></td>
+                            <td>50% of revenue for 12 months from first payment.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Success Trigger</strong></td>
+                            <td>When a contact signs up and their first payment is confirmed.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Payment</strong></td>
+                            <td>Calculated and paid upon confirmation of each subscription.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Exclusivity</strong></td>
+                            <td>No exclusivity required. No obligations beyond relevant introductions.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tracking</strong></td>
+                            <td>Unique coupon code for accurate attribution of commissions.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="section-protocol">
+            <span class="section-label">EXECUTION // 05</span>
+            <h2 class="section-title">ENGAGEMENT PROTOCOL</h2>
+            <div class="glass-card">
+                <p style="margin-bottom: 20px;">If this aligns with your practice, here is what happens next:</p>
+                <div class="capabilities-grid">
+                    <div class="cap-item"><strong>01. CONNECT</strong> Reply to this proposal or connect with us directly.</div>
+                    <div class="cap-item"><strong>02. DETAILS</strong> Share basic partner details.</div>
+                    <div class="cap-item"><strong>03. FORMALISE</strong> Short agreement to formalise the arrangement.</div>
+                    <div class="cap-item"><strong>04. ACTIVATE</strong> Receive your unique Partner Attribution Code.</div>
+                </div>
+                <p style="margin-top: 30px; font-size: 14px; color: var(--primary);">
+                    There is no complex onboarding. We are onboarding a limited set of partners initially. If this aligns, we can schedule a short call this week.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <span class="section-label">REGISTRATION // 06</span>
+            <h2 class="section-title">PARTNER ONBOARDING</h2>
+            <div class="glass-card">
+                <div class="registration-field"><span class="field-label">Full Name</span><span class="field-value">____________________</span></div>
+                <div class="registration-field"><span class="field-label">Email Address</span><span class="field-value">____________________</span></div>
+                <div class="registration-field"><span class="field-label">Phone Number</span><span class="field-value">____________________</span></div>
+                <div class="registration-field"><span class="field-label">Mailing Address</span><span class="field-value">____________________</span></div>
+                <div class="registration-field"><span class="field-label">Company / Firm Name</span><span class="field-value">____________________</span></div>
+                <div class="registration-field"><span class="field-label">Bank Account Details</span><span class="field-value">____________________</span></div>
+                <div class="registration-field"><span class="field-label">IFSC / SWIFT Code</span><span class="field-value">____________________</span></div>
+                <p style="font-size: 10px; color: var(--text-muted); margin-top: 20px;">* Bank and attribution details can be shared at the time of the first payout.</p>
+            </div>
+        </section>
+
+        <section>
+            <span class="section-label">COMPLIANCE // 07</span>
+            <h2 class="section-title">POSITIONING & LEGAL</h2>
+            <div class="glass-card" style="font-size: 13px; color: var(--text-muted);">
+                <p style="margin-bottom: 15px;">
+                    This arrangement does not constitute a legal partnership, joint venture, agency, or employment relationship. Each party operates independently and is responsible for its own regulatory and tax obligations.
+                </p>
+                <p>
+                    Fnomo operates as a decision validation layer and does not provide advisory, recommendations, or execution signals. All financial decisions remain with the end user. All shared data handled per data protection standards.
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <div>
+                <p class="footer-brand">FNOMO GLOBAL INTELLIGENCE</p>
+                <p>Jyoti Chawla</p>
+                <p>Growth & Partnerships — Fnomo</p>
+                <p>www.fnomo.com</p>
+            </div>
+            <div class="confidential">
+                CONFIDENTIAL PROTOCOL<br>
+                SOVEREIGN EYES ONLY
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function generatePDF() {
+            const element = document.getElementById('brief-content');
+            const opt = {
+                margin: 0,
+                filename: 'FNOMO_Strategic_Partnership_Brief.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, backgroundColor: '#131313' },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            const btn = document.querySelector('.btn-download');
+            btn.innerHTML = "Processing...";
+            btn.disabled = true;
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                btn.innerHTML = "Export Terminal Brief";
+                btn.disabled = false;
+            });
+        }
+    </script>
+</body>
+</html>

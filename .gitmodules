@@ -1,0 +1,6 @@
+[submodule "Images and content/llm-council"]
+	path = Images and content/llm-council
+	url = https://github.com/karpathy/llm-council.git
+[submodule "Images and content/G0DM0D3"]
+	path = Images and content/G0DM0D3
+	url = https://github.com/elder-plinius/G0DM0D3.git

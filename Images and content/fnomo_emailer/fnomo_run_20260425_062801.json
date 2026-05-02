@@ -1,0 +1,392 @@
+{
+  "run_at": "2026-04-25T06:28:01.726359",
+  "status": "Completed",
+  "scheduled": [
+    {
+      "lead_email": "hr@chokshi.com",
+      "lead_name": "Chokshi & Co",
+      "subject": "Blind spot in your workflow",
+      "send_time": "2026-04-25 10:00",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@batliboi.com",
+      "lead_name": "Batliboi & Co",
+      "subject": "What most firms overlook",
+      "send_time": "2026-04-25 10:10",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@lakhani.com",
+      "lead_name": "Lakhani & Co",
+      "subject": "The question nobody asks",
+      "send_time": "2026-04-25 10:31",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "hr@gdapte.com",
+      "lead_name": "G D Apte",
+      "subject": "One gap worth exploring",
+      "send_time": "2026-04-25 10:42",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "gala@vsnl.com",
+      "lead_name": "Gala & Gal",
+      "subject": "A pattern we keep seeing",
+      "send_time": "2026-04-25 10:56",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@kochar.com",
+      "lead_name": "Kochar & Co",
+      "subject": "Something worth reconsidering",
+      "send_time": "2026-04-25 11:12",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "kpc@cvk-c2.com",
+      "lead_name": "Cvk & Asso",
+      "subject": "Where the risk hides",
+      "send_time": "2026-04-25 11:25",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "admin@skp2.com",
+      "lead_name": "Sudit K Pa",
+      "subject": "The decision before the decision",
+      "send_time": "2026-04-25 11:44",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@kdpa.com",
+      "lead_name": "Kamdar Des",
+      "subject": "What the data misses",
+      "send_time": "2026-04-25 12:07",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@sgka.com",
+      "lead_name": "S. G. Kabra",
+      "subject": "A shift worth noticing",
+      "send_time": "2026-04-25 12:18",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@gkcc.com",
+      "lead_name": "G. K. Choks",
+      "subject": "A thought for G.",
+      "send_time": "2026-04-25 12:29",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@sgco.com",
+      "lead_name": "Singrodia",
+      "subject": "A thought for Singrodia",
+      "send_time": "2026-04-25 12:40",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "mumbai@singhico.com",
+      "lead_name": "Singhi & C",
+      "subject": "A thought for Singhi",
+      "send_time": "2026-04-25 12:49",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "reachus@ghalla.com",
+      "lead_name": "Ghalla & Bh",
+      "subject": "A thought for Ghalla",
+      "send_time": "2026-04-25 13:00",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "mail@bansal.com",
+      "lead_name": "Bansal, Ba",
+      "subject": "A thought for Bansal,",
+      "send_time": "2026-04-25 13:10",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "accounts@rakchamps.com",
+      "lead_name": "Rakchamps",
+      "subject": "A thought for Rakchamps",
+      "send_time": "2026-04-25 13:35",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "vskumar@b.com",
+      "lead_name": "Shivkum",
+      "subject": "A thought for Shivkum",
+      "send_time": "2026-04-25 13:44",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "rakesh@mnrd.com",
+      "lead_name": "Mnrd & As",
+      "subject": "A thought for Mnrd",
+      "send_time": "2026-04-25 13:53",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "deepak@dsassoc.com",
+      "lead_name": "Deepak Singhania",
+      "subject": "A thought for Deepak",
+      "send_time": "2026-04-25 14:05",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@dvks.com",
+      "lead_name": "Dvks & Assoc",
+      "subject": "A thought for Dvks",
+      "send_time": "2026-04-25 14:20",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "ca.kiranraj@gmail.com",
+      "lead_name": "Kiran Raj",
+      "subject": "A thought for Kiran",
+      "send_time": "2026-04-25 14:41",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "manoj4133@gmail.com",
+      "lead_name": "Kumar And Kumara",
+      "subject": "A thought for Kumar",
+      "send_time": "2026-04-25 15:05",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "calingaraj@lnpco.in",
+      "lead_name": "Lingaraj Pujari",
+      "subject": "A thought for Lingaraj",
+      "send_time": "2026-04-25 15:22",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "manjunathghegde@yahoo.co.in",
+      "lead_name": "M G Hegde",
+      "subject": "A thought for M",
+      "send_time": "2026-04-25 15:40",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "ca.msbala@gmail.com",
+      "lead_name": "M.S. Balasubramanya",
+      "subject": "A thought for M.S.",
+      "send_time": "2026-04-25 16:03",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "govindabhandary@gmail.com",
+      "lead_name": "Govinda Bhandary",
+      "subject": "A thought for Govinda",
+      "send_time": "2026-04-26 10:00",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "manjunath.us@gmail.com",
+      "lead_name": "Manju & Mohan",
+      "subject": "A thought for Manju",
+      "send_time": "2026-04-26 10:25",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "mrhegde_bg@bsnl.in",
+      "lead_name": "Hegde And Co",
+      "subject": "A thought for Hegde",
+      "send_time": "2026-04-26 10:41",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "catilakmylar@gmail.com",
+      "lead_name": "Mann And Co",
+      "subject": "A thought for Mann",
+      "send_time": "2026-04-26 10:49",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "njsuresh@gmail.com",
+      "lead_name": "N J Suresh",
+      "subject": "A thought for N",
+      "send_time": "2026-04-26 10:58",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@msna.com",
+      "lead_name": "Msna Associates",
+      "subject": "A thought for Msna",
+      "send_time": "2026-04-26 11:07",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "anil@adca.in",
+      "lead_name": "Anil D'Souza",
+      "subject": "A thought for Anil",
+      "send_time": "2026-04-26 11:20",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@fingurus.com",
+      "lead_name": "Fingurus",
+      "subject": "A thought for Fingurus",
+      "send_time": "2026-04-26 11:40",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "bangalore@bdo.in",
+      "lead_name": "Bdo Bangalore",
+      "subject": "A thought for Bdo",
+      "send_time": "2026-04-26 11:53",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "ssfintaxadvisors@gmail.com",
+      "lead_name": "Ssfintax Advisor",
+      "subject": "A thought for Ssfintax",
+      "send_time": "2026-04-26 12:08",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "delhi@sskmin.com",
+      "lead_name": "Ss Kothari Mehta",
+      "subject": "A thought for Ss",
+      "send_time": "2026-04-26 12:30",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@akmglobal.com",
+      "lead_name": "Akm Global",
+      "subject": "A thought for Akm",
+      "send_time": "2026-04-26 12:41",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "mail@gt.com",
+      "lead_name": "Grant Thornton",
+      "subject": "A thought for Grant",
+      "send_time": "2026-04-26 13:00",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "hr4@rsmindia.in",
+      "lead_name": "Rsm India",
+      "subject": "A thought for Rsm",
+      "send_time": "2026-04-26 13:21",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "recruit@lodhaco.com",
+      "lead_name": "Lodha & Co Delhi",
+      "subject": "A thought for Lodha",
+      "send_time": "2026-04-26 13:35",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "snb@snbindia.com",
+      "lead_name": "Sahni Natrajan & Bahl",
+      "subject": "A thought for Sahni",
+      "send_time": "2026-04-26 13:48",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@asa.in",
+      "lead_name": "Asa & Associates",
+      "subject": "A thought for Asa",
+      "send_time": "2026-04-26 14:02",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@vedjain.com",
+      "lead_name": "Ved Jain",
+      "subject": "A thought for Ved",
+      "send_time": "2026-04-26 14:26",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "newdelhi@mazars.in",
+      "lead_name": "Mazars Delhi",
+      "subject": "A thought for Mazars",
+      "send_time": "2026-04-26 14:40",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "mumbai@deloitte.com",
+      "lead_name": "Deloitte Mumbai",
+      "subject": "A thought for Deloitte",
+      "send_time": "2026-04-26 14:52",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "bangalore@in.ey.com",
+      "lead_name": "Ey Bangalore",
+      "subject": "A thought for Ey",
+      "send_time": "2026-04-26 15:13",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "gurgaon@kpmg.com",
+      "lead_name": "Kpmg Delhi",
+      "subject": "A thought for Kpmg",
+      "send_time": "2026-04-26 15:29",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "mumbai@pwc.com",
+      "lead_name": "Pwc Mumbai",
+      "subject": "A thought for Pwc",
+      "send_time": "2026-04-26 15:52",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    }
+  ],
+  "failed": [],
+  "skipped_generation": []
+}

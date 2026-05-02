@@ -1,0 +1,411 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.root{padding:1rem 0 3rem;font-family:var(--font-sans)}
+.update-banner{background:#EEEDFE;border:0.5px solid #CECBF6;border-radius:8px;padding:.6rem 1rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:8px;font-size:12px;color:#3C3489;font-weight:500}
+.top-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:8px}
+.pb-title{font-size:13px;font-weight:500;color:var(--color-text-secondary)}
+.daily-quota{display:flex;gap:6px;flex-wrap:wrap}
+.quota-pill{font-size:11px;padding:3px 9px;border-radius:20px;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);background:var(--color-background-secondary)}
+.qp-green{border-color:#9FE1CB;background:#E1F5EE;color:#085041}
+.qp-purple{border-color:#CECBF6;background:#EEEDFE;color:#3C3489}
+.qp-amber{border-color:#FAC775;background:#FAEEDA;color:#633806}
+.qp-coral{border-color:#F5C4B3;background:#FAECE7;color:#712B13}
+.progress-bar{height:3px;background:var(--color-background-secondary);border-radius:2px;margin-bottom:1rem;overflow:hidden}
+.progress-fill{height:100%;border-radius:2px;transition:width .3s}
+.days-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin-bottom:1.25rem}
+.chip{padding:7px 3px;text-align:center;font-size:11px;font-weight:500;border:0.5px solid var(--color-border-tertiary);border-radius:6px;cursor:pointer;background:var(--color-background-primary);color:var(--color-text-secondary);transition:all .12s;border-top-width:2.5px;line-height:1.3}
+.chip:hover{background:var(--color-background-secondary)}
+.chip[data-ph="1"]{border-top-color:#1D9E75}
+.chip[data-ph="2"]{border-top-color:#7F77DD}
+.chip[data-ph="3"]{border-top-color:#EF9F27}
+.chip[data-ph="4"]{border-top-color:#D85A30}
+.chip.active[data-ph="1"]{background:#E1F5EE;color:#085041;border-color:#9FE1CB;border-top-color:#1D9E75}
+.chip.active[data-ph="2"]{background:#EEEDFE;color:#3C3489;border-color:#CECBF6;border-top-color:#7F77DD}
+.chip.active[data-ph="3"]{background:#FAEEDA;color:#633806;border-color:#FAC775;border-top-color:#EF9F27}
+.chip.active[data-ph="4"]{background:#FAECE7;color:#712B13;border-color:#F5C4B3;border-top-color:#D85A30}
+.phase-badge{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:20px;display:inline-flex;align-items:center;gap:5px;margin-bottom:.9rem}
+.pb1{background:#E1F5EE;color:#085041}
+.pb2{background:#EEEDFE;color:#3C3489}
+.pb3{background:#FAEEDA;color:#633806}
+.pb4{background:#FAECE7;color:#712B13}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:12px;overflow:hidden;margin-bottom:.75rem}
+.card-hdr{padding:1rem 1.25rem;display:flex;align-items:flex-start;gap:12px;border-bottom:0.5px solid var(--color-border-tertiary)}
+.dnum{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;flex-shrink:0}
+.d1{background:#E1F5EE;color:#085041}
+.d2{background:#EEEDFE;color:#3C3489}
+.d3{background:#FAEEDA;color:#633806}
+.d4{background:#FAECE7;color:#712B13}
+.hdr-right h2{font-size:15px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px;line-height:1.3}
+.tags{display:flex;gap:5px;flex-wrap:wrap}
+.tag{font-size:11px;color:var(--color-text-tertiary);background:var(--color-background-secondary);padding:2px 7px;border-radius:20px;border:0.5px solid var(--color-border-tertiary)}
+.tag.priority{background:#FAECE7;color:#712B13;border-color:#F5C4B3}
+.tag.capital{background:#EEEDFE;color:#3C3489;border-color:#CECBF6}
+.sec3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-bottom:0.5px solid var(--color-border-tertiary)}
+@media(max-width:580px){.sec3{grid-template-columns:1fr}}
+.sec{padding:.9rem 1.1rem;border-right:0.5px solid var(--color-border-tertiary)}
+.sec:last-child{border-right:none}
+.slabel{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5rem;display:flex;align-items:center;gap:5px}
+.sl1{color:#1D9E75}.sl2{color:#7F77DD}.sl3{color:#D85A30}
+.sdot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.sd1{background:#1D9E75}.sd2{background:#7F77DD}.sd3{background:#D85A30}
+.sbody{font-size:12.5px;color:var(--color-text-secondary);line-height:1.65}
+.script-box{margin:.75rem 1.1rem;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-left:2.5px solid #7F77DD;border-radius:6px;padding:.75rem .9rem}
+.script-lbl{font-size:10px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:#7F77DD;margin-bottom:.4rem}
+.script-txt{font-size:12px;color:var(--color-text-secondary);line-height:1.7;font-style:italic}
+.bot3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+@media(max-width:580px){.bot3{grid-template-columns:1fr}}
+.bcell{padding:.8rem 1.1rem;border-right:0.5px solid var(--color-border-tertiary)}
+.bcell:last-child{border-right:none}
+.blabel{font-size:10px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:.3rem}
+.bval{font-size:12px;color:var(--color-text-secondary);line-height:1.5}
+.quota-bar{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:4px;margin:.75rem 1.1rem}
+.qb-item{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:6px;padding:.5rem .6rem;text-align:center}
+.qb-num{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+.qb-lbl{font-size:10px;color:var(--color-text-tertiary);margin-top:1px}
+.nav-row{display:flex;justify-content:space-between;margin-top:.75rem}
+.nbtn{font-size:12px;font-weight:500;padding:7px 14px;border:0.5px solid var(--color-border-secondary);border-radius:6px;cursor:pointer;background:var(--color-background-primary);color:var(--color-text-secondary);transition:all .12s}
+.nbtn:hover{background:var(--color-background-secondary)}
+.nbtn:disabled{opacity:.3;cursor:default}
+.aum-bar{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:8px;padding:.65rem 1rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.aum-item{text-align:center}
+.aum-num{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+.aum-lbl{font-size:10px;color:var(--color-text-tertiary)}
+</style>
+
+<h2 class="sr-only" style="position:absolute;left:-9999px">FNOMO 24-Day BD Playbook v2 — updated from Indu founder MoM, capital flow engine focus</h2>
+
+<div class="root">
+<div class="update-banner">
+  <span style="font-size:14px">●</span>
+  Updated from MoM — Indu (Founder) alignment. Execute → Influence → Capital → Scale
+</div>
+
+<div class="aum-bar">
+  <div class="aum-item"><div class="aum-num">₹100 Cr</div><div class="aum-lbl">AUM target</div></div>
+  <div class="aum-item"><div class="aum-num">20,000</div><div class="aum-lbl">Users needed</div></div>
+  <div class="aum-item"><div class="aum-num">₹50K</div><div class="aum-lbl">Avg investment</div></div>
+  <div class="aum-item"><div class="aum-num">50%</div><div class="aum-lbl">Max rev share</div></div>
+  <div class="aum-item"><div class="aum-num">₹0</div><div class="aum-lbl">Upfront spend</div></div>
+</div>
+
+<div class="top-bar">
+  <span class="pb-title">FNOMO — 24-Day BD Playbook v2</span>
+  <div class="daily-quota">
+    <span class="quota-pill qp-green">10 decision responses/day</span>
+    <span class="quota-pill qp-purple">10 influencer DMs/day</span>
+    <span class="quota-pill qp-amber">5 advisor convos/day</span>
+    <span class="quota-pill qp-coral">20 corporate emails/day</span>
+  </div>
+</div>
+
+<div class="progress-bar"><div class="progress-fill" id="pbar" style="width:4%;background:linear-gradient(90deg,#1D9E75,#7F77DD,#EF9F27,#D85A30)"></div></div>
+<div class="days-grid" id="grid"></div>
+<div id="content"></div>
+<div class="nav-row">
+  <button class="nbtn" id="pBtn" onclick="nav(-1)">← Prev</button>
+  <button class="nbtn" id="nBtn" onclick="nav(1)">Next →</button>
+</div>
+</div>
+
+<script>
+const D=[
+{t:"Pipeline + Manual MVP Setup",ph:1,target:"Internal — no external outreach",ch:"Google Sheets + Telegram + Reddit",time:"5 hrs",priority:false,capital:"₹0 capital influenced today",
+say:"No outreach today. Your job: build the manual decision engine and pipeline simultaneously. Manual MVP = you personally respond to financial decision questions with a structured Score / Risk / Reason / Alternative format. This is the product until a developer is hired.",
+go:"(1) Google Sheets: create two tabs — Influencers and Advisors/Corporates. Columns: Name, Platform, Category, Contact, Status, Notes, Rev Share Tier. (2) Search Telegram for 'Nifty options', 'mutual funds India', 'stocks India' — join 5 groups and watch for decision questions being asked. (3) Reddit: join r/IndiaInvestments, r/IndiaStocks. Note 3 active posters asking 'should I invest in X'. These become your first manual MVP recipients tomorrow.",
+close:"End of day deliverables: pipeline doc live with 50 rows across influencers + advisors + corporates. Manual decision response template ready. Priority targets from MoM logged: Investing Daddy, CA Rahul Jain, CA Sanjay Katuria.",
+script:"Manual MVP output format (practice this until it takes < 2 mins to produce):\n\nDecision: [User's question]\nScore: [X]/10\nRisk Level: [Low / Medium / High]\nReason: [1–2 lines, specific]\nAlternative: [One concrete option they haven't considered]",
+metric:"Pipeline live, manual format practiced 5x, 50 targets logged",
+contingency:"If Telegram groups are slow to load decisions, use Quora India finance section to find real pending financial decisions",
+cac:"₹0"},
+
+{t:"First 10 Manual Decision Responses",ph:1,target:"Retail investors asking live financial questions in communities",ch:"Telegram (group replies) + Reddit comments",time:"3 hrs active, 9am–12pm",priority:false,capital:"Influence 10 decisions — this is Day 1 of capital influence",
+say:"Find active questions. Do not pitch FNOMO. Respond only with the manual decision output format. Sign it: 'FNOMO pre-decision check'. No links, no app. Just the output. This is the product. This proves the value before anything is built.",
+go:"Open 5 Telegram groups from Day 1. Search for messages containing 'buy', 'should I', 'invest', 'trade'. For each question found, reply with full Score/Risk/Reason/Alternative format in under 2 minutes. Do 5 in Telegram, 5 in Reddit comments. Log every response in a sheet with: platform, question topic, time, reply received.",
+close:"After 5+ positive reactions on any single response, DM the person who asked: 'Glad that was useful — this is FNOMO's decision layer. Would you be open to using it before your next financial move? I can walk you through it.' This converts a community responder into an early user.",
+script:"Example response in community:\n\n'FNOMO pre-decision check:\nDecision: Buying [Stock X] at current levels\nScore: 6/10\nRisk Level: Medium — high valuation vs sector peers\nReason: Q3 results missed estimates; promoter has been selling\nAlternative: Wait for correction to [₹X level] or consider [Sector ETF] for lower single-stock risk'",
+metric:"10 decision responses posted, 3 positive reactions, 1 DM conversation started",
+contingency:"If no active questions found in groups, post a decision check on a trending stock without being asked — offer value unprompted",
+cac:"₹0"},
+
+{t:"Priority Target Research — Investing Daddy + CA Rahul Jain",ph:1,target:"Investing Daddy (influencer), CA Rahul Jain, CA Sanjay Katuria",ch:"YouTube + LinkedIn + Instagram",time:"2 hrs research, 1 hr message drafting",priority:true,capital:"₹0 today — highest capital influence partners being prepared",
+say:"These three are named in the MoM as personal outreach priority. Do not cold pitch. Study their content first. What decisions does Investing Daddy's audience make? What are CA Rahul Jain's clients asking him? This research is what makes your first message land. Generic messages get ignored. Specific ones get replies.",
+go:"Investing Daddy: watch last 3 YouTube videos, note the exact moment audience is making a decision (e.g. 'should I buy this stock' content). Find his business email (YouTube About page) and Instagram DM. CA Rahul Jain: search LinkedIn, find his practice focus, note 1 client-facing post. CA Sanjay Katuria: same LinkedIn search. Draft one personalized message per person — do not send yet. Review tomorrow with fresh eyes.",
+close:"Do not close today — draft only. The message goes tomorrow after overnight review. Rushed outreach to named priority targets is a wasted shot.",
+script:"Draft for Investing Daddy (refine before sending):\n'Hi [Name] — watched your video on [specific topic]. The moment you said [specific line] is exactly the decision gap FNOMO addresses. Not a sponsorship ask — building a pre-decision layer and your audience would be the first to benefit. Would a 15-min call make sense? No deck, just a live demo.'",
+metric:"3 personalized drafts ready, contact methods confirmed for all 3",
+contingency:"If Investing Daddy email not found, use Instagram DM — most mid-tier creators check these daily",
+cac:"₹0"},
+
+{t:"Send Priority Outreach + 10 New Influencer DMs",ph:1,target:"Investing Daddy (send), CA Rahul Jain (send), CA Sanjay Katuria (send) + 10 finance creators",ch:"Email + LinkedIn + Instagram DM",time:"1 hr priority sends, 2 hrs new influencer DMs",priority:true,capital:"Pipeline value: estimated ₹2–5 Cr capital if any 1 of 3 priority targets converts",
+say:"Send the 3 priority messages from Day 3. Then run your daily 10 influencer DM quota. For the 10 new influencers, use a sharper 3-line version: what their content does, what FNOMO adds at the decision moment, simple ask for a demo call. No pitch decks. No PDFs.",
+go:"Priority sends: email for Investing Daddy, LinkedIn for both CAs. Log timestamp. For 10 new influencer DMs: filter your pipeline for finance creators 10K–200K subscribers/followers — YouTube, Instagram, LinkedIn. Pick 10. Send personalized 3-line DMs. Refer to one piece of their specific content in each. Log all 10 in pipeline with 'Day 4 — sent' status.",
+close:"For any same-day reply from priority targets — respond within 30 mins. Do not let priority conversations go cold. Propose a call for within 48 hrs.",
+script:"3-line influencer DM format:\n'Hey [Name] — your [specific content] is exactly where FNOMO fits. We give audiences a decision check before they act on content like yours — Score, Risk, Alternative in 10 seconds. Would a 15-min demo make sense? No sponsorship pitch, just exploring fit.'",
+metric:"3 priority messages sent, 10 influencer DMs sent, 1 priority reply received",
+contingency:"If no priority reply in 24 hrs, do not follow up yet — wait until Day 7. Premature follow-up signals desperation",
+cac:"₹0"},
+
+{t:"Advisor Outreach Blitz — 5 CA Conversations",ph:1,target:"Chartered Accountants and financial advisors via LinkedIn",ch:"LinkedIn InMail + local CA network",time:"2 hrs LinkedIn, 1 hr WhatsApp if contacts available",priority:false,capital:"Advisors are the PRIMARY engine — each advisor influences 50–500 clients",
+say:"CAs are not your users — they are your distribution engine. Each CA gives you access to their entire client base. Angle: 'When a client calls you before making a financial decision, FNOMO gives you a structured output in 10 seconds. Score, risk, alternative — your recommendation becomes more confident and your client leaves with more clarity.'",
+go:"LinkedIn: search 'Chartered Accountant' filtered to your city first, then expand. Send 10 connection requests with a 1-line note. Simultaneously: if you have any CA in your personal network (WhatsApp contacts, college connections) — message them directly today. These warm connections convert 3x faster. Target 5 actual conversations — not 5 messages, 5 conversations.",
+close:"Ask for a 20-min WhatsApp call. Not a Zoom — WhatsApp feels more personal for advisors. 'Can I show you the FNOMO decision format on a quick call? 20 minutes. I'll bring a real example from your client segment.'",
+script:"LinkedIn connection note (200 char limit):\n'Hi [Name] — building FNOMO, a pre-decision tool for financial advisors to use with clients. Gives a structured Score + Risk + Alternative in seconds. Would love to connect and hear your view.'\n\nAfter accept:\n'Thanks for connecting. Would a 20-min WhatsApp call work? I can walk you through a live decision example specific to your client base.'",
+metric:"10 LinkedIn connections sent, 5 conversations started, 2 calls booked",
+contingency:"If LinkedIn connections are slow to accept, pivot to Telegram — search 'CA India', 'Chartered Accountant India' groups and participate in discussions",
+cac:"₹0"},
+
+{t:"First Corporate Email Wave — 20 Emails",ph:2,target:"HR / L&D / Finance departments at mid-size corporates",ch:"Email (cold outreach)",time:"3 hrs drafting + sending",priority:false,capital:"Corporate channel = volume layer per MoM",
+say:"Corporates want to reduce financial decision mistakes among employees — it affects productivity and retention. FNOMO as an employee financial wellness tool is a natural fit. Angle: 'Financial stress is the #1 productivity killer. FNOMO gives your employees a decision check before any major financial move — no advice, just clarity.' Do not mention revenue share in first email.",
+go:"Build a list of 20 mid-size companies (500–5000 employees) with HR or Finance teams identifiable on LinkedIn. Find their HR head or CFO. Email format: [firstname.lastname]@[company].com — verify on LinkedIn. Send 20 cold emails. Use Streak (Chrome extension, free) to track opens. Subject line: 'Reducing financial anxiety among your employees — quick idea'",
+close:"CTA in email: 'Would a 20-minute call work to see if this fits your employee wellness program? I can bring a live decision example.' If no reply in 5 days, one follow-up only.",
+script:"Subject: Financial clarity for your team — 2-minute read\n\nHi [Name],\n\nFinancial stress is the top productivity issue most HR teams aren't solving directly.\n\nBuilding FNOMO — a decision check tool employees use before major financial moves. Score, risk, alternative — in 10 seconds. No advice, just confidence.\n\nWould a 20-min call make sense to explore a pilot for your team?\n\n[Your name], FNOMO",
+metric:"20 emails sent, 5 opens tracked, 2 replies",
+contingency:"If corporate emails bounce, find the contact via LinkedIn and InMail instead",
+cac:"₹0"},
+
+{t:"Priority Follow-Up + Blinkit/Zomato Exploration",ph:2,target:"Priority targets from Day 4 (first follow-up) + Blinkit/Zomato BD teams",ch:"Same channel as initial outreach + LinkedIn",time:"1 hr priority follow-up, 2 hrs new platform research",priority:true,capital:"Platform partnerships = purchase decision layer (new MoM direction)",
+say:"For priority targets (Day 4): first follow-up only if no reply by now. Keep it under 3 lines. New angle — attach one real decision response from your community work. For Blinkit/Zomato: MoM adds these as platform partnerships. Their users make high-frequency purchase decisions — FNOMO as a 'purchase check' before cart checkout is the integration angle. Not a cold B2B sale — a product integration concept.",
+go:"Priority follow-up: send one message to each of the 3 priority targets referencing a real community decision response. 'Dropped this decision check in a trading community yesterday — wanted to share since it's the kind of output that fits your format.' Attach screenshot. For Blinkit: LinkedIn search 'Blinkit partnerships', 'Blinkit business development'. Find 2 contacts. Message: exploring a cart-level decision check integration for high-value purchases.",
+close:"For any priority target who replies — propose a specific date and time, not 'whenever works for you.' Own the calendar. For Blinkit/Zomato: 'I am not pitching a full integration — just a 20-min exploratory call to see if a purchase decision layer before cart checkout would improve your conversion. Worth 20 minutes?'",
+script:"Priority follow-up (3 lines max):\n'Hey [Name] — following up. Dropped this decision check in a trading community this week [screenshot]. Got good response. Think it fits your format naturally. Still open to a quick call?'\n\nBlinkit outreach:\n'Hi [Name] — building FNOMO, a purchase decision check for high-value transactions. Users validate before checkout — reduces cart abandonment on high-ticket items. Exploring whether this fits Blinkit's category. 20-min call?'",
+metric:"3 priority follow-ups sent, 1 reply, 1 Blinkit/Zomato contact identified",
+contingency:"If Blinkit/Zomato BD contacts unreachable via LinkedIn, target IndiaMART instead — easier BD access for B2B tech integrations",
+cac:"₹0"},
+
+{t:"First Advisor Call + Revenue Share Proposal",ph:2,target:"Best-qualified CA contact from Day 5 pipeline",ch:"WhatsApp call (30 min)",priority:false,capital:"Per advisor: 50–500 clients × ₹50K avg = ₹25L–₹2.5Cr capital influence potential",
+say:"This is your first real conversation. Open with their client pain, not your product. 'When a client calls you before investing ₹5 lakhs — what's the biggest uncertainty they come to you with?' Let them describe the problem. Then show them a live manual decision check. Offer the Advisor Partner Program: they refer clients, earn 20–30% revenue share (entry tier), no upfront cost.",
+go:"Prepare: have 2 ready-made decision examples relevant to their client type (HNI vs retail). Run through the manual MVP output live on the call — do not show a deck. Propose the partner structure: 'You refer a client to FNOMO, they use it before a financial decision, we earn revenue from that decision pathway, you earn 20–30% of what we earn. Zero upfront. Grows as clients use it more.'",
+close:"'I can set up your advisor referral link today. You try it with your next 5 client queries — no commitment, no pitch to clients required. If it adds value, we formalise the rev share. If not, nothing lost. Want to start this week?'",
+script:"Call opener:\n'Before I show you anything — when a client comes to you before a major financial decision, what are they actually asking? What's the gap they can't resolve on their own?'\n[Let them answer — this is gold for your positioning]\n'That's exactly what FNOMO addresses. Let me show you what it looks like in practice...'",
+metric:"Call completed, advisor agrees to trial with 3–5 clients, referral link set up",
+contingency:"If advisor wants 'more information first', send a 1-page PDF with the decision format, 1 real example, and the rev share structure same day",
+cac:"₹0 — pure rev share"},
+
+{t:"Webinar PPT Draft + Demo Build (Manual Visual)",ph:2,target:"Internal — content creation day",ch:"Google Slides + Canva",time:"4–5 hrs",priority:false,capital:"Webinar = scale moment — 1 webinar can influence 200+ decisions",
+say:"MoM tasks assigned: build the Webinar PPT and the Decision Demo (manual + visual). These are not optional — they are sales tools. The webinar covers: decision problem → FNOMO solution → real examples → capital flow logic. The demo shows: a user inputs a decision, FNOMO outputs Score/Risk/Reason/Alternative visually. Keep both shareable without explanation needed.",
+go:"Google Slides — Webinar structure: Slide 1: The decision gap (regret stat). Slide 2: What users do before acting (nothing). Slide 3: What FNOMO does (live demo screenshot). Slide 4: Real examples (use 3 community responses from Days 2–7). Slide 5: Capital flow logic (₹100 Cr AUM path). Slide 6: Partnership model (rev share tiers). Slide 7: How to join (referral link CTA). Canva: design 1 decision output card showing the manual MVP format visually — use this in all outreach going forward.",
+close:"Send the demo card to all pending conversations the moment it is ready. 'Built this to show exactly what FNOMO outputs — this is what your audience/clients would receive.' Instant conversation re-activator.",
+script:"Webinar title: 'Before You Invest — How Smart Decisions Are Made'\nTagline: 'A 30-minute session on how to validate any financial decision in 10 seconds'",
+metric:"Webinar PPT (7 slides, complete), decision demo card (1 visual, shareable format)",
+contingency:"If design takes longer, prioritize the demo card first — it is the more immediate sales tool",
+cac:"₹0"},
+
+{t:"IndiaMART BD Outreach + 20 Corporate Emails (Wave 2)",ph:2,target:"IndiaMART partnerships team + 20 new corporate HR contacts",ch:"LinkedIn + Email",time:"1 hr IndiaMART research, 2 hrs corporate emails",priority:false,capital:"IndiaMART = B2B purchase decisions at scale — high capital influence per transaction",
+say:"IndiaMART is a B2B marketplace where buyers make high-value purchase decisions regularly. FNOMO as a 'vendor decision check' or 'purchase validation layer' before order placement is the integration concept. For corporate emails (Wave 2): use a different angle from Day 6 — lead with capital protection, not wellness. 'Employees make financial decisions that affect your corporate culture and retention. FNOMO reduces financial anxiety before it becomes a workplace problem.'",
+go:"LinkedIn: 'IndiaMART partnerships', 'IndiaMART business development'. Find 2–3 contacts at manager level. For 20 corporate emails: pull 20 new companies from your list, different sector from Wave 1. Use the capital protection angle in the subject line. Track opens via Streak. Log all in pipeline.",
+close:"IndiaMART: 'Not asking for a full integration conversation — just a 20-min call to see if a purchase decision layer before high-value B2B orders would reduce your buyer hesitation. Worth 20 minutes?' Corporate: standard call CTA from Day 6.",
+script:"IndiaMART outreach:\n'Hi [Name] — building FNOMO, a decision confidence layer for high-value B2B purchases. Buyers on IndiaMART spend significant capital — FNOMO helps them validate before placing orders. Exploring whether a pre-order decision check fits your platform. 20-min call?'\n\nCorporate Wave 2 subject: 'Protecting your employees from financial mistakes — 2-min read'",
+metric:"3 IndiaMART messages sent, 20 corporate emails sent, 3 total replies across both",
+contingency:"If IndiaMART BD is unresponsive, pivot to Amazon Business India BD team — similar B2B purchase decision context",
+cac:"₹0"},
+
+{t:"First Influencer Pilot Activation",ph:3,target:"Most engaged influencer from Days 4–10 pipeline",ch:"Call + WhatsApp",time:"30-min call, immediate follow-up",priority:true,capital:"1 influencer pilot = 10K–200K audience exposed to FNOMO decision moment",
+say:"You are converting interest into action. Show them the demo card from Day 9. Play the role of their audience member — 'When you say before you invest in your video, this is what appears for your viewer.' The integration is zero-friction: they mention FNOMO at the decision moment in their content, not as a sponsor, but as a tool they actually use.",
+go:"Prepare: demo card ready, referral link ready for their name, one example of a decision response that matches their content niche. On the call: screen share the demo card. Say: 'This is what your audience gets when they use it before following your recommendation.' Ask: 'Would you feel comfortable mentioning this at the moment you say things like — before you do anything, check this.' Get a yes or a specific objection.",
+close:"'Here's the simplest structure: mention FNOMO at one decision moment in your next video or post. I will handle everything — the link, the tracking, the user experience. You earn ₹200 per user who activates. No minimum, no contract. Want me to send you the link and a 1-liner you can use in your next piece of content?'",
+script:"For a creator who makes 'should I invest in X' content:\n'Your viewers hear your analysis and then freeze — they don't know if they should act. FNOMO gives them the bridge. You say: before you invest, run it through FNOMO. They get a decision score in 10 seconds. They act with more confidence. You look like you're giving them a complete system, not just an opinion.'",
+metric:"Pilot confirmed, referral link sent, first content integration date agreed",
+contingency:"If they want to 'see the app first', offer a live manual demo on a decision from their niche — run it in real time on the call",
+cac:"₹0 upfront — ₹200/activation rev share"},
+
+{t:"CA Partner Program — 5 Formal Onboardings",ph:3,target:"Top 5 CA contacts from Days 5–10 pipeline",ch:"WhatsApp call + email (referral link + 1-pager)",time:"5 x 20-min calls across the day",priority:false,capital:"5 CAs × 50 clients × ₹50K = ₹12.5 Cr potential capital influenced",
+say:"You are not selling to CAs — you are recruiting partners. The language is different. 'I am building FNOMO's advisor network. I want you in it before it is open publicly. You get first-mover advantage, a branded referral link with your name on it, and 20–30% of all revenue generated through your client referrals. There is no upfront cost, no pitch to clients required — just use it naturally when they call you with a decision question.'",
+go:"Run 5 calls. For each: start with their client problem (not your product), show the demo card, present the 3-tier rev share structure (Entry 20–30%, Performing 30–40%, Strategic up to 50%), propose starting with 5 client queries this week. After each call: send the referral link and a 1-page PDF (title: 'FNOMO Advisor Partner Program'). Log each CA as 'Onboarded' or 'Follow-up needed' in pipeline.",
+close:"'Your referral link is ready — here it is. Send me a message after your first client uses it and I will tell you exactly what their decision check output looked like. First 5 activations and I can show you what the revenue looks like.'",
+script:"CA 1-pager structure:\n1. The decision gap (one line)\n2. What FNOMO gives your clients (Score, Risk, Alternative)\n3. What you earn (20–30% rev share, grows to 50% for strategic partners)\n4. How to use it (natural conversation moment: 'before you decide, run it through FNOMO')\n5. Your referral link",
+metric:"5 CA calls done, 3 onboarded with active referral links",
+contingency:"If CAs want their firm's name on the output, create a simple branded variant — this is a high-value retention feature worth 30 minutes of customization",
+cac:"₹0"},
+
+{t:"Podcast Strategy Activation — Story-Based Outreach",ph:3,target:"Podcast hosts covering personal finance, money mistakes, investor stories",ch:"Email + LinkedIn",time:"2 hrs research, 1 hr outreach",priority:false,capital:"Podcast = story-driven trust layer — no upfront cost model per MoM",
+say:"MoM names story-based podcast strategy as a new direction. The angle is NOT sponsorship — it is guest appearance or content collaboration. You bring a real decision story (anonymized from your community responses) and tell the story of the mistake + what FNOMO would have caught. Podcast hosts love concrete stories. You bring the story; they bring the audience. No revenue, no payment — pure value exchange.",
+go:"Search Spotify + Google for: 'personal finance India podcast', 'money mistakes India', 'investor stories India'. Find 10 active shows (episodes in last 60 days). Note the host name and their story format. Draft an outreach pitch for 5 of them. Key: lead with the story, not FNOMO. 'I have a real case study of someone who lost ₹3 lakhs on a decision FNOMO would have caught — would this work as a guest story for your show?'",
+close:"'I am not asking for a sponsor slot — I want to bring a real decision story to your audience. No FNOMO pitch in the episode — just a real case, real mistake, real lesson. Happy to discuss the format that works for your show.'",
+script:"Podcast outreach email:\nSubject: Real decision case study for your listeners — ₹3L loss that was preventable\n\nHi [Host name],\n\nI follow [Podcast name] — particularly your episodes on financial mistakes.\n\nI have a real anonymized case study: a retail investor who lost ₹3L on a decision that had three clear warning signals. Building FNOMO around cases exactly like this.\n\nWould this work as a guest story episode? No product pitch — just the story, the lesson, and what to look for next time.\n\n[Your name]",
+metric:"5 podcast outreach emails sent, 2 replies, 1 recording date agreed",
+contingency:"If podcast outreach is cold, pivot to starting a short-form content series on Instagram/LinkedIn with the same decision stories — build the audience directly",
+cac:"₹0"},
+
+{t:"Corporate Pilot Proposal — Best 3 Leads",ph:3,target:"Top 3 corporate contacts who replied to Day 6 or Day 10 emails",ch:"Video call (Google Meet)",time:"3 x 30-min calls",priority:false,capital:"Corporate pilot = 100–500 employees × ₹50K avg = ₹5–25 Cr potential per company",
+say:"You are proposing a pilot, not selling a product. 'I want to run FNOMO in your company for 30 days — 50 employees, no cost. At the end of 30 days, you have data on how many financial decision moments occurred and what FNOMO's output was. If it changes even 5 employee decisions, you have proof of value. If not, zero cost to you.'",
+go:"Call structure: 10 mins — understand their employee wellness current state. 10 mins — live demo with a decision example relevant to their employee profile (home loan vs rent, SIP vs RD, etc). 10 mins — propose the 30-day free pilot for 50 employees. After each call: send a 1-page pilot proposal by email within 2 hours. Title: 'FNOMO 30-Day Employee Decision Pilot'.",
+close:"'I can have the pilot set up for your team within 48 hours. I just need: (1) a list of 50 participating employees' emails, and (2) a point of contact on your side for the 30 days. Can we agree on that today?'",
+script:"Pilot proposal email (send within 2 hrs of call):\n\nHi [Name],\n\nThank you for the call. As discussed:\n\nFNOMO 30-Day Pilot for [Company] — 50 employees\nWhat we track: number of decisions checked, decision types, output impact\nCost to you: zero\nWhat you get: data on how your employees handle financial decisions + a decision support tool ready to scale\n\nNext step: send me a list of 50 employees and a point of contact. I can set this up within 48 hours.\n\n[Your name]",
+metric:"3 calls done, 2 pilot proposals sent, 1 confirmed with employee list received",
+contingency:"If corporates want legal review first, offer a simple letter of intent (not a contract) to formalize the pilot without legal complexity",
+cac:"₹0"},
+
+{t:"Revenue Share Upgrade — Perform → Strategic Tier",ph:3,target:"Best performing community admin and best performing CA from pipeline",ch:"WhatsApp or Telegram",time:"2 x 20-min conversations",priority:false,capital:"Strategic tier unlocks = higher distribution, faster capital influence",
+say:"You have been running pilots for 1–2 weeks now. Your top 2 performers have been generating activations. It is time to upgrade them to the next rev share tier as a retention and motivation move. 'Based on what you have been generating, I want to move you to the 30–40% tier. This is not automatic — I am doing this specifically for you because of how your community/clients have been responding.'",
+go:"Identify your 2 best-performing partners by activations generated so far. Calculate their current earnings (Entry tier: 20–30%). Draft a message showing them what they earned this week and what they would earn at the next tier. This is a loyalty upgrade conversation, not a negotiation. You are giving them something — make that clear.",
+close:"'Going forward, every activation through your link earns you [upgraded %]. I will reflect this in your next weekly summary. No paperwork needed — your link stays the same. Just wanted you to know you have moved up.' This costs you nothing extra but locks in your best partner.",
+script:"Upgrade message:\n'Quick update — tracking your referrals this week and the response from your [community/clients] has been strong. Upgrading your rev share from 20% to 35% going forward. Same link, higher earnings. Wanted to let you know directly. Keep doing what you're doing — it's working.'",
+metric:"2 partners upgraded to Performing tier, their weekly earnings communicated",
+contingency:"If activations are low and upgrades aren't warranted yet, instead provide partners with better content assets (new demo card, decision story) to improve their conversion",
+cac:"₹0"},
+
+{t:"Pipeline Audit + Channel Kill / Scale Decision",ph:4,target:"Internal — data review",ch:"Google Sheets",time:"3 hrs",priority:false,capital:"This decision determines the next ₹X Cr of capital influence",
+say:"Day 16 is the MoM's start of the Scale phase. Before scaling anything, audit without emotion. Which channel has produced the most activations? Which advisor has sent the most client referrals? Which influencer's audience converted best? Kill what is not working. Double what is.",
+go:"Pull all pipeline data. Count by channel: (1) total outreach sent, (2) replies, (3) calls, (4) partners onboarded, (5) activations generated, (6) capital influenced estimate. Apply kill rules: reply rate < 15% after 10+ messages = pause channel. Apply scale rules: activation rate > 5% of sent = double weekly volume in that channel. Write one decision per channel: KILL / HOLD / SCALE.",
+close:"Write your 3 scale decisions right now: (1) Top channel to double, (2) Top partner to invest more time in, (3) One channel you are killing today. These 3 decisions govern Days 17–24.",
+script:"Self-assessment questions:\n1. Which single message script got the most replies? Use it everywhere.\n2. Advisors or influencers — who is generating more activations per partner?\n3. What is your current estimated capital influenced? (Users × ₹50K avg)\n4. Is pre-action usage rate at 20% yet? If not — why not?",
+metric:"Kill/scale/hold list written for all channels, capital influenced estimate calculated",
+contingency:"If data is too thin, the issue is outreach volume — double daily quota starting today",
+cac:"Target: average CAC < ₹200 by Day 24"},
+
+{t:"Influencer Network Expansion — 10 New Creators",ph:4,target:"New finance creators not yet contacted — focus on decision-heavy content",ch:"Instagram DM + YouTube email + LinkedIn",time:"2–3 hrs",priority:false,capital:"Each creator integration = 10K–500K audience decision moments",
+say:"You now have social proof from earlier creator integrations. Lead every new outreach with that proof. 'We have been live with [Creator Name] for 2 weeks — their audience is using FNOMO before making investment decisions. I think your content format is an equally strong fit.' Name-dropping a known creator in the same message instantly raises credibility.",
+go:"Pull 10 new creators from your Day 8 hit list or find new ones via YouTube search 'stock market India 2024', 'mutual fund investment India'. Prioritize those whose last 3 pieces of content contain a decision moment ('should you invest in X', 'is this a good time to buy'). Instagram DM for creators under 100K. Email for larger creators. Each message: name a specific piece of their content, reference your existing creator collaboration, propose the rev share.",
+close:"'I can have your referral link ready in 5 minutes. I'll also draft a 1-liner you can use naturally in your next piece of content — takes less than 5 seconds of airtime. Want me to send both now?'",
+script:"'Hey [Name] — [Creator X] has been integrating FNOMO into their decision content for 2 weeks and their audience has been actively using it before investing. Your [specific video/reel] on [topic] has the same kind of decision moment. Would your audience benefit from this? Happy to show you what [Creator X] is doing and how it could work in your format.'",
+metric:"10 new creator messages sent, 3 replies, 1 new integration agreed",
+contingency:"If the named creator hasn't given permission to be mentioned, instead reference 'a finance creator with 80K subscribers' — same signal, no name needed",
+cac:"₹0"},
+
+{t:"Advisor Deep Network — Referral Chain Activation",ph:4,target:"Your 3 onboarded CAs — ask each for 2 referrals to other advisors",ch:"WhatsApp (warm referral request)",time:"1 hr — 3 conversations",priority:false,capital:"Referral chain: 3 CAs × 2 referrals each = 6 new advisors with warm introduction",
+say:"Your onboarded CAs are your best BD resource right now. They know other CAs. A warm introduction from them is worth 10 cold LinkedIn messages. Ask directly: 'Who is one or two other advisors or CAs in your network who you think would find FNOMO useful for their clients? I'd love an introduction — even just a WhatsApp forward is enough.'",
+go:"Message each of your 3 onboarded CAs separately. Reference their results so far ('your clients have used it X times this week'). Then ask for 2 referrals to other advisors in their network. Make the ask easy: 'You can just forward my WhatsApp message to them with a note — I will handle everything from there.' Log all referred contacts immediately in pipeline.",
+close:"For each referred contact: message within 24 hrs, mention the referring CA by name in the first line. 'Hi [Name] — [CA Name] suggested I reach out. Building FNOMO, a pre-decision tool [CA Name] is already using with his clients. Would a 20-min WhatsApp call work?'",
+script:"WhatsApp to onboarded CA:\n'Quick ask — your clients have been using FNOMO well this week. Are there 1–2 other advisors or CAs in your network you think would find this useful for their clients? Even just a forward of this message with a note would be amazing. I'll handle everything from there.'",
+metric:"3 referral requests made, 4–6 new advisor names received, 2 new conversations started",
+contingency:"If CAs are not yet seeing strong client engagement, delay referral ask — focus on helping them see more value first before asking them to refer",
+cac:"₹0"},
+
+{t:"Webinar Launch — First External Decision Webinar",ph:4,target:"Finance community members, advisors, and interested users",ch:"Zoom / Google Meet — promoted via Telegram + LinkedIn",time:"60-min webinar + 30-min prep",priority:true,capital:"1 webinar = 50–200 decision moments influenced live",
+say:"The webinar PPT from Day 9 is ready. Now you run it. Webinar title: 'Before You Invest — How Smart Decisions Are Made'. Promote it 5 days in advance across your Telegram communities, LinkedIn, and through your CA partners. Invite your advisor and influencer partners — their presence adds credibility. Structure: 30% problem, 30% FNOMO demo live, 20% real case studies, 20% Q&A.",
+go:"Zoom free tier works for up to 100 participants. Set up the registration link. Post in all your active Telegram groups 5 days before. Ask each CA partner to share with their client list. Ask each influencer partner to mention it in their next post. Day of webinar: run the live manual decision demo with a real stock/investment question from the audience. Close the session with a direct CTA: 'Check FNOMO before your next financial decision — here is the link.'",
+close:"At the end of the webinar: 'If you found this useful, share it with one person who is about to make a financial decision. And before you make your next move — check FNOMO first. Here is the direct link.' Count signups generated within 24 hours of the webinar.",
+script:"Webinar opening line:\n'Most financial mistakes don't happen because people don't know enough. They happen because people act before they've checked one more thing. Today I'm going to show you that one thing — and it takes 10 seconds.'\n\nPromotion message for communities:\n'Hosting a free 60-min session on financial decision-making next [day]. Covering: what most investors skip before acting and how to get a decision score in 10 seconds. Link to register: [link]. Share with anyone about to make a financial move.'",
+metric:"50+ registrants, 30+ attendees, 15+ FNOMO activations within 24 hours post-webinar",
+contingency:"If registration is low, shift to a smaller live Q&A format with your existing community — same content, lower pressure, still generates activations",
+cac:"₹0"},
+
+{t:"Corporate Pilot Scale + Second Wave Proposals",ph:4,target:"5 new corporate targets + follow-up on Day 14 pilots",ch:"Email + LinkedIn",time:"2 hrs new outreach, 1 hr follow-up",priority:false,capital:"5 corporates × 100 employees × ₹50K = ₹25 Cr potential capital influenced",
+say:"For Day 14 pilots: check in with your point of contact. 'How many employees have used FNOMO so far? Any decision stories you've seen?' Get 1 real story you can use in future outreach. For new corporates: use the pilot proposal format refined from Day 14. Lead with: 'We are running a 30-day pilot with [Company Name]' — social proof from an existing corporate pilot converts new prospects faster.",
+go:"Draft 5 new corporate pilot emails using the Day 14 template + updated social proof from your existing pilot. Send to 5 new companies in different sectors (BFSI, IT, manufacturing — pick sectors where financial stress is high). For follow-up: WhatsApp or email your Day 14 pilot contact asking for 1 user story and current participation numbers.",
+close:"For new targets: 'We are currently running this with [existing company] — I can share what their 30-day data looks like after the pilot ends. Want to run yours simultaneously so you can benchmark?' FOMO-driven corporate close.",
+script:"New corporate email (with social proof):\n'Hi [Name],\n\nCurrently running a 30-day FNOMO pilot with [company sector] company — tracking financial decision moments across their employee base.\n\nOffering the same 30-day free pilot to 2 more companies this month. Same structure: 50 employees, zero cost, full data at the end.\n\nWould [Company] be a fit? 20-min call to confirm?'",
+metric:"5 new proposals sent, 1 new pilot confirmed, 1 user story captured from existing pilot",
+contingency:"If Day 14 pilot has low participation, visit the company contact on a WhatsApp call and help them activate employees directly — your problem to solve",
+cac:"₹0"},
+
+{t:"Revenue Activation — First ₹5,000 Tracked",ph:4,target:"All active rev-share partners",ch:"WhatsApp + Google Sheets",time:"1 hr revenue review + partner updates",priority:true,capital:"First tracked revenue = proof of capital flow system working",
+say:"This is not a big number — ₹5,000 is a milestone, not a target. Its value is what it proves: the capital flow system is working. People are making decisions, FNOMO is influencing them, partners are earning. Document it. Screenshot it. Send it to every partner with their individual earnings breakdown. This retains partners better than any pitch.",
+go:"Pull all referral link data. Count activations per partner. Calculate earnings per partner at their rev share tier. Compile a simple weekly earnings summary (Google Sheet). Send each partner their individual summary via WhatsApp: 'Here's your FNOMO earnings this week: [X activations × ₹Y = ₹Z]. Running total: ₹[amount].' Even if the number is small, the act of reporting it signals seriousness and professionalism.",
+close:"Include a soft ask in the earnings summary: 'To double this next week, the one thing that moves the needle is one additional mention in your [content/client conversations] per week. Want me to send you a ready-to-use line you can drop naturally?'",
+script:"Partner earnings WhatsApp:\n'Hey [Name] — FNOMO earnings update for this week:\n[X] activations through your link\n[Y]% rev share\nEarnings this week: ₹[amount]\nRunning total: ₹[total]\n\nThank you for the trust. This is going to compound. Anything I can make easier for your side to drive more?'",
+metric:"First ₹5,000 total tracked across all partners, all partners receive their individual breakdown",
+contingency:"If earnings are below ₹1,000 at this stage, identify the bottleneck: is it low activations (distribution problem) or low revenue per activation (product/pricing problem)?",
+cac:"Revenue per activation must exceed CAC — if not, pricing needs review"},
+
+{t:"Expand Network — 20 New Outreach Across All Channels",ph:4,target:"New influencers, advisors, and corporates simultaneously",ch:"All active channels",time:"Full day — quota execution at maximum",priority:false,capital:"This is the scale moment — all systems running simultaneously",
+say:"By Day 22 you have proof across all channels. Today you run all four quotas simultaneously at maximum: 10 decision community responses, 10 influencer DMs with social proof, 5 advisor conversations using CA referrals from Day 18, 20 corporate emails with pilot social proof. Every message today leads with evidence from the last 3 weeks.",
+go:"Morning: 10 decision responses in communities (rotate to 3 new communities for fresh reach). Late morning: 10 influencer DMs — use the Day 17 social proof script. Afternoon: 5 advisor conversations from referred contacts (Day 18 chain). Late afternoon / evening: 20 corporate emails with updated social proof. Log all 45 touchpoints in pipeline. This is your highest-volume outreach day.",
+close:"For any same-day reply — respond within 1 hour. Day 22 replies convert faster because your credibility is now established across channels. Do not let any warm reply sit overnight.",
+script:"Universal social proof line to embed in all Day 22 outreach:\n'We've been running FNOMO in [X] communities, with [X] advisor partners, and a corporate pilot for [X] weeks. [X] decisions influenced so far. Bringing this to [their specific context] next — thought there was a strong fit.'",
+metric:"45 total outreach touchpoints, 8 replies, 3 new conversations, 1 new partnership agreed",
+contingency:"If volume feels unsustainable alone, identify which single channel is producing highest ROI — concentrate 80% of effort there",
+cac:"Target total CAC < ₹200 across all channels"},
+
+{t:"30-Day Capital Flow Audit + Scale Blueprint",ph:4,target:"Internal — founder-level review",ch:"Google Sheets + written plan",time:"4 hrs",priority:true,capital:"This audit determines the path to ₹100 Cr AUM",
+say:"You are now at Day 23 with 22 days of execution behind you. This is not a retrospective — it is a forward operating decision. Answer 4 questions: (1) How much capital has FNOMO influenced so far? (2) Which single channel is producing the most capital flow? (3) Which partner type — advisors or influencers — is converting better? (4) What is the one product capability (from the MoM developer task) that would 10x your current activation rate?",
+go:"Build a simple capital flow summary: total users activated × ₹50K average = estimated capital influenced. Compare against ₹100 Cr AUM target — calculate how many more users are needed and what timeline that implies at current growth rate. Identify your top 3 partners by revenue generated. Write your 30-day scale plan: which channel doubles, which partner gets upgraded to strategic tier (up to 50% rev share), which corporate pilot moves to a paid contract.",
+close:"The 30-day plan is a living document. Share it with Indu (founder) as your execution update. Include: capital influenced, partners active, activations, top channel, next 30-day targets.",
+script:"30-day capital flow report structure:\n\nCapital influenced (Day 1–24): ₹[X]\nTarget at Day 90: ₹100 Cr AUM\nUsers needed: 20,000\nCurrent users: [X]\nGrowth rate needed: [X users/week]\n\nTop channel: [X] — scale decision: double\nTop partner: [X] — upgrade to strategic tier\nKill list: [channels with CAC > ₹500]\n\nDeveloper hire priority: automate manual decision engine to increase daily capacity from 10 responses to 500+",
+metric:"Full capital flow report written, 30-day scale plan with specific numbers submitted to Indu",
+contingency:"If growth numbers are below target, do not change strategy — increase outreach volume AND accelerate developer hire to automate the manual MVP bottleneck",
+cac:"Total 24-day CAC across all channels vs ₹200 target — report the real number"},
+
+{t:"First Strategic Partner Close — Up to 50% Rev Share",ph:4,target:"Single highest-value partner from entire pipeline — influencer OR advisor network",ch:"Call + formal WhatsApp follow-up",time:"45-min call, same-day proposal",priority:true,capital:"Strategic partner = unlock to scale — potentially ₹10–50 Cr capital flow acceleration",
+say:"The 50% rev share is reserved for this moment. One partner who has the distribution, the trust, and the audience that can move FNOMO from hundreds of users to thousands. You have 23 days of data to identify who that is. This is the close that changes the trajectory. Frame it as: 'I am offering you something I do not offer broadly — a strategic partnership with up to 50% rev share. This is for one partner who I believe has the distribution to make FNOMO the default pre-decision check for their entire audience.'",
+go:"Identify the single highest-value partner in your pipeline — not by who was most enthusiastic, but by who has the largest activated audience and the highest trust with them. Call them. Open with their results so far. Escalate the partnership: 'I want to offer you the strategic tier. Here is what that means: up to 50% rev share on all activations, co-branded decision insights with your name on them, and first access to every new FNOMO capability we launch. In return, I am asking for FNOMO to be your primary decision recommendation for the next 90 days.'",
+close:"'I have one strategic partnership slot open. I want it to be you. Can we formalize this today? I can have the rev share agreement on WhatsApp within the hour — it is simple, one page, no legal complexity. Just our names and the structure.'",
+script:"Strategic partner call opener:\n'You have been our strongest partner over the last 3 weeks. Your [community/clients/audience] has engaged better than anyone else. I want to offer you something I am not offering broadly — the strategic tier. Up to 50% rev share, your name co-branded on decision outputs, and first access to everything we build next. The ask: FNOMO becomes your go-to decision recommendation for the next 90 days. Can we make that official today?'",
+metric:"1 strategic partner closed at 40–50% rev share, agreement confirmed, 90-day commitment made",
+contingency:"If best partner cannot commit to exclusivity, offer the 50% rate without exclusivity — the rev share tier upgrade alone is the strategic move",
+cac:"₹0 — this close costs nothing, earns everything"}
+];
+
+let cur=0;
+const phNames=['','Signal (Day 1–5)','Conversion (Day 6–10)','Distribution (Day 11–15)','Scale (Day 16–24)'];
+const phColors=['','#1D9E75','#7F77DD','#EF9F27','#D85A30'];
+
+function buildGrid(){
+  const g=document.getElementById('grid');
+  g.innerHTML='';
+  D.forEach((d,i)=>{
+    const c=document.createElement('div');
+    c.className='chip'+(i===cur?' active':'');
+    c.setAttribute('data-ph',d.ph);
+    c.innerHTML='D'+(i+1)+(d.priority?'<br><span style="font-size:9px;opacity:.8">★</span>':'');
+    c.onclick=()=>go(i);
+    g.appendChild(c);
+  });
+}
+
+function go(i){
+  cur=i;
+  buildGrid();
+  render();
+  document.getElementById('pbar').style.width=Math.round(((i+1)/24)*100)+'%';
+  document.getElementById('pBtn').disabled=i===0;
+  document.getElementById('nBtn').disabled=i===23;
+  document.getElementById('grid').children[i].scrollIntoView({block:'nearest',behavior:'smooth'});
+}
+function nav(d){go(cur+d)}
+
+function render(){
+  const d=D[cur];
+  const ph=d.ph;
+  const dnc=['','d1','d2','d3','d4'][ph];
+  const pbc=['','pb1','pb2','pb3','pb4'][ph];
+  document.getElementById('content').innerHTML=`
+  <div class="phase-badge ${pbc}">Phase ${ph} — ${phNames[ph]}</div>
+  <div class="card">
+    <div class="card-hdr">
+      <div class="dnum ${dnc}">D${cur+1}</div>
+      <div class="hdr-right">
+        <h2>${d.t}</h2>
+        <div class="tags">
+          <span class="tag">Target: ${d.target}</span>
+          <span class="tag">Channel: ${d.ch}</span>
+          <span class="tag">${d.time}</span>
+          ${d.priority?'<span class="tag priority">★ Priority target</span>':''}
+          <span class="tag capital">${d.capital}</span>
+        </div>
+      </div>
+    </div>
+    <div class="quota-bar">
+      <div class="qb-item"><div class="qb-num" style="color:#1D9E75">10</div><div class="qb-lbl">Decision responses</div></div>
+      <div class="qb-item"><div class="qb-num" style="color:#7F77DD">10</div><div class="qb-lbl">Influencer DMs</div></div>
+      <div class="qb-item"><div class="qb-num" style="color:#EF9F27">5</div><div class="qb-lbl">Advisor convos</div></div>
+      <div class="qb-item"><div class="qb-num" style="color:#D85A30">20</div><div class="qb-lbl">Corporate emails</div></div>
+    </div>
+    <div class="sec3">
+      <div class="sec">
+        <div class="slabel sl1"><div class="sdot sd1"></div>What to say</div>
+        <div class="sbody">${d.say}</div>
+      </div>
+      <div class="sec">
+        <div class="slabel sl2"><div class="sdot sd2"></div>Where to go</div>
+        <div class="sbody">${d.go}</div>
+      </div>
+      <div class="sec">
+        <div class="slabel sl3"><div class="sdot sd3"></div>How to close</div>
+        <div class="sbody">${d.close}</div>
+      </div>
+    </div>
+    <div class="script-box"><div class="script-lbl">Exact script</div><div class="script-txt">${d.script.replace(/\n/g,'<br>')}</div></div>
+    <div class="bot3">
+      <div class="bcell"><div class="blabel">Success metric</div><div class="bval">${d.metric}</div></div>
+      <div class="bcell"><div class="blabel">Contingency</div><div class="bval">${d.contingency}</div></div>
+      <div class="bcell"><div class="blabel">CAC signal</div><div class="bval">${d.cac}</div></div>
+    </div>
+  </div>`;
+}
+
+buildGrid();
+render();
+document.getElementById('pBtn').disabled=true;
+</script>

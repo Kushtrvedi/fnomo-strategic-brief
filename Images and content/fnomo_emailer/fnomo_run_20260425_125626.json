@@ -1,0 +1,317 @@
+{
+  "run_at": "2026-04-25T12:56:26.799319",
+  "status": "Partial",
+  "scheduled": [
+    {
+      "lead_email": "hr@chokshi.com",
+      "lead_name": "Chokshi & Co",
+      "subject": "The audit quality dilemma",
+      "send_time": "2026-04-25 13:07",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@batliboi.com",
+      "lead_name": "Batliboi & Co",
+      "subject": "Beyond compliance retainers",
+      "send_time": "2026-04-25 13:29",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@lakhani.com",
+      "lead_name": "Lakhani & Co",
+      "subject": "The talent retention puzzle",
+      "send_time": "2026-04-25 13:43",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "hr@gdapte.com",
+      "lead_name": "G D Apte",
+      "subject": "Regulatory overload risks",
+      "send_time": "2026-04-25 14:04",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "gala@vsnl.com",
+      "lead_name": "Gala & Gal",
+      "subject": "The advisory conversion gap",
+      "send_time": "2026-04-25 14:26",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@kochar.com",
+      "lead_name": "Kochar & Co",
+      "subject": "The seasonal capacity trap",
+      "send_time": "2026-04-25 14:51",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "kpc@cvk-c2.com",
+      "lead_name": "Cvk & Asso",
+      "subject": "The billing model ceiling",
+      "send_time": "2026-04-25 14:58",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "admin@skp2.com",
+      "lead_name": "Sudit K Pa",
+      "subject": "When expertise doesn't scale",
+      "send_time": "2026-04-25 15:07",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@kdpa.com",
+      "lead_name": "Kamdar Des",
+      "subject": "Partner bandwidth constraints",
+      "send_time": "2026-04-25 15:29",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@sgka.com",
+      "lead_name": "S. G. Kabra",
+      "subject": "The documentation burden",
+      "send_time": "2026-04-25 15:45",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@gkcc.com",
+      "lead_name": "G. K. Choks",
+      "subject": "The hidden succession cost",
+      "send_time": "2026-04-25 15:56",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@sgco.com",
+      "lead_name": "Singrodia",
+      "subject": "The silent technology debt",
+      "send_time": "2026-04-25 16:03",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "mumbai@singhico.com",
+      "lead_name": "Singhi & C",
+      "subject": "The forensic opportunity cost",
+      "send_time": "2026-04-25 16:25",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "reachus@ghalla.com",
+      "lead_name": "Ghalla & Bh",
+      "subject": "Client loyalty paradox",
+      "send_time": "2026-04-25 16:36",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "mail@bansal.com",
+      "lead_name": "Bansal, Ba",
+      "subject": "The niche expertise tradeoff",
+      "send_time": "2026-04-25 16:57",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "accounts@rakchamps.com",
+      "lead_name": "Rakchamps",
+      "subject": "The niche expertise tradeoff",
+      "send_time": "2026-04-25 17:22",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "vskumar@b.com",
+      "lead_name": "Shivkum",
+      "subject": "The quiet risk of stagnation",
+      "send_time": "2026-04-25 17:40",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "rakesh@mnrd.com",
+      "lead_name": "Mnrd & As",
+      "subject": "The niche expertise test",
+      "send_time": "2026-04-25 17:54",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "deepak@dsassoc.com",
+      "lead_name": "Deepak Singhania",
+      "subject": "The compliance value gap",
+      "send_time": "2026-04-26 10:00",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@dvks.com",
+      "lead_name": "Dvks & Assoc",
+      "subject": "The expertise leverage question",
+      "send_time": "2026-04-26 10:08",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "calingaraj@lnpco.in",
+      "lead_name": "Lingaraj Pujari",
+      "subject": "The expertise monetisation question",
+      "send_time": "2026-04-26 10:26",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@fingurus.com",
+      "lead_name": "Fingurus",
+      "subject": "The audit quality squeeze",
+      "send_time": "2026-04-26 10:35",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "mail@gt.com",
+      "lead_name": "Grant Thornton",
+      "subject": "Beyond audit quality metrics",
+      "send_time": "2026-04-26 10:46",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "hr4@rsmindia.in",
+      "lead_name": "Rsm India",
+      "subject": "The talent retention puzzle",
+      "send_time": "2026-04-26 10:56",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "recruit@lodhaco.com",
+      "lead_name": "Lodha & Co Delhi",
+      "subject": "Regulatory overload impact",
+      "send_time": "2026-04-26 11:06",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "info@vedjain.com",
+      "lead_name": "Ved Jain",
+      "subject": "The advisory conversion gap",
+      "send_time": "2026-04-26 11:22",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "newdelhi@mazars.in",
+      "lead_name": "Mazars Delhi",
+      "subject": "The seasonal capacity trap",
+      "send_time": "2026-04-26 11:42",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "mumbai@deloitte.com",
+      "lead_name": "Deloitte Mumbai",
+      "subject": "The revenue ceiling dilemma",
+      "send_time": "2026-04-26 12:01",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    },
+    {
+      "lead_email": "bangalore@in.ey.com",
+      "lead_name": "Ey Bangalore",
+      "subject": "The advisory value question",
+      "send_time": "2026-04-26 12:09",
+      "success": true,
+      "message": "DRY RUN \u2014 not sent"
+    }
+  ],
+  "failed": [],
+  "skipped_generation": [
+    {
+      "name": "Kiran Raj",
+      "email": "ca.kiranraj@gmail.com"
+    },
+    {
+      "name": "Kumar And Kumara",
+      "email": "manoj4133@gmail.com"
+    },
+    {
+      "name": "M G Hegde",
+      "email": "manjunathghegde@yahoo.co.in"
+    },
+    {
+      "name": "M.S. Balasubramanya",
+      "email": "ca.msbala@gmail.com"
+    },
+    {
+      "name": "Govinda Bhandary",
+      "email": "govindabhandary@gmail.com"
+    },
+    {
+      "name": "Manju & Mohan",
+      "email": "manjunath.us@gmail.com"
+    },
+    {
+      "name": "Hegde And Co",
+      "email": "mrhegde_bg@bsnl.in"
+    },
+    {
+      "name": "Mann And Co",
+      "email": "catilakmylar@gmail.com"
+    },
+    {
+      "name": "N J Suresh",
+      "email": "njsuresh@gmail.com"
+    },
+    {
+      "name": "Msna Associates",
+      "email": "info@msna.com"
+    },
+    {
+      "name": "Anil D'Souza",
+      "email": "anil@adca.in"
+    },
+    {
+      "name": "Bdo Bangalore",
+      "email": "bangalore@bdo.in"
+    },
+    {
+      "name": "Ssfintax Advisor",
+      "email": "ssfintaxadvisors@gmail.com"
+    },
+    {
+      "name": "Ss Kothari Mehta",
+      "email": "delhi@sskmin.com"
+    },
+    {
+      "name": "Akm Global",
+      "email": "info@akmglobal.com"
+    },
+    {
+      "name": "Sahni Natrajan & Bahl",
+      "email": "snb@snbindia.com"
+    },
+    {
+      "name": "Asa & Associates",
+      "email": "info@asa.in"
+    },
+    {
+      "name": "Kpmg Delhi",
+      "email": "gurgaon@kpmg.com"
+    },
+    {
+      "name": "Pwc Mumbai",
+      "email": "mumbai@pwc.com"
+    }
+  ]
+}

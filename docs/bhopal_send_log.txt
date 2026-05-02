@@ -1,0 +1,82 @@
+Bhopal Outreach Send Log
+Total unique contacts: 77
+Sent: 49  |  Failed: 28
+================================================================================
+
+[01/77] SENT | Medicine               | info@cmchbhopal.com | Dr. Ajay Goenka
+[02/77] SENT | Cardiology             | skand.trivedi@bansalhospital.com | Dr. Skand Kumar Trivedi
+[03/77] SENT | Internal Med           | gopal.batni@apollosage.in | Dr. Gopal Batni
+[04/77] SENT | Oncology               | contact@navodaya.com | Dr. Shyam Agrawal
+[05/77] SENT | Gynaecology            | kavita.singh@gmc.edu.in | Dr. Kavita Singh
+[06/77] SENT | CTVS Surgery           | aaditya.ctvs@aiimsbhopal.edu.in | Dr. Aaditya Sirohi
+[07/77] SENT | Child Neuro            | rohit.joshi@bansalhospital.com | Dr. Rohit Joshi
+[08/77] SENT | Gynaecology            | deepti.gupta@bansalhospital.com | Dr. Deepti Gupta
+[09/77] SENT | Cardiology             | sunil.malik@gmail.com | Dr. Sunil Malik
+[10/77] SENT | Orthopaedics           | amitabh.ortho@yahoo.com | Dr. Amitabh Sonakiya
+[11/77] SENT | Medicine               | dean@cmchbhopal.com | Dr. Shiv Shanker
+[12/77] SENT | Cardiology             | nitesh.cardio@cmchbhopal.com | Dr. Nitesh Arora
+[13/77] SENT | Psychiatry             | rajesh.psych@aiimsbhopal.edu.in | Dr. Rajesh Singh
+[14/77] SENT | ENT Surgery            | rahul.varma@smhbhopal.com | Dr. Rahul Varma
+[15/77] SENT | Gastroenterology       | palak.paliwal@gmail.com | Dr. Palak Paliwal
+[16/77] SENT | Anesthesiology         | jp.sharma@aiimsbhopal.edu.in | Dr. JP Sharma
+[17/77] SENT | Neurology              | seetha.lekshmi@apollosage.in | Dr. Seetha Lekshmi B
+[18/77] SENT | Gastroenterology       | onkar.patel@bansalhospital.com | Dr. Onkar Patel
+[19/77] SENT | Urology                | santosh.agrawal@bansalhospital.com | Dr. Santosh Agrawal
+[20/77] SENT | Oncology               | akhil.tiwari@apollosage.in | Dr. Akhil Kumar Tiwari
+[21/77] SENT | Gastroenterology       | ashish.jain@bansalhospital.com | Dr. Ashish Jain
+[22/77] SENT | Urology                | sanjay.pandey@bansalhospital.com | Dr. Sanjay Pandey
+[23/77] SENT | Neurosurgery           | alok.jaiswal@bansalhospital.com | Dr. Alok Jaiswal
+[24/77] SENT | Oncology               | naveen.pundir@bansalhospital.com | Dr. Naveen Pundir
+[25/77] SENT | Nephrology             | manish.jain@apollosage.in | Dr. Manish Jain
+[26/77] SENT | Gynaecology            | shweta.singh@apollosage.in | Dr. Shweta Singh
+[27/77] SENT | Orthopaedics           | ankur.gupta@apollosage.in | Dr. Ankur Gupta
+[28/77] SENT | Gastroenterology       | varun.mittal@apollosage.in | Dr. Varun Mittal
+[29/77] SENT | Neurosurgery           | ritesh.kansal@apollosage.in | Dr. Ritesh Kansal
+[30/77] SENT | Pediatrics             | preeti.jain@apollosage.in | Dr. Preeti Jain
+[31/77] SENT | Pulmonology            | pankaj.sharma@apollosage.in | Dr. Pankaj Sharma
+[32/77] SENT | ENT Surgery            | swati.gupta@apollosage.in | Dr. Swati Gupta
+[33/77] SENT | Urology                | manoj.kesarwani@apollosage.in | Dr. Manoj Kesarwani
+[34/77] SENT | Dermatology            | deepthi.s@apollosage.in | Dr. Deepthi S
+[35/77] SENT | Neurosurgery           | swapnil.neuro@peoples.org | Dr. Swapnil
+[36/77] SENT | Orthopaedics           | sn.singh@peopleshospital.org | Dr. S.N. Singh
+[37/77] SENT | Internal Med           | neeraj.s@peoples.org | Dr. Neeraj Shrivastava
+[38/77] SENT | Gynaecology            | anjali.g@peoples.org | Dr. Anjali Gupta
+[39/77] SENT | ENT Surgery            | gaurav.g@peoples.org | Dr. Gaurav Gupta
+[40/77] SENT | Ophthalmology          | hemant.v@peoples.org | Dr. Hemant Verma
+[41/77] SENT | Psychiatry             | rajiv.s@peoples.org | Dr. Rajiv Singh
+[42/77] SENT | Dermatology            | sk.sharma@peoples.org | Dr. S.K. Sharma
+[43/77] SENT | Dentistry              | manish.s@peoples.org | Dr. Manish Sahu
+[44/77] SENT | Cardiology             | pk.rai@peoples.org | Dr. P.K. Rai
+[45/77] SENT | Paediatrics            | sunita.j@peoples.org | Dr. Sunita Jain
+[46/77] SENT | Orthopaedics           | anil.gupta@noblebhopal.com | Dr. Anil Gupta
+[47/77] SENT | Gynaecology            | rekha.jain@noblebhopal.com | Dr. Rekha Jain
+[48/77] SENT | Internal Med           | vikas.s@noblebhopal.com | Dr. Vikas Shrivastava
+[49/77] SENT | Paediatrics            | rahul.s@noblebhopal.com | Dr. Rahul Saini
+[50/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Surgery                | neeraj.k@noblebhopal.com | Dr. Neeraj Kumar
+[51/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Pathology              | pooja.s@noblebhopal.com | Dr. Pooja Sharma
+[52/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Radiology              | sameer.g@noblebhopal.com | Dr. Sameer Gupta
+[53/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Orthopaedics           | arun.k@saharaortho.com | Dr. Arun Kumar
+[54/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Orthopaedics           | kk.s@saharaortho.com | Dr. K.K. Shrivastava
+[55/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Ophthalmology          | contact@smhbhopal.com | Dr. Santosh Choudhary
+[56/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Surgery                | paliwal.hospital@gmail.com | Dr. Jai Prakash Paliwal
+[57/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Microbiology           | shashi.gandhi@gmc.edu.in | Dr. Shashi Gandhi
+[58/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Medicine               | roopesh.jain@jkhospital.org | Dr. Roopesh Jain
+[59/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Orthopaedics           | rk.agrawal@bhel.in | Dr. Ram Kumar Agrawal
+[60/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Internal Med           | sheela.malani@bhel.in | Dr. Sheela Malani
+[61/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Medicine               | atulya.saurabh@bhel.in | Dr. Atulya Saurabh
+[62/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Plastic Surgery        | sunil.rathore@bansalhospital.com | Dr. Sunil Rathore
+[63/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Endocrinology          | mayur.endo@gmail.com | Dr. Mayur Agarwal
+[64/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Nephrology             | pankaj.mishra@bansalhospital.com | Dr. Pankaj Kumar Mishra
+[65/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Oncology               | alokguptaonco@gmail.com | Dr. Alok Gupta
+[66/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Anaesthesia            | nitya.bisarya@apollosage.in | Dr. Nitya Bisarya
+[67/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Microbiology           | manoj.paliwal@gmc.edu.in | Dr. Manoj Paliwal
+[68/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Medicine               | richa.sharma@mansarovarmc.com | Dr. Richa Sharma
+[69/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Medicine               | admin@mansarovarmc.com | Dr. Ashutosh Badwik
+[70/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Neurology              | nirendra.rai@apollosage.in | Dr. Nirendra Kumar Rai
+[71/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Psychiatry             | sandeep.c@cmchbhopal.com | Dr. Sandeep Choudhary
+[72/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Gynaecology            | spsgn@spsbhopal.ac.in | Dr. Alpa Prabhu
+[73/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Gynaecology            | shraddhakanungo@spsbhopal.ac.in | Dr. Shraddha Kanungo
+[74/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Gynaecology            | prachi.v@smhbhopal.com | Dr. Prachi Varma
+[75/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Surgery                | ashish.saraogi@lbshospital.com | Dr. Ashish Saraogi
+[76/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Cardiology             | avadhesh.khare@lbshospital.com | Dr. Avadhesh N Khare
+[77/77] FAIL(500) {'status': {'code': 500, 'description': 'Internal Error'}, 'data': {'moreInfo': 'Unable to send message;Reason:550 5.4.6 Unusual sending activity detected. Please try after sometime. <a href=https://www.zoho.eu/mail/help/usage-policy.html target=_blank>Learn more.</a>'}} | Nephrology             | ad.suri@lbshospital.com | Dr. A D Suri

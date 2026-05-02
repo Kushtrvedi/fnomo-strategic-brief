@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fnomo Day 3 — Precision Engagement Battle Plan</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --ink:#0D0D0D;--ink2:#3A3A3A;--ink3:#6B6B6B;--ink4:#9A9A9A;
+    --surface:#FFFFFF;--surface2:#F5F4F1;--surface3:#EBEBEA;
+    --border:#E0DFDC;--border2:#C8C7C2;
+    --c1:#D85A30;--c1l:#FAECE7;--c1b:#F5C4B3;
+    --c2:#7F77DD;--c2l:#EEEDFE;--c2b:#CECBF6;
+    --c3:#1D9E75;--c3l:#E1F5EE;--c3b:#9FE1CB;
+    --c4:#EF9F27;--c4l:#FAEEDA;--c4b:#FAC775;
+    --mono:'IBM Plex Mono',monospace;
+    --sans:'IBM Plex Sans',sans-serif;
+  }
+  body{font-family:var(--sans);background:var(--surface2);color:var(--ink);min-height:100vh}
+  
+  .header{background:var(--ink);color:#fff;padding:2rem 2.5rem 1.5rem;border-bottom:3px solid var(--c1)}
+  .header-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#888;margin-bottom:.5rem}
+  .header-title{font-size:22px;font-weight:600;letter-spacing:-.3px;margin-bottom:.4rem}
+  .header-sub{font-size:13px;color:#aaa;font-weight:300}
+  .header-meta{display:flex;gap:10px;margin-top:1rem;flex-wrap:wrap}
+  .hm-pill{font-family:var(--mono);font-size:10px;padding:3px 10px;border:1px solid #333;border-radius:2px;color:#888;letter-spacing:.05em}
+  .hm-pill.hot{border-color:var(--c1);color:var(--c1)}
+
+  .tabs-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 2.5rem;display:flex;gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .tab{font-family:var(--mono);font-size:11px;padding:14px 16px;cursor:pointer;border-bottom:2px solid transparent;color:var(--ink3);white-space:nowrap;transition:all .15s;letter-spacing:.03em}
+  .tab:hover{color:var(--ink);background:var(--surface2)}
+  .tab.active{color:var(--ink);border-bottom-color:var(--c1)}
+
+  .content{max-width:900px;margin:0 auto;padding:2rem 2rem 4rem}
+  .panel{display:none}
+  .panel.active{display:block}
+
+  .target-header{background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--c1);border-radius:4px;padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+  .target-header.purple{border-top-color:var(--c2)}
+  .target-header.green{border-top-color:var(--c3)}
+  .target-header.amber{border-top-color:var(--c4)}
+  .th-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .th-name{font-size:16px;font-weight:600;color:var(--ink);letter-spacing:-.2px}
+  .th-handle{font-family:var(--mono);font-size:12px;color:var(--ink3);margin-top:2px}
+  .th-badge{font-family:var(--mono);font-size:10px;padding:3px 10px;border-radius:2px;letter-spacing:.05em;white-space:nowrap}
+  .badge-red{background:var(--c1l);color:var(--c1);border:1px solid var(--c1b)}
+  .badge-purple{background:var(--c2l);color:var(--c2);border:1px solid var(--c2b)}
+  .badge-green{background:var(--c3l);color:var(--c3);border:1px solid var(--c3b)}
+  .badge-amber{background:var(--c4l);color:var(--c4);border:1px solid var(--c4b)}
+  .th-context{font-size:12px;color:var(--ink3);margin-top:.6rem;line-height:1.6;border-top:1px solid var(--border);padding-top:.6rem}
+
+  .sequence-label{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin:1.5rem 0 .75rem;display:flex;align-items:center;gap:8px}
+  .sequence-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+  .msg-block{background:var(--surface);border:1px solid var(--border);border-radius:4px;margin-bottom:.75rem;overflow:hidden}
+  .msg-stage{display:flex;align-items:center;justify-content:space-between;padding:.6rem 1rem;border-bottom:1px solid var(--border);background:var(--surface2)}
+  .ms-left{display:flex;align-items:center;gap:8px}
+  .ms-num{font-family:var(--mono);font-size:10px;font-weight:500;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--ink);color:#fff}
+  .ms-stage-name{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+  .ms-type{font-size:10px;padding:2px 8px;border-radius:2px;font-family:var(--mono)}
+  .type-connection{background:#E6F1FB;color:#0C447C;border:1px solid #B5D4F4}
+  .type-situation{background:#EAF3DE;color:#27500A;border:1px solid #C0DD97}
+  .type-problem{background:var(--c4l);color:#633806;border:1px solid var(--c4b)}
+  .type-consequence{background:var(--c1l);color:#712B13;border:1px solid var(--c1b)}
+  .type-solution{background:var(--c2l);color:#3C3489;border:1px solid var(--c2b)}
+  .type-commitment{background:var(--c3l);color:#085041;border:1px solid var(--c3b)}
+  .type-value{background:#EAF3DE;color:#27500A;border:1px solid #C0DD97}
+  
+  .msg-body{padding:1rem 1.25rem}
+  .msg-text{font-size:13px;color:var(--ink2);line-height:1.75;white-space:pre-wrap}
+  .msg-note{font-size:11px;color:var(--ink4);font-style:italic;margin-top:.6rem;padding-top:.6rem;border-top:1px solid var(--border);font-family:var(--mono)}
+
+  .decision-score-box{background:var(--ink);color:#fff;border-radius:4px;padding:1.25rem 1.5rem;margin:1.5rem 0;font-family:var(--mono);font-size:12px;line-height:1.8}
+  .ds-title{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#888;margin-bottom:.75rem}
+  .ds-divider{border:none;border-top:1px solid #333;margin:.5rem 0}
+  .ds-label{color:#888}
+  .ds-value{color:#fff;font-weight:500}
+  .ds-footer{color:#555;margin-top:.5rem;font-size:10px}
+
+  .reddit-grid{display:grid;gap:1rem}
+  .reddit-block{background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+  .rb-header{padding:.7rem 1rem;background:var(--surface2);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+  .rb-sub{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--ink)}
+  .rb-focus{font-size:10px;color:var(--ink4);font-family:var(--mono)}
+  .rb-body{padding:1rem 1.25rem}
+  .rb-trigger{font-size:11px;color:var(--ink3);margin-bottom:.75rem;font-family:var(--mono);background:var(--surface2);padding:.5rem .75rem;border-radius:3px;border-left:2px solid var(--c4)}
+  .rb-response{font-size:12.5px;color:var(--ink2);line-height:1.75;white-space:pre-wrap}
+  .rb-nepq-q{font-size:12px;color:var(--c2);margin-top:.75rem;padding:.6rem .8rem;background:var(--c2l);border-radius:3px;border-left:2px solid var(--c2);font-style:italic}
+  .rb-nepq-label{font-size:9px;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--c2);margin-bottom:.2rem}
+
+  .wait-block{font-family:var(--mono);font-size:11px;color:var(--c4);background:var(--c4l);border:1px solid var(--c4b);border-radius:3px;padding:.6rem 1rem;margin:.5rem 0;display:flex;align-items:center;gap:8px}
+  .wait-block::before{content:'⏸';font-size:14px}
+
+  .rules-box{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--c1);border-radius:4px;padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+  .rules-title{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--c1);margin-bottom:.75rem}
+  .rule{display:flex;gap:10px;margin-bottom:.5rem;font-size:12.5px;color:var(--ink2);line-height:1.6}
+  .rule-num{font-family:var(--mono);font-size:10px;color:var(--ink4);min-width:16px;margin-top:2px}
+
+  .section-divider{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink4);margin:2rem 0 1rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-eyebrow">Fnomo GTM · Day 3 · Telegram Blitz</div>
+  <div class="header-title">Day 3 Battle Plan — Precision Execution</div>
+  <div class="header-sub">Precision engagement framework · All scripts · Copy-paste ready</div>
+  <div class="header-meta">
+    <span class="hm-pill hot">Priority 1: @AnkitThakur</span>
+    <span class="hm-pill">5 Telegram DM sequences</span>
+    <span class="hm-pill">10 Reddit response templates</span>
+    <span class="hm-pill">From: kush@mail.fnomo.com</span>
+  </div>
+</div>
+
+<div class="tabs-bar">
+  <div class="tab active" onclick="switchTab('rules')">Engagement Rules</div>
+  <div class="tab" onclick="switchTab('ankit')">@AnkitThakur ★</div>
+  <div class="tab" onclick="switchTab('abhay')">@abhayvarn</div>
+  <div class="tab" onclick="switchTab('saint')">@tradingsaint</div>
+  <div class="tab" onclick="switchTab('scalper')">@mrscalper</div>
+  <div class="tab" onclick="switchTab('ipo')">@ipo_ji</div>
+  <div class="tab" onclick="switchTab('reddit')">Reddit × 10</div>
+  <div class="tab" onclick="switchTab('score')">Decision Score</div>
+</div>
+
+<div class="content">
+
+<!-- RULES -->
+<div class="panel active" id="panel-rules">
+  <div class="target-header">
+    <div class="th-top">
+      <div>
+        <div class="th-name">Engagement Protocol — How Every Message Works</div>
+        <div class="th-handle">Precision engagement framework · Applied to Fnomo</div>
+      </div>
+      <span class="th-badge badge-red">Read first. Every time.</span>
+    </div>
+    <div class="th-context">The core truth of Precision Engagement: people trust conclusions they arrive at themselves. Your job is never to explain Fnomo. Your job is to ask questions that make them feel the gap — and then see Fnomo as the natural answer.</div>
+  </div>
+
+  <div class="rules-box">
+    <div class="rules-title">The 6 Precision Engagement stages — in order, every conversation</div>
+    <div class="rule"><span class="rule-num">1.</span><span><strong>Connection Q</strong> — Enter their world. Ask about something specific to them. Signal: "I've been paying attention to what you do." Never lead with what you do.</span></div>
+    <div class="rule"><span class="rule-num">2.</span><span><strong>Situation Q</strong> — Map their current reality. Ask how things work for them today. This is intelligence gathering. Listen more than you speak.</span></div>
+    <div class="rule"><span class="rule-num">3.</span><span><strong>Problem Awareness Q</strong> — Surface the gap they haven't named. Not "you have a problem." Ask: "does X tend to happen?" Let them say yes.</span></div>
+    <div class="rule"><span class="rule-num">4.</span><span><strong>Consequence Q</strong> — Make the gap costly. "When that happens — what does it do to [their credibility / members / clients]?" They feel the weight of the problem.</span></div>
+    <div class="rule"><span class="rule-num">5.</span><span><strong>Solution Awareness Q</strong> — Let them see Fnomo before you say the word. "What if there was a layer that did X?" They describe the solution themselves.</span></div>
+    <div class="rule"><span class="rule-num">6.</span><span><strong>Commitment Q</strong> — Smallest possible next step. Not "want to sign up?" but "worth 10 minutes?" Micro-commitment builds momentum.</span></div>
+  </div>
+
+  <div class="rules-box" style="border-left-color:var(--c2)">
+    <div class="rules-title" style="color:var(--c2)">3 rules that govern every single message</div>
+    <div class="rule"><span class="rule-num">→</span><span><strong>One question per message.</strong> Never stack two questions. One question forces one answer. One answer gives you intelligence. Two questions gives you nothing.</span></div>
+    <div class="rule"><span class="rule-num">→</span><span><strong>Never explain before they feel the gap.</strong> If you say "Fnomo gives you X" before they've felt the problem — you've pitched. They shut down. The framework dies.</span></div>
+    <div class="rule"><span class="rule-num">→</span><span><strong>Their reply is gold.</strong> Whatever they say after your Situation Q — that is your next question. Route from their words, not from your script. The scripts below are starting points, not rails.</span></div>
+  </div>
+
+  <div class="rules-box" style="border-left-color:var(--c3)">
+    <div class="rules-title" style="color:var(--c3)">Response routing — what to do when they reply</div>
+    <div class="rule"><span class="rule-num">✓</span><span><strong>"Tell me more" or fast interest</strong> → Do NOT explain everything. Ask: "Before I walk you through it — how are you currently handling [the gap they just described]?" Stay in discovery mode one more round.</span></div>
+    <div class="rule"><span class="rule-num">✓</span><span><strong>"We already have this"</strong> → "Makes sense. Quick question — does your current approach validate the decision before it's executed, or does it inform the decision-making process? Those are two different things."</span></div>
+    <div class="rule"><span class="rule-num">✓</span><span><strong>No reply</strong> → Wait 3 days. Then one reframe message. Then one value-add insight. Then close the loop. Never send the same message twice.</span></div>
+    <div class="rule"><span class="rule-num">✓</span><span><strong>Hard no</strong> → "Completely understand. If the decision-validation gap becomes relevant later, happy to pick this up. No pressure." Then stop. Detachment builds credibility.</span></div>
+  </div>
+</div>
+
+<!-- ANKIT -->
+<div class="panel" id="panel-ankit">
+  <div class="target-header">
+    <div class="th-top">
+      <div>
+        <div class="th-name">The Safe Trader Academy</div>
+        <div class="th-handle">@AnkitThakur · Decision Proximity: 10/10 · Platform: Telegram</div>
+      </div>
+      <span class="th-badge badge-red">Priority 1 · Strike today</span>
+    </div>
+    <div class="th-context">Entry angle: Mixed member sentiment (TP hits + SL complaints). This gap — between his signal and member execution — is the exact Decision Gap Fnomo closes. Do not mention Fnomo until Message 4. First 3 messages are pure Precision Engagement discovery. His answers are your ammunition.</div>
+  </div>
+
+  <div class="sequence-label">Message sequence — send one at a time, wait for reply</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left">
+        <div class="ms-num">1</div>
+        <span class="ms-stage-name">Opening move</span>
+      </div>
+      <span class="ms-type type-connection">Connection Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">Ankit bhai — been watching the calls inside Safe Trader Academy. Noticed the signals are structured — entry, SL, target clearly defined.
+
+Quick question — when you post a signal, what do you think is happening between your call and the moment your members actually press the buy button?</div>
+      <div class="msg-note">⟶ Whatever he says here is gold. Route your next message from his exact words.</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for his reply before sending Message 2. Do not double-message.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">2</div><span class="ms-stage-name">Surface the gap</span></div>
+      <span class="ms-type type-problem">Problem Awareness Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">So between your signal and their execution — there's a step that doesn't exist for most of them. They either enter too early, too late, or with size they haven't thought through.
+
+When that happens and the trade goes against them — is the feedback you see in comments usually about your analysis, or about how they executed it?</div>
+      <div class="msg-note">⟶ This question separates "his analysis is wrong" from "members executed poorly." He needs to feel that distinction.</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for reply.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">3</div><span class="ms-stage-name">Make the gap costly</span></div>
+      <span class="ms-type type-consequence">Consequence Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">Right. So your call can be correct — but if a member enters without validating their own position size, timing, or risk against the broader setup, the loss still gets attributed to your signal in their head.
+
+When that happens repeatedly — what does it do to the community's trust over time?</div>
+      <div class="msg-note">⟶ He's now feeling the consequence of the gap. The credibility cost is his, not the member's. This creates urgency without pressure.</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for reply.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">4</div><span class="ms-stage-name">Let him see the solution</span></div>
+      <span class="ms-type type-solution">Solution Awareness Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">What if the moment you posted a signal, your members could run a 10-second validation check — not a second opinion on your analysis, but a structured confidence layer that tells them: decision score, risk level, and what to watch out for before they enter?
+
+Do you think that would change the kind of comments you see after a trade goes wrong?</div>
+      <div class="msg-note">⟶ First time he's hearing the concept. Still framed as a question. He's answering — he's not being pitched.</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for reply.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">5</div><span class="ms-stage-name">Close the loop</span></div>
+      <span class="ms-type type-commitment">Commitment Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">I've built that layer — it's called Fnomo. Institutional research infrastructure that produces a Decision Score in 10 seconds. Score, risk level, what the data says, and one alternative they haven't considered.
+
+Not asking for anything right now. I can run it against one of your recent signals and show you what your members would have seen before they executed. Worth 10 minutes?</div>
+      <div class="msg-note">⟶ Lowest possible ask. "Show you" not "sign up." "10 minutes" not "partnership call."</div>
+    </div>
+  </div>
+
+  <div class="section-divider">If no reply after 3 days — Silent Pressure sequence</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">F1</div><span class="ms-stage-name">Follow-up 1 — Day 3</span></div>
+      <span class="ms-type type-problem">Reframe</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">Ankit bhai — to add context to my earlier message. Most trading communities I've looked at have strong signal quality. The gap is never the signal. It's the step between the signal and the member's execution.
+
+Ran a decision score on a BANKNIFTY setup this week — the output flagged 3 entry timing issues that the signal itself didn't address. Thought it might be relevant to what you're building.</div>
+    </div>
+  </div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">F2</div><span class="ms-stage-name">Follow-up 2 — Day 7</span></div>
+      <span class="ms-type type-solution">Value-add</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">One thing I've been seeing across trading communities this week — the SL complaints aren't about wrong calls. They're about members not validating position size before entering. The signal was right. The execution wasn't structured.
+
+Wanted to share since it directly relates to what we spoke about.</div>
+    </div>
+  </div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">F3</div><span class="ms-stage-name">Follow-up 3 — Day 14</span></div>
+      <span class="ms-type type-commitment">Loop close</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">Ankit bhai — wanted to close the loop on my earlier messages. If the decision-validation gap for your members isn't a priority right now, completely understood.
+
+But if SL complaints or execution-level trust issues come up again — I'm building exactly that layer. Happy to pick this up whenever it's relevant. No pressure either way.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABHAY -->
+<div class="panel" id="panel-abhay">
+  <div class="target-header purple">
+    <div class="th-top">
+      <div>
+        <div class="th-name">Trading with CA Abhay</div>
+        <div class="th-handle">@abhayvarn · CA-run trading channel · Equity + Intraday calls</div>
+      </div>
+      <span class="th-badge badge-purple">Day 3 queue · High trust base</span>
+    </div>
+    <div class="th-context">Entry angle: He is a CA running a trading community — that dual identity is rare and valuable. His clients trust him for CA advice AND trading calls. The gap: between his professional advice and his clients' actual financial decisions, there's no structured validation layer. That's Fnomo's seat.</div>
+  </div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">1</div><span class="ms-stage-name">Opening move</span></div>
+      <span class="ms-type type-connection">Connection Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">Abhay bhai — noticed you run both a CA practice and a trading community. That combination is genuinely rare.
+
+Quick question — when clients come to you before making a financial decision, what's the kind of question they ask that you can answer in 30 seconds... and what's the kind that takes you 30 minutes?</div>
+      <div class="msg-note">⟶ This question reveals where the decision gap lives in his specific workflow. The "30-minute questions" are your target.</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for reply.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">2</div><span class="ms-stage-name">Find the gap</span></div>
+      <span class="ms-type type-problem">Problem Awareness Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">The complex questions — are those usually because the client hasn't structured the decision before coming to you? Or is it because the underlying situation is genuinely complicated?</div>
+      <div class="msg-note">⟶ This separates "client came unprepared" from "genuinely hard problem." The first is Fnomo's exact use case.</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for reply.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">3</div><span class="ms-stage-name">Make the gap costly</span></div>
+      <span class="ms-type type-consequence">Consequence Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">When they come to you without having structured the decision first — how often do they still make a suboptimal choice, even after your guidance? Because they've already emotionally committed to a direction before they asked you?</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for reply.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">4</div><span class="ms-stage-name">Let him see it</span></div>
+      <span class="ms-type type-solution">Solution Awareness Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">What if before they called you, they had already run a structured decision check — a score, a risk level, and one alternative they hadn't considered — and they came to you for confirmation, not construction?
+
+Would that change the quality of the conversation, and the quality of the outcome?</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for reply.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">5</div><span class="ms-stage-name">The ask</span></div>
+      <span class="ms-type type-commitment">Commitment Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">That's the exact gap Fnomo closes. A decision validation layer your clients use before they call you — so your 30-minute conversations become 10-minute confirmations.
+
+And for your trading community — same layer before they execute your calls. I can show you what the output looks like for a client decision typical to your practice. Worth a 15-minute WhatsApp call?</div>
+    </div>
+  </div>
+</div>
+
+<!-- SAINT -->
+<div class="panel" id="panel-saint">
+  <div class="target-header amber">
+    <div class="th-top">
+      <div>
+        <div class="th-name">Trading Saint Official</div>
+        <div class="th-handle">@tradingsaintofficial · Data-backed setups · Structured format</div>
+      </div>
+      <span class="th-badge badge-amber">Day 3 queue · Structured content = natural fit</span>
+    </div>
+    <div class="th-context">Entry angle: His channel already uses structured, data-backed setups — which means his audience is primed for structured outputs. The gap: his members consume his structure but have no structured validation step before they execute. That step is Fnomo.</div>
+  </div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">1</div><span class="ms-stage-name">Opening move</span></div>
+      <span class="ms-type type-connection">Connection Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">Been following Trading Saint — the data-backed format stands out. Structured setups, not just gut calls.
+
+Question: when you share a setup, what percentage of your members do you think actually validate it against their own position before entering — versus just taking your setup at face value?</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for reply.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">2</div><span class="ms-stage-name">Surface the gap</span></div>
+      <span class="ms-type type-problem">Problem Awareness Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">So most of them are acting on your setup without adding their own validation layer. When the setup works — that's fine. When it doesn't — what does that pattern do to their relationship with your analysis long-term?</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for reply.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">3</div><span class="ms-stage-name">Cost of the gap</span></div>
+      <span class="ms-type type-consequence">Consequence Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">If members are acting without their own validation and hitting losses — even on your strongest setups — does that erode the community over time, regardless of your actual accuracy rate?</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for reply.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">4</div><span class="ms-stage-name">The concept</span></div>
+      <span class="ms-type type-solution">Solution Awareness Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">What if every setup you shared came with a validation layer your members could run independently — not to replace your data, but to give them ownership over the execution decision?
+
+Do you think that builds stronger retention than a community where members are entirely dependent on your call?</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for reply.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">5</div><span class="ms-stage-name">The ask</span></div>
+      <span class="ms-type type-commitment">Commitment Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">That's the gap Fnomo closes — institutional decision validation in 10 seconds. Score, risk level, data reason, and one alternative. Designed for exactly the kind of structured audience you've built.
+
+Would a quick 15-min call make sense to see how it fits your format?</div>
+    </div>
+  </div>
+</div>
+
+<!-- SCALPER -->
+<div class="panel" id="panel-scalper">
+  <div class="target-header purple">
+    <div class="th-top">
+      <div>
+        <div class="th-name">Mr Scalper Official</div>
+        <div class="th-handle">@mrscalperofficiall · Scalping · Rapid decision loops</div>
+      </div>
+      <span class="th-badge badge-purple">Day 3 queue · Speed is the angle</span>
+    </div>
+    <div class="th-context">Entry angle: Scalpers make high-frequency decisions under pressure. The gap is hesitation at the entry point — they second-guess because there's no fast validation step. Fnomo's 10-second output is designed for exactly this psychology. Speed is your positioning.</div>
+  </div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">1</div><span class="ms-stage-name">Opening move</span></div>
+      <span class="ms-type type-connection">Connection Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">Scalping community — fast entries, high frequency, tight risk. In your experience, what's the single biggest reason members miss a scalp entry even when they see your signal in time?</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for reply.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">2</div><span class="ms-stage-name">Name the gap</span></div>
+      <span class="ms-type type-problem">Problem Awareness Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">So the hesitation happens at the validation moment — they see the signal, they want to enter, but something makes them pause without a clear structure for why.
+
+How many points or ticks does that hesitation cost your members on an average missed entry?</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for reply.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">3</div><span class="ms-stage-name">Cost of the gap</span></div>
+      <span class="ms-type type-consequence">Consequence Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">Across a week of trading — if that hesitation costs them even 5 points per scalp and they're doing 3 scalps a day, that's a significant drag on their P&L that has nothing to do with your signal quality.
+
+Is that a pattern you're seeing in the community's results?</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for reply.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">4</div><span class="ms-stage-name">The concept</span></div>
+      <span class="ms-type type-solution">Solution Awareness Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">What if they had a structured confidence output in under 10 seconds before they pressed the entry button — not an opinion, a score: risk level, entry confirmation, and one thing to watch? Fast enough for scalping. Structured enough to remove the hesitation.
+
+Would that change their execution rate?</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for reply.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">5</div><span class="ms-stage-name">The ask</span></div>
+      <span class="ms-type type-commitment">Commitment Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">That's what Fnomo produces. Built for exactly this — fast, structured, 10 seconds. I can show you what the output looks like for a scalp setup in your format. 5 minutes. Worth it?</div>
+    </div>
+  </div>
+</div>
+
+<!-- IPO JI -->
+<div class="panel" id="panel-ipo">
+  <div class="target-header green">
+    <div class="th-top">
+      <div>
+        <div class="th-name">IPO Ji</div>
+        <div class="th-handle">@ipo_ji · IPO timing and entry confidence · Pre-decision window natural</div>
+      </div>
+      <span class="th-badge badge-green">Day 3 queue · Pre-decision window is built-in</span>
+    </div>
+    <div class="th-context">Entry angle: IPO decisions have a natural pre-decision window — GMP data is out, listing date is known, application window is open. That gap between "I see the GMP" and "I apply and at what amount" is the exact Decision Gap. No one else is addressing it with structure.</div>
+  </div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">1</div><span class="ms-stage-name">Opening move</span></div>
+      <span class="ms-type type-connection">Connection Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">IPO Ji — been following the GMP and timing content. Useful, structured format.
+
+Question: when you cover an upcoming IPO, what's the most common question your audience asks before deciding whether to apply — and at how much?</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for reply.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">2</div><span class="ms-stage-name">Surface the gap</span></div>
+      <span class="ms-type type-problem">Problem Awareness Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">So they have the GMP data, the subscription numbers, your coverage — but there's still a gap between that information and their actual decision: apply or not, and how much.
+
+Is that the hesitation moment — where they have inputs but no structured way to validate the decision itself?</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for reply.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">3</div><span class="ms-stage-name">Cost of the gap</span></div>
+      <span class="ms-type type-consequence">Consequence Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">When they apply without that validation — oversubscribed IPOs where allotment doesn't come, or listings that go below issue price — who do they associate that outcome with in their mind?
+
+The GMP data? The IPO fundamentals? Or the channel that covered it?</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for reply.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">4</div><span class="ms-stage-name">The concept</span></div>
+      <span class="ms-type type-solution">Solution Awareness Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">What if before applying, your audience had a structured IPO decision score — quality rating, risk level, recommended application size based on the fundamentals — not advice, just a validation layer that sits between your GMP coverage and their application button?
+
+Would that reduce the post-listing complaints directed at your channel?</div>
+    </div>
+  </div>
+
+  <div class="wait-block">Wait for reply.</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">5</div><span class="ms-stage-name">The ask</span></div>
+      <span class="ms-type type-commitment">Commitment Q</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">That's exactly what Fnomo produces for IPO decisions — institutional research layer in 10 seconds. I can build a demo score for any upcoming IPO in your pipeline right now and show you what your audience would see before they apply.
+
+Worth it?</div>
+    </div>
+  </div>
+</div>
+
+<!-- REDDIT -->
+<div class="panel" id="panel-reddit">
+  <div class="target-header">
+    <div class="th-top">
+      <div>
+        <div class="th-name">Reddit Community Responses — 10 Templates</div>
+        <div class="th-handle">Adapted for communities — value first, gap question last. No links. No pitch. Sign as FNOMO pre-decision check.</div>
+      </div>
+      <span class="th-badge badge-red">10 responses · Daily quota</span>
+    </div>
+    <div class="th-context">Questioning in communities works differently. You deliver value first (Decision Score format), then end with ONE Consequence or Problem Awareness question that makes every reader feel the gap — even if they didn't ask the question. The question is the hook. The score is the proof.</div>
+  </div>
+
+  <div class="reddit-grid">
+
+    <div class="reddit-block">
+      <div class="rb-header">
+        <span class="rb-sub">r/IndiaInvestments</span>
+        <span class="rb-focus">Trigger: "Should I buy X at current levels?"</span>
+      </div>
+      <div class="rb-body">
+        <div class="rb-trigger">Search for: "should I buy" "kya lagta hai" "invest kar lu" — reply to the most upvoted question with this:</div>
+        <div class="rb-response">FNOMO pre-decision check:
+
+Decision: Buying [Stock/Fund] at current levels
+Score: [X]/10
+Risk Level: [Medium — adjust to context]
+Reason: [2 lines — reference valuation vs sector, or recent quarterly trend]
+Alternative: Wait for [specific level] confirmation, or consider [ETF alternative] for lower single-stock concentration risk
+
+─────</div>
+        <div class="rb-nepq-q">
+          <div class="rb-nepq-label">Consequence Q — end every response with this</div>
+          One question worth sitting with before you act: what is your exit plan if this drops 8% in the next 10 days? Have you defined that before entering?
+        </div>
+      </div>
+    </div>
+
+    <div class="reddit-block">
+      <div class="rb-header">
+        <span class="rb-sub">r/IndianStreetBets</span>
+        <span class="rb-focus">Trigger: "SL hit again" / "Why did this reverse?" posts</span>
+      </div>
+      <div class="rb-body">
+        <div class="rb-trigger">Search for: "SL hit" "why did it reverse" "loss aaya" — reply to the most recent post:</div>
+        <div class="rb-response">FNOMO pre-decision check (retroactive — what the data showed before entry):
+
+Decision: [Their trade, reconstructed]
+Score: 4/10
+Risk Level: High — entry was at resistance, not at support
+Reason: Volume profile showed distribution at that level; 3-day RSI was already overbought
+Alternative: Entry at [lower level] with [tighter SL] would have given a 2:1 R:R instead of 1:1
+
+─────</div>
+        <div class="rb-nepq-q">
+          <div class="rb-nepq-label">Problem Awareness Q</div>
+          Before you entered — did you have a structured step that checked your entry logic against the broader setup, or did you go with the signal and gut feeling?
+        </div>
+      </div>
+    </div>
+
+    <div class="reddit-block">
+      <div class="rb-header">
+        <span class="rb-sub">r/Nifty50</span>
+        <span class="rb-focus">Trigger: "Is Nifty at support / resistance?" / "Should I add here?"</span>
+      </div>
+      <div class="rb-body">
+        <div class="rb-trigger">Search for: "support" "add here" "Nifty level" — find an active thread:</div>
+        <div class="rb-response">FNOMO pre-decision check:
+
+Decision: Adding Nifty50 position at current levels
+Score: 6/10
+Risk Level: Medium — short-term momentum positive, but macro headwinds unresolved
+Reason: FII flows turned negative last 3 sessions; support at [level] is thin — one gap-down could trigger cascade
+Alternative: Staggered entry — 40% now, 60% held for a confirmed bounce off [lower level]
+
+─────</div>
+        <div class="rb-nepq-q">
+          <div class="rb-nepq-label">Situation Q</div>
+          When you decide to add at a level — is there a step where you validate the decision against the broader flow data, or does it mostly come down to the chart and your gut?
+        </div>
+      </div>
+    </div>
+
+    <div class="reddit-block">
+      <div class="rb-header">
+        <span class="rb-sub">r/OptionsTrading</span>
+        <span class="rb-focus">Trigger: "Which strike?" / "CE or PE at this level?" / "IV high — should I sell?"</span>
+      </div>
+      <div class="rb-body">
+        <div class="rb-trigger">Search for: "which strike" "CE or PE" "IV crush" — reply to active question:</div>
+        <div class="rb-response">FNOMO pre-decision check:
+
+Decision: [Specific options trade they described]
+Score: 5/10
+Risk Level: High — IV at elevated levels creates asymmetric premium decay risk
+Reason: Buying premium in current IV environment means you need a larger move than the premium implies to break even; theta works against you from Day 1
+Alternative: Consider selling a spread instead of buying outright — caps gain but dramatically improves probability of profit
+
+─────</div>
+        <div class="rb-nepq-q">
+          <div class="rb-nepq-label">Consequence Q</div>
+          Before you buy this — do you know what IV percentile you're entering at, and what move size you need just to break even on the premium? Most people don't check that step.
+        </div>
+      </div>
+    </div>
+
+    <div class="reddit-block">
+      <div class="rb-header">
+        <span class="rb-sub">r/MutualFundsIndia</span>
+        <span class="rb-focus">Trigger: "Which fund?" / "SIP mein add karu?" / "Flexi cap vs mid cap?"</span>
+      </div>
+      <div class="rb-body">
+        <div class="rb-trigger">Search for: "which fund" "SIP" "better fund" — find a comparison question:</div>
+        <div class="rb-response">FNOMO pre-decision check:
+
+Decision: Choosing between [Fund A] and [Fund B] for long-term SIP
+Score: [Fund A] 7/10 vs [Fund B] 5/10 at current valuations
+Risk Level: Medium — both carry sector concentration risk
+Reason: [Fund A] has lower expense ratio and 5-year alpha over benchmark; [Fund B] has manager change risk in last 12 months
+Alternative: Split SIP — 60% in [Fund A], 40% in an index fund — reduces manager risk while preserving alpha exposure
+
+─────</div>
+        <div class="rb-nepq-q">
+          <div class="rb-nepq-label">Problem Awareness Q</div>
+          When you compare funds — are you looking at risk-adjusted returns or just absolute returns? Most retail comparisons miss the risk side entirely.
+        </div>
+      </div>
+    </div>
+
+    <div class="reddit-block">
+      <div class="rb-header">
+        <span class="rb-sub">r/DayTrading</span>
+        <span class="rb-focus">Trigger: "Setup for tomorrow" / "Is this a valid breakout?" / "Entry point?"</span>
+      </div>
+      <div class="rb-body">
+        <div class="rb-trigger">Search for: "tomorrow" "breakout" "entry" — find a setup question:</div>
+        <div class="rb-response">FNOMO pre-decision check:
+
+Decision: Trading this breakout setup tomorrow
+Score: 6/10
+Risk Level: Medium-High — breakout without volume confirmation is a trap setup 60% of the time
+Reason: Price is at resistance, but volume did not confirm the move today; a gap-up open without follow-through is the classic false breakout pattern
+Alternative: Wait for volume confirmation in the first 15 minutes before entering — miss the first 5% of the move, but eliminate 60% of the false breakout risk
+
+─────</div>
+        <div class="rb-nepq-q">
+          <div class="rb-nepq-label">Consequence Q</div>
+          When you plan a trade the night before — is there a step the next morning where you validate whether the setup is still intact, or do you enter based on what was true last night?
+        </div>
+      </div>
+    </div>
+
+    <div class="reddit-block">
+      <div class="rb-header">
+        <span class="rb-sub">r/FIREIndia</span>
+        <span class="rb-focus">Trigger: "Is my corpus enough?" / "When can I retire?" / "SWR for India?"</span>
+      </div>
+      <div class="rb-body">
+        <div class="rb-trigger">Search for: "corpus" "retire" "SWR" — find a planning question:</div>
+        <div class="rb-response">FNOMO pre-decision check:
+
+Decision: Retiring on [₹X corpus] at [age]
+Score: 5/10
+Risk Level: Medium — inflation and sequence-of-returns risk are underestimated in most FIRE calculations
+Reason: A 4% SWR designed for US markets is aggressive for India — healthcare inflation alone runs 10-12% annually, which is not priced into most calculators
+Alternative: Target 3-3.5% SWR, or build a 2-year cash buffer so you're not selling equities in a down market in your first years post-FIRE
+
+─────</div>
+        <div class="rb-nepq-q">
+          <div class="rb-nepq-label">Problem Awareness Q</div>
+          When you calculated your FIRE number — did you run it against healthcare inflation separately, or did you use a single blended rate? That one assumption changes the number significantly.
+        </div>
+      </div>
+    </div>
+
+    <div class="reddit-block">
+      <div class="rb-header">
+        <span class="rb-sub">r/ValueInvesting</span>
+        <span class="rb-focus">Trigger: "Is X undervalued?" / "Margin of safety enough?" / "Fundamental thesis"</span>
+      </div>
+      <div class="rb-body">
+        <div class="rb-trigger">Search for: "undervalued" "margin of safety" "fundamentals" — reply to an active thesis post:</div>
+        <div class="rb-response">FNOMO pre-decision check:
+
+Decision: Taking a position in [Company] based on value thesis
+Score: 6/10
+Risk Level: Medium — value trap risk is the primary concern here
+Reason: PE looks cheap vs sector, but ROCE has been declining 3 consecutive years — a cheap stock with deteriorating returns is not a value play, it's a value trap candidate
+Alternative: Wait for ROCE stabilisation for 2 quarters before initiating, or size smaller and average if the turnaround thesis plays out
+
+─────</div>
+        <div class="rb-nepq-q">
+          <div class="rb-nepq-label">Situation Q</div>
+          When you build a value thesis — is there a step where you specifically check whether the cheapness is due to temporary undervaluation or structural deterioration? Most people skip that distinction.
+        </div>
+      </div>
+    </div>
+
+    <div class="reddit-block">
+      <div class="rb-header">
+        <span class="rb-sub">r/AlgoTrading</span>
+        <span class="rb-focus">Trigger: "Strategy validation" / "Live vs backtest gap" / "Risk parameters"</span>
+      </div>
+      <div class="rb-body">
+        <div class="rb-trigger">Search for: "backtest" "live trading" "overfitting" — find a strategy discussion:</div>
+        <div class="rb-response">FNOMO pre-decision check:
+
+Decision: Going live with [strategy] based on backtest results
+Score: 4/10
+Risk Level: High — live-to-backtest gap is typically 40-60% performance degradation in first 90 days
+Reason: Backtest Sharpe of 2.1 looks strong, but slippage, broker charges, and execution latency are not modelled — real-world Sharpe is likely 1.2-1.4 at best
+Alternative: Paper trade for 30 days first with real-time data, then go live at 25% of intended capital — scale up only after live Sharpe matches modelled within 30%
+
+─────</div>
+        <div class="rb-nepq-q">
+          <div class="rb-nepq-label">Consequence Q</div>
+          Before going live — did you model the slippage and execution costs separately from the strategy returns? That gap between modelled and real-world performance is where most algo strategies fail in the first quarter.
+        </div>
+      </div>
+    </div>
+
+    <div class="reddit-block">
+      <div class="rb-header">
+        <span class="rb-sub">r/IndiaInvestments (second response)</span>
+        <span class="rb-focus">Trigger: "Home loan vs invest the difference" / "Real estate vs equity"</span>
+      </div>
+      <div class="rb-body">
+        <div class="rb-trigger">Search for: "home loan" "real estate vs" "rent or buy" — reply to a financial planning question:</div>
+        <div class="rb-response">FNOMO pre-decision check:
+
+Decision: Buying property vs continuing to invest in equity
+Score: 5/10 for property purchase (at current valuations)
+Risk Level: Medium-High — EMI lock-in vs liquidity is the underappreciated risk
+Reason: Property at current prices in Tier 1 cities implies a yield of 2-2.5% on current rental values — significantly below what a conservative equity portfolio generates with better liquidity
+Alternative: If the decision is primarily lifestyle-driven, proceed — but if it is financial, model the opportunity cost of the down payment invested in equity over the EMI tenure before deciding
+
+─────</div>
+        <div class="rb-nepq-q">
+          <div class="rb-nepq-label">Consequence Q</div>
+          Before you decide — have you calculated what the down payment alone would compound to in equity over 10 years? That number usually changes the decision more than any EMI calculation.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DECISION SCORE -->
+<div class="panel" id="panel-score">
+  <div class="target-header green">
+    <div class="th-top">
+      <div>
+        <div class="th-name">The Fnomo Decision Score — Master Template</div>
+        <div class="th-handle">Manual MVP output · Use for every community response and every "bait" DM · < 2 min to produce</div>
+      </div>
+      <span class="th-badge badge-green">Core product · This IS Fnomo</span>
+    </div>
+    <div class="th-context">This format is the product until development is complete. Every time you produce this output — in a community, in a DM, on a call — you are demonstrating Fnomo. The format itself is the proof of concept. Practice until it takes under 90 seconds.</div>
+  </div>
+
+  <div class="decision-score-box">
+    <div class="ds-title">Fnomo Decision Score — standard output format</div>
+    <hr class="ds-divider">
+    <div><span class="ds-label">Decision: </span><span class="ds-value">[Exact question or trade the user is considering]</span></div>
+    <div><span class="ds-label">Score: </span><span class="ds-value">[X]/10</span></div>
+    <div><span class="ds-label">Risk Level: </span><span class="ds-value">[Low / Medium / High] — [one-line reason]</span></div>
+    <div><span class="ds-label">10Y Pulse: </span><span class="ds-value">[Trend direction from long-term data]</span></div>
+    <div><span class="ds-label">3Y Momentum: </span><span class="ds-value">[Aligned / Diverging from long-term]</span></div>
+    <div><span class="ds-label">Reason: </span><span class="ds-value">[2 lines max — specific, data-referenced, not generic]</span></div>
+    <div><span class="ds-label">Alternative: </span><span class="ds-value">[One concrete option they have not considered]</span></div>
+    <hr class="ds-divider">
+    <div class="ds-footer">FNOMO — Institutional Insight Infrastructure · fnomo.com</div>
+  </div>
+
+  <div class="section-divider">Scoring guide — how to assign the score fast</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num" style="font-size:9px">7-10</div><span class="ms-stage-name">High confidence entry</span></div>
+      <span class="ms-type type-commitment">Green zone</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">Trend aligned across 3Y and 10Y. Valuation reasonable vs sector. Volume confirming. Risk is manageable with standard position sizing. Decision is valid — the Alternative should still offer an optimization (better entry level, staggered sizing).</div>
+    </div>
+  </div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num" style="font-size:9px">4-6</div><span class="ms-stage-name">Conditional — validate before acting</span></div>
+      <span class="ms-type type-problem">Amber zone</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">Some signals aligned, some diverging. Momentum may conflict with fundamentals. The decision can proceed but needs a specific condition met — confirmation, lower entry, smaller size. The Alternative must name that condition explicitly.</div>
+    </div>
+  </div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num" style="font-size:9px">1-3</div><span class="ms-stage-name">High risk — restructure the decision</span></div>
+      <span class="ms-type type-consequence">Red zone</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">Multiple red flags: momentum diverging, valuation stretched, volume not confirming, macro headwind, or recent adverse corporate event. The Alternative must offer a completely restructured approach — not just a smaller position but a different decision entirely.</div>
+    </div>
+  </div>
+
+  <div class="section-divider">Compliance line — include in every output</div>
+
+  <div class="msg-block">
+    <div class="msg-stage">
+      <div class="ms-left"><div class="ms-num">!</div><span class="ms-stage-name">Protocol 2.0 — mandatory</span></div>
+      <span class="ms-type type-connection">Always include</span>
+    </div>
+    <div class="msg-body">
+      <div class="msg-text">Add this line to every Decision Score output, especially in communities:
+
+"This is institutional research infrastructure, not financial advice. All decisions remain with the user."
+
+This is not optional. SEBI compliance requires it. It also increases credibility — advisors and CAs see it and trust the output more, not less.</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+function switchTab(id){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  document.getElementById('panel-'+id).classList.add('active');
+  document.querySelector('.content').scrollTop=0;
+  window.scrollTo(0,document.querySelector('.tabs-bar').offsetTop-8);
+}
+</script>
+</body>
+</html>
