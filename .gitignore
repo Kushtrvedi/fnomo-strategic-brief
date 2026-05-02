@@ -8,6 +8,12 @@ Thumbs.db
 ~$*.docx
 ~$*.pptx
 
+# Secrets
+.env
+
+# Personal identity / HR docs (keep local only)
+docs for submission/
+
 # Python
 __pycache__/
 *.pyc
