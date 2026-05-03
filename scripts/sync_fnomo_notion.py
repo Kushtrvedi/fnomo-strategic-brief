@@ -2,7 +2,7 @@
 """
 Mirror FNOMO_MASTER_PIPELINE and FNOMO_EXECUTION_HISTORY into Notion.
 
-Auth: Notion internal integration token via NOTION_API_KEY.
+Auth: Notion internal integration token via FNOMO_NOTION_API_KEY.
 No OAuth flow is used.
 """
 
@@ -62,9 +62,14 @@ def die(message: str) -> None:
 
 
 def notion_headers() -> dict[str, str]:
-    token = os.environ.get("NOTION_API_KEY")
+    token = (
+        os.environ.get("FNOMO_NOTION_API_KEY")
+        or os.environ.get("NOTION_FNOMO_API_KEY")
+    )
     if not token:
-        die("NOTION_API_KEY is missing. Set the internal integration token first.")
+        if os.environ.get("NOTION_API_KEY"):
+            die("Generic NOTION_API_KEY is set but Fnomo sync requires FNOMO_NOTION_API_KEY.")
+        die("FNOMO_NOTION_API_KEY is missing. Set the Fnomo Notion internal integration token first.")
     return {
         "Authorization": f"Bearer {token}",
         "Notion-Version": NOTION_VERSION,

@@ -5,6 +5,8 @@
   "execution_tasks_database_id": "6fb8aa3c-b995-82ec-806b-01b6cd1b2915",
   "execution_history_database_id": "3548aa3c-b995-818a-8ede-ed9a5d99aac3",
   "auth_method": "internal_integration_token",
+  "auth_env_var": "FNOMO_NOTION_API_KEY",
+  "integration_name": "Fnomo",
   "source_of_truth": "FNOMO_MASTER_PIPELINE",
   "created_by": "Codex",
   "created_at": "2026-05-02",

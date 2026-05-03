@@ -15,7 +15,7 @@ Notion is the database backend mirror. It should not become a second manual sour
 ## Required Environment
 
 ```powershell
-$env:NOTION_API_KEY = "ntn_..."
+$env:FNOMO_NOTION_API_KEY = "ntn_..."
 $env:NOTION_FNOMO_CLIENTS_DATABASE_ID = "e8a8aa3c-b995-8368-8495-014b8ea295c3"
 $env:NOTION_FNOMO_CONTACTS_DATABASE_ID = "3548aa3c-b995-8148-a653-fead444e56fe"
 $env:NOTION_FNOMO_EXECUTION_TASKS_DATABASE_ID = "6fb8aa3c-b995-82ec-806b-01b6cd1b2915"
@@ -42,7 +42,16 @@ $env:NOTION_FNOMO_PARENT_PAGE_ID = "..."
 python scripts/sync_fnomo_notion.py --create-databases
 ```
 
-The current token must be attached to the same Notion integration that has access to the Fnomo CRM page. If Notion returns `object_not_found`, the page or database has not been shared with the integration.
+The current token must be attached to the same Notion integration that has access to the Fnomo CRM page. Fnomo must use the `Fnomo` integration token, not a separate workspace integration such as `RE-YOU OS`.
+
+The sync scripts look for tokens in this order:
+
+1. `FNOMO_NOTION_API_KEY`
+2. `NOTION_FNOMO_API_KEY`
+
+The generic `NOTION_API_KEY` is intentionally not used for Fnomo sync. This prevents a separate integration such as `RE-YOU OS` from being used against the Fnomo Sales CRM by mistake.
+
+If Notion returns `object_not_found`, either the wrong integration token is loaded or the page/database has not been shared with that integration.
 
 ## Run
 

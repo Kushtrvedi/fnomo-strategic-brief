@@ -123,9 +123,14 @@ def die(message: str) -> None:
 
 
 def headers() -> dict[str, str]:
-    token = os.environ.get("NOTION_API_KEY")
+    token = (
+        os.environ.get("FNOMO_NOTION_API_KEY")
+        or os.environ.get("NOTION_FNOMO_API_KEY")
+    )
     if not token:
-        die("NOTION_API_KEY missing")
+        if os.environ.get("NOTION_API_KEY"):
+            die("Generic NOTION_API_KEY is set but Fnomo sync requires FNOMO_NOTION_API_KEY.")
+        die("FNOMO_NOTION_API_KEY missing")
     return {
         "Authorization": f"Bearer {token}",
         "Notion-Version": NOTION_VERSION,
