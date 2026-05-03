@@ -7,6 +7,7 @@ Thumbs.db
 ~$*.xls
 ~$*.docx
 ~$*.pptx
+EXCEL/backups/
 
 # Secrets
 .env

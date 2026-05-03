@@ -8,6 +8,7 @@ Scope is intentionally narrow: May 4 priority BO/CA follow-up correction.
 
 from __future__ import annotations
 
+import argparse
 import json
 import os
 import sys
@@ -467,9 +468,41 @@ def validate_workbook() -> dict[str, Any]:
     return result
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Repair and optionally sync the May 4 Tier A priority follow-up update into Notion."
+    )
+    parser.add_argument(
+        "--date",
+        default=os.environ.get("FNOMO_OPERATING_DATE", date.today().isoformat()),
+        help="Operating date for workbook/history notes. Defaults to FNOMO_OPERATING_DATE or today.",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Validate current workbook target rows without writing to the workbook or Notion.",
+    )
+    parser.add_argument(
+        "--workbook-only",
+        action="store_true",
+        help="Apply workbook correction and skip Notion writes.",
+    )
+    return parser.parse_args()
+
+
 def main() -> None:
-    today = date.fromisoformat(os.environ.get("FNOMO_OPERATING_DATE", date.today().isoformat()))
+    args = parse_args()
+    today = date.fromisoformat(args.date)
+    if args.dry_run:
+        print(json.dumps({"dry_run": True, "validation": validate_workbook()}, indent=2, ensure_ascii=False))
+        return
+
     workbook_result = apply_workbook(today)
+    if args.workbook_only:
+        validation = validate_workbook()
+        print(json.dumps({"workbook": workbook_result, "notion": "skipped", "validation": validation}, indent=2, ensure_ascii=False))
+        return
+
     notion_result = apply_notion(today, workbook_result["touched"])
     validation = validate_workbook()
     print(json.dumps({"workbook": workbook_result, "notion": notion_result, "validation": validation}, indent=2, ensure_ascii=False))

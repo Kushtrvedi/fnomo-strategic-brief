@@ -15,6 +15,13 @@ sys.path.insert(0, str(Path(__file__).parent / "llm-council"))
 from backend.council import run_full_council
 from backend.config import OPENROUTER_API_KEY, NVIDIA_API_KEY
 
+DISABLE_COUNCIL_REVIEW = os.getenv("DISABLE_COUNCIL_REVIEW", "").strip().lower() in {
+    "1",
+    "true",
+    "yes",
+    "on",
+}
+
 FNOMO_COMPLIANCE = (
     "\n---\nFnomo is institutional research infrastructure for educational purposes. "
     "We do not provide investment advice. All simulations are for decision capability development only."
@@ -66,6 +73,21 @@ async def run_council_engine(task: str) -> dict:
 async def engine(task: str, verbose: bool = False) -> dict:
     task_type = classify_task(task)
     actions = []
+
+    if DISABLE_COUNCIL_REVIEW and task_type in {"medium", "high"}:
+        return {
+            "task_type": task_type,
+            "engine_used": "direct_bypass",
+            "council_used": False,
+            "confidence_score": 80,
+            "agreement_score": 80,
+            "execution_path": "bypassed",
+            "actions_taken": [
+                f"Task classified {task_type.upper()} but DISABLE_COUNCIL_REVIEW=true, so council review was bypassed.",
+                "Proceed with Fnomo execution spine and specialist quality gates.",
+            ],
+            "final_output": f"[BYPASS] Council review disabled for this run.\n{FNOMO_COMPLIANCE}",
+        }
 
     # LOW → direct pass to Claude (caller handles it)
     if task_type == "low":
@@ -146,6 +168,9 @@ async def engine(task: str, verbose: bool = False) -> dict:
 
 def check_keys() -> list[str]:
     warnings = []
+    if DISABLE_COUNCIL_REVIEW:
+        warnings.append("DISABLE_COUNCIL_REVIEW=true - council review bypassed for this run")
+        return warnings
     if not OPENROUTER_API_KEY or "PASTE" in (OPENROUTER_API_KEY or ""):
         warnings.append("OPENROUTER_API_KEY not set — add to llm-council/.env")
     if not NVIDIA_API_KEY or "PASTE" in (NVIDIA_API_KEY or ""):

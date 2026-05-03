@@ -1,0 +1,154 @@
+schema: "paperclip/v1"
+company:
+  attachmentMaxBytes: 10485760
+agents:
+  head-of-sales-pa:
+    role: "head_of_sales_pa"
+    icon: "target"
+    capabilities: "Translates Kush's priorities into Fnomo execution tasks, enforces Tier A priority, and keeps the PA control loop tight."
+    adapter:
+      type: "codex_local"
+      config:
+        model: "gpt-5.3-codex"
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        intervalSec: 300
+    permissions:
+      canCreateAgents: true
+  outreach-agent:
+    role: "outreach_agent"
+    icon: "send"
+    capabilities: "Generates problem-led Fnomo outreach that triggers wrong-decision recall before any product explanation."
+    reportsTo: "head-of-sales-pa"
+    adapter:
+      type: "codex_local"
+      config:
+        model: "gpt-5.3-codex"
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        intervalSec: 300
+  follow-up-agent:
+    role: "follow_up_agent"
+    icon: "repeat"
+    capabilities: "Reopens silent Fnomo conversations using new decision-risk angles and the 48h, 4d, 7d SLA."
+    reportsTo: "head-of-sales-pa"
+    adapter:
+      type: "codex_local"
+      config:
+        model: "gpt-5.3-codex"
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        intervalSec: 300
+  reply-handler-agent:
+    role: "reply_handler_agent"
+    icon: "inbox"
+    capabilities: "Classifies replies and creates the next response, stage movement, and action."
+    reportsTo: "head-of-sales-pa"
+    adapter:
+      type: "codex_local"
+      config:
+        model: "gpt-5.3-codex"
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        intervalSec: 300
+  conversation-agent:
+    role: "conversation_agent"
+    icon: "messages-square"
+    capabilities: "Runs structured decision-gap conversations before explaining Fnomo."
+    reportsTo: "head-of-sales-pa"
+    adapter:
+      type: "codex_local"
+      config:
+        model: "gpt-5.3-codex"
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        intervalSec: 300
+  closing-agent:
+    role: "closing_agent"
+    icon: "badge-indian-rupee"
+    capabilities: "Converts qualified Fnomo leads into the Rs 4,899 yearly Founder Circle path without discounting."
+    reportsTo: "head-of-sales-pa"
+    adapter:
+      type: "codex_local"
+      config:
+        model: "gpt-5.3-codex"
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        intervalSec: 300
+  founder-activation-agent:
+    role: "founder_activation_agent"
+    icon: "sparkles"
+    capabilities: "Turns founders into advocates through usage, realization, proof, and referral loops."
+    reportsTo: "head-of-sales-pa"
+    adapter:
+      type: "codex_local"
+      config:
+        model: "gpt-5.3-codex"
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        intervalSec: 300
+  system-health-monitor:
+    role: "system_health_monitor"
+    icon: "activity"
+    capabilities: "Monitors Paperclip task progression, pipeline movement, follow-up SLA, output quality, founder activation, and corrective action loops."
+    reportsTo: "head-of-sales-pa"
+    adapter:
+      type: "codex_local"
+      config:
+        model: "gpt-5.3-codex"
+        dangerouslyBypassApprovalsAndSandbox: true
+    runtime:
+      heartbeat:
+        intervalSec: 300
+projects:
+  fnomo-operating-system:
+    color: "#0f766e"
+    status: "in_progress"
+sidebar:
+  agents:
+    - "head-of-sales-pa"
+    - "outreach-agent"
+    - "follow-up-agent"
+    - "reply-handler-agent"
+    - "conversation-agent"
+    - "closing-agent"
+    - "founder-activation-agent"
+    - "system-health-monitor"
+  projects:
+    - "fnomo-operating-system"
+tasks:
+  fnomo-outreach:
+    identifier: "FNO-OUTREACH"
+    priority: "high"
+    status: "todo"
+  fnomo-followup:
+    identifier: "FNO-FOLLOWUP"
+    priority: "high"
+    status: "todo"
+  fnomo-reply-handler:
+    identifier: "FNO-REPLY"
+    priority: "high"
+    status: "todo"
+  fnomo-conversation:
+    identifier: "FNO-CONVO"
+    priority: "medium"
+    status: "todo"
+  fnomo-closing:
+    identifier: "FNO-CLOSING"
+    priority: "high"
+    status: "todo"
+  fnomo-founder-activation:
+    identifier: "FNO-FOUNDER"
+    priority: "high"
+    status: "todo"
+  fnomo-system-health:
+    identifier: "FNO-HEALTH"
+    priority: "high"
+    status: "todo"

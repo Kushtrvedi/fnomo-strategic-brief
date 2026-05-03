@@ -93,12 +93,123 @@ Control chain:
 7. If confidence is below `8/10`, loop back through Codex/agent/skill allocation.
 8. PA briefs Kush with the next decision.
 
+OpenClaw is approved as a generic execution helper inside the broader execution team.
+
+OpenClaw can handle:
+
+- low-risk generic task execution
+- formatting and file cleanup
+- scraping or source collection
+- draft preparation
+- repetitive admin work
+
+OpenClaw cannot own:
+
+- pipeline judgment
+- stage movement
+- founder activation strategy
+- final workbook truth
+- final Notion sync approval
+- conversion or positioning decisions
+
+Any OpenClaw output that affects leads, tasks, stages, founder activation, or Notion must return to PA/Codex before it is treated as done.
+
 Default PA brief:
 
 1. `Execution made`
 2. `Next plan for Codex`
 3. `Next plan for Kush`
 4. `Confidence score`
+5. `System Check`: `Healthy`, `At Risk`, or `Blocked`; one-line issue; correction applied; next priority
+
+## Paperclip Orchestration Layer
+
+Paperclip is the Fnomo orchestration layer, not the CRM.
+
+Layer map:
+
+1. Kush sets priorities.
+2. PA translates instructions into tasks.
+3. Paperclip routes tasks to specialized agents.
+4. Codex executes and updates the workbook.
+5. Sheets remain the source of truth.
+6. Notion remains visibility only.
+
+Paperclip company mission:
+
+`Convert decision-makers from unvalidated action to validated decision systems.`
+
+Mandatory Paperclip agents:
+
+- `Head of Sales / PA`
+- `Outreach Agent`
+- `Follow-up Agent`
+- `Reply Handler Agent`
+- `Conversation Agent`
+- `Closing Agent`
+- `Founder Activation Agent`
+- `System Health Monitor`
+
+Mandatory Paperclip task types:
+
+- `fnomo_outreach`
+- `fnomo_followup`
+- `fnomo_reply_handler`
+- `fnomo_conversation`
+- `fnomo_closing`
+- `fnomo_founder_activation`
+- `fnomo_system_health_monitor`
+
+Task flow:
+
+`CRM event -> Paperclip task -> Agent executes -> Codex updates workbook -> Execution history logged -> Next task created`
+
+Every Paperclip task must include lead/founder context, current stage, last interaction, expected next step, and a CRM update rule.
+
+## Paperclip Monitoring Loop
+
+Codex must monitor Paperclip while executing.
+
+Run checks at start of day, mid-cycle, and end of day:
+
+1. Task progression: active tasks, sub-issues, stuck work.
+2. Pipeline movement: contacted, no response, follow-ups executed, replies received.
+3. SLA enforcement: 48h follow-ups, 4-day follow-ups, no missing next action.
+4. Output quality: past-decision trigger, no Fnomo explanation upfront, ends with a question.
+5. Founder activation: Day 1 decision prompt, validation use, referral ask.
+6. Action enforcement: every task produces output and every lead gets a next action.
+
+If a task is stuck, break it into smaller Paperclip sub-issues or rewrite instructions.
+If contacted volume rises while replies stay low, adjust messaging rather than expanding volume.
+If a follow-up SLA violation exists, create or update the Paperclip follow-up task immediately.
+If output is weak, refine it inside the task before it reaches Kush or a lead.
+
+### Paperclip Local Startup
+
+Paperclip runs locally at:
+
+`http://127.0.0.1:3100`
+
+Health endpoint:
+
+`http://127.0.0.1:3100/api/health`
+
+Windows auto-start is handled by:
+
+`D:\Antigravity\eigent\Downloads\fnomo\scripts\start_paperclip_autostart.ps1`
+
+The startup script:
+
+- checks `/api/health`
+- skips if Paperclip is already healthy
+- starts `npx paperclipai run` only when needed
+- writes logs to `C:\Users\kush_\.paperclip\instances\default\logs\fnomo-paperclip-autostart.log`
+
+The user Startup shortcut is:
+
+`C:\Users\kush_\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Fnomo Paperclip AutoStart.lnk`
+
+Task Scheduler may require elevated Windows permissions on this machine, so the Startup shortcut is the active auto-start mechanism.
 
 ## Sunday Planning Rule
 
