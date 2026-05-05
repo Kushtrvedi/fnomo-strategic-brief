@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 import os
+from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -45,6 +46,12 @@ DRAFTS_FOLDER_ID = os.getenv("ZOHO_DRAFTS_FOLDER_ID", "")
 MAIL_ADDRESS = os.getenv("ZOHO_MAIL_ADDRESS", os.getenv("SENDER_EMAIL", "kush@mail.fnomo.com"))
 REGION = os.getenv("ZOHO_REGION", "eu").strip().lower() or "eu"
 CACHE_PATH = Path(__file__).resolve().parents[1] / "data" / "draft_cache.json"
+SUNDAY_SEND_OVERRIDE = os.getenv("FNOMO_ALLOW_SUNDAY_SEND", "").strip().lower() in {
+    "1",
+    "true",
+    "yes",
+    "override",
+}
 
 TOKEN_URL = f"https://accounts.zoho.{REGION}/oauth/v2/token"
 MAIL_BASE = f"https://mail.zoho.{REGION}/api/accounts/{ACCOUNT_ID}"
@@ -89,6 +96,10 @@ def _get_access_token() -> str:
 
 def _headers(token: str) -> Dict[str, str]:
     return {"Authorization": f"Zoho-oauthtoken {token}"}
+
+
+def _sunday_send_blocked() -> bool:
+    return datetime.now().weekday() == 6 and not SUNDAY_SEND_OVERRIDE
 
 
 def _safe_json(response: requests.Response) -> Dict[str, Any]:
@@ -218,6 +229,12 @@ def create_draft(to_email: str, subject: str, body: str) -> str:
 @mcp.tool()
 def send_draft(message_id: str) -> str:
     """Send an existing draft by message ID."""
+    if _sunday_send_blocked():
+        return (
+            "BLOCKED: Sunday is planning-only for Fnomo. "
+            "Use draft/read operations today or set FNOMO_ALLOW_SUNDAY_SEND=1 for an explicit override."
+        )
+
     token = _get_access_token()
     response = requests.put(
         f"{MAIL_BASE}/messages/{message_id}/action",

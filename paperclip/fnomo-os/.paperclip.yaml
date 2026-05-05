@@ -107,6 +107,82 @@ agents:
     runtime:
       heartbeat:
         intervalSec: 300
+  linkedin-agent:
+    role: "linkedin_agent"
+    icon: "linkedin"
+    capabilities: "Runs LinkedIn profile triage, connection notes, DMs, follow-ups, comment-to-DM conversion, reply classification, and CRM writeback."
+    reportsTo: "head-of-sales-pa"
+    adapter:
+      type: "codex_local"
+      config:
+        model: "gpt-5.3-codex"
+        dangerouslyBypassApprovalsAndSandbox: true
+        paperclipSkillSync:
+          desiredSkills:
+            - "fnomo-linkedin-agent"
+            - "fnomo-outreach-engine"
+            - "fnomo-reply-handler"
+            - "fnomo-pipeline-operator"
+            - "fnomo-execution-spine"
+    runtime:
+      heartbeat:
+        intervalSec: 1800
+  whatsapp-agent:
+    role: "whatsapp_agent"
+    icon: "message-circle"
+    capabilities: "Runs WhatsApp manual-send packs, follow-ups, reply handling, seen/read signal tracking, contact hygiene, and CRM writeback."
+    reportsTo: "head-of-sales-pa"
+    adapter:
+      type: "codex_local"
+      config:
+        model: "gpt-5.3-codex"
+        dangerouslyBypassApprovalsAndSandbox: true
+        paperclipSkillSync:
+          desiredSkills:
+            - "fnomo-whatsapp-agent"
+            - "fnomo-outreach-engine"
+            - "fnomo-reply-handler"
+            - "fnomo-pipeline-operator"
+            - "fnomo-execution-spine"
+    runtime:
+      heartbeat:
+        intervalSec: 1800
+  paperclip-operator:
+    role: "paperclip_operator"
+    icon: "workflow"
+    capabilities: "Maintains Paperclip agents, issues, blockers, heartbeats, scheduled monitors, PA alerts, and source-of-truth discipline."
+    reportsTo: "head-of-sales-pa"
+    adapter:
+      type: "codex_local"
+      config:
+        model: "gpt-5.3-codex"
+        dangerouslyBypassApprovalsAndSandbox: true
+        paperclipSkillSync:
+          desiredSkills:
+            - "fnomo-paperclip-operator"
+            - "fnomo-executive-assistant"
+            - "fnomo-pipeline-operator"
+    runtime:
+      heartbeat:
+        intervalSec: 900
+  live-signal-controller:
+    role: "live_signal_controller"
+    icon: "radar"
+    capabilities: "Controls live execution windows, send progress, reply classification, CRM writeback checks, signal monitoring, and metrics publication."
+    reportsTo: "head-of-sales-pa"
+    adapter:
+      type: "codex_local"
+      config:
+        model: "gpt-5.3-codex"
+        dangerouslyBypassApprovalsAndSandbox: true
+        paperclipSkillSync:
+          desiredSkills:
+            - "fnomo-live-signal-controller"
+            - "fnomo-pipeline-operator"
+            - "fnomo-reply-handler"
+    runtime:
+      heartbeat:
+        intervalSec: 900
 projects:
   fnomo-operating-system:
     color: "#0f766e"
@@ -121,6 +197,10 @@ sidebar:
     - "closing-agent"
     - "founder-activation-agent"
     - "system-health-monitor"
+    - "linkedin-agent"
+    - "whatsapp-agent"
+    - "paperclip-operator"
+    - "live-signal-controller"
   projects:
     - "fnomo-operating-system"
 tasks:
@@ -150,5 +230,21 @@ tasks:
     status: "todo"
   fnomo-system-health:
     identifier: "FNO-HEALTH"
+    priority: "high"
+    status: "todo"
+  fnomo-linkedin:
+    identifier: "FNO-LINKEDIN"
+    priority: "high"
+    status: "todo"
+  fnomo-whatsapp:
+    identifier: "FNO-WHATSAPP"
+    priority: "high"
+    status: "todo"
+  fnomo-paperclip-ops:
+    identifier: "FNO-PAPERCLIP"
+    priority: "high"
+    status: "todo"
+  fnomo-live-signal-control:
+    identifier: "FNO-SIGNAL"
     priority: "high"
     status: "todo"

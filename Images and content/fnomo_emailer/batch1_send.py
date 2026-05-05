@@ -27,6 +27,12 @@ ZOHO_REFRESH_TOKEN = os.getenv("ZOHO_REFRESH_TOKEN", "")
 ZOHO_ACCOUNT_ID    = os.getenv("ZOHO_ACCOUNT_ID", "")
 SENDER_EMAIL       = os.getenv("SENDER_EMAIL", "kush@mail.fnomo.com")
 SENDER_NAME        = os.getenv("SENDER_NAME", "Kush | FNOMO")
+SUNDAY_SEND_OVERRIDE = os.getenv("FNOMO_ALLOW_SUNDAY_SEND", "").strip().lower() in {
+    "1",
+    "true",
+    "yes",
+    "override",
+}
 
 TOKEN_URL = "https://accounts.zoho.eu/oauth/v2/token"
 MAIL_URL  = f"https://mail.zoho.eu/api/accounts/{ZOHO_ACCOUNT_ID}/messages"
@@ -37,6 +43,10 @@ COMPLIANCE_FOOTER = (
     "We do not provide investment advice, brokerage services, or performance guarantees. "
     "All decisions remain with the user."
 )
+
+
+def sunday_send_blocked() -> bool:
+    return datetime.now().weekday() == 6 and not SUNDAY_SEND_OVERRIDE
 
 # ── Batch 1 Targets with researched context hooks ────────────────────────────
 TARGETS = [
@@ -187,6 +197,10 @@ def get_zoho_token() -> str:
 
 
 def send_email(token: str, target: dict, email_data: dict) -> bool:
+    if sunday_send_blocked():
+        print("  [SUNDAY LOCK] Sunday is planning-only for Fnomo. Email send blocked.")
+        return False
+
     payload = {
         "fromAddress": SENDER_EMAIL,
         "toAddress":   target["email"],
@@ -225,6 +239,11 @@ def main():
     print(f"  FNOMO — Batch 1 CA Outreach  [{mode}]")
     print(f"  {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"{'='*60}\n")
+
+    if not args.dry_run and sunday_send_blocked():
+        print("[SUNDAY LOCK] Today is planning-only for Fnomo.")
+        print("[SUNDAY LOCK] Use --dry-run for planning, or set FNOMO_ALLOW_SUNDAY_SEND=1 for an explicit override.")
+        return
 
     token = None
     if not args.dry_run:

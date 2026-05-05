@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "fnomo-context": {
+      "command": "python",
+      "args": [
+        "D:\\Antigravity\\eigent\\Downloads\\fnomo\\plugins\\fnomo-context-mcp\\scripts\\fnomo_context_server.py"
+      ]
+    }
+  }
+}

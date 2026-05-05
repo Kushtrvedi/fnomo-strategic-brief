@@ -1,0 +1,7 @@
+﻿Name,Role,Email,Phone,Active,Time Zone,Start Date,Capacity (hrs/week)
+Mat,Marketing,mat@team.com,+1234567898765,Yes,Berlin (CET),"May 11, 2025",25
+Lucy,Delivery,lucy@team.com,+2345678987654,No,London (GMT),"October 3, 2021",30
+Lea,Sales,lea@team.com,+3456789876543,Yes,New York (EST),"October 23, 2022",15
+Nina,Ops,nina@team.com,+4567898765432,Yes,London (GMT),"January 30, 2026",40
+Omar,Admin,omar@team.com,+5678987654321,Yes,Berlin (CET),"January 30, 2026",25
+Victor,Finance,victor@team.com,+6789876543212,Yes,Berlin (CET),"January 30, 2026",20

@@ -19,6 +19,7 @@ Install deps:
 import os
 import json
 import requests
+from datetime import datetime
 from pathlib import Path
 from dotenv import load_dotenv
 from mcp.server.fastmcp import FastMCP
@@ -32,6 +33,12 @@ REFRESH_TOKEN    = os.getenv("ZOHO_REFRESH_TOKEN",     "")
 ACCOUNT_ID       = os.getenv("ZOHO_ACCOUNT_ID",        "")
 SENDER_EMAIL     = os.getenv("SENDER_EMAIL",            "kush@mail.fnomo.com")
 DRAFTS_FOLDER_ID = os.getenv("ZOHO_DRAFTS_FOLDER_ID",  "")
+SUNDAY_SEND_OVERRIDE = os.getenv("FNOMO_ALLOW_SUNDAY_SEND", "").strip().lower() in {
+    "1",
+    "true",
+    "yes",
+    "override",
+}
 
 TOKEN_URL     = "https://accounts.zoho.eu/oauth/v2/token"
 BASE_URL      = f"https://mail.zoho.eu/api/accounts/{ACCOUNT_ID}"
@@ -57,6 +64,10 @@ def _get_token() -> str:
 
 def _headers(token: str) -> dict:
     return {"Authorization": f"Zoho-oauthtoken {token}"}
+
+
+def _sunday_send_blocked() -> bool:
+    return datetime.now().weekday() == 6 and not SUNDAY_SEND_OVERRIDE
 
 
 def _sanitise(text: str) -> str:
@@ -183,6 +194,12 @@ def zoho_send_draft(message_id: str) -> str:
     Returns:
         Success or failure message
     """
+    if _sunday_send_blocked():
+        return (
+            "BLOCKED: Sunday is planning-only for Fnomo. "
+            "Use draft/read operations today or set FNOMO_ALLOW_SUNDAY_SEND=1 for an explicit override."
+        )
+
     token   = _get_token()
     url     = f"{BASE_URL}/messages/{message_id}/action"
     payload = {"mode": "sendmessage"}

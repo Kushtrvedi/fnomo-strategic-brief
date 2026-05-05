@@ -38,12 +38,14 @@ Monitoring loop:
 - Start of day: check active Paperclip tasks, stuck sub-issues, Tier A queue, and 48h follow-ups.
 - Mid-cycle: check contacted/no-response movement, reply rate, output quality, and founder activation.
 - End of day: check execution history, next-action coverage, overdue tasks, and tomorrow first moves.
+- 24/7 system health: if Paperclip health fails, agents error, runs become stale, or blocked issues need attention, treat it as a PA alert and brief Kush immediately with the issue, correction, and next priority.
 
 If a Paperclip task is stuck, break it into smaller sub-issues or rewrite the task instructions.
 If Contacted increases while replies stay low or zero, flag messaging as the issue and update the active follow-up message.
 If any lead lacks a next action, create or update the Paperclip follow-up task immediately.
 If any outreach is weak, refine it inside the task before release.
 If founder activation is missing Day 1, validation, proof, or referral action, create the activation task immediately.
+If the watchdog creates a `[PA ALERT]` issue, do not treat it as normal admin work. Convert it into a short Kush-facing brief and route the fix before any lower-priority execution.
 
 Brief format:
 

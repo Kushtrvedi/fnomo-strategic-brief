@@ -1,0 +1,10 @@
+﻿Entry,Amount,Clients,Deal,Due Date,Issue Date,Method,"Paid ",Type
+Payment - Retainer Jan,€800.00,,,"January 28, 2026","January 31, 2026",PayPal,No,Payment
+Invoice #2026-014,"€3,000.00",,,"January 28, 2026","January 21, 2026",Stripe,Yes,Invoice
+Invoice #2026-021,"€42,500.00",,,"February 6, 2026","October 9, 2025",Bank transfer,No,Invoice
+Invoice #2026-019,"€2,400.00",,,"May 7, 2026","January 10, 2026",Bank transfer,No,Invoice
+Expense - Analytics Tooling,"€5,200.00",,,"February 2, 2026","January 22, 2026",Bank transfer,Yes,Expense
+Invoice #2026-022,"€28,000.00",,,"March 12, 2026","January 30, 2026",Stripe,Yes,Invoice
+Invoice #2026-023,"€32,500.00",,,"March 19, 2026","February 19, 2026",PayPal,No,Invoice
+Invoice #2026-024,"€40,000.00",,,"February 23, 2026","February 9, 2026",Bank transfer,No,Invoice
+Payment - PPC Setup,"€15,000.00",,,"February 4, 2026","December 18, 2025",Bank transfer,Yes,Payment

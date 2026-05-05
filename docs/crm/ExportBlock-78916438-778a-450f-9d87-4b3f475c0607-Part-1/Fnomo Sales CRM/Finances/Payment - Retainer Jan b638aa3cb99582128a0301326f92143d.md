@@ -1,0 +1,26 @@
+# Payment - Retainer Jan
+
+Amount: €800.00
+Due Date: January 28, 2026
+Issue Date: January 31, 2026
+Method: PayPal
+Paid : No
+Type: Payment
+
+## 🧾 **Type + purpose (invoice/payment/expense):**
+
+## 📝 **Description (what is this for?):**
+
+## 🧷 **Related client / deal / period:**
+
+## 💶 **Amount + currency (net/gross if used):**
+
+## 🗓️ **Dates (issued, due, paid):**
+
+## 💳 **Payment details (method, reference/transaction ID):**
+
+## 📎 **Attachment / link (PDF, receipt, payment link):**
+
+## 🗒️ **Notes (partial payment, discount, special terms):**
+
+## ⏭️ **Next action (reminder, follow-up, reconciliation):**
